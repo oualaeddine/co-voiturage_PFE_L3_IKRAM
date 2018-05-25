@@ -9,11 +9,12 @@ import java.io.IOException;
 
 @WebServlet(name = "SearchServlet")
 public class SearchServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        getServletContext().getRequestDispatcher("/recherche/rechercher.html").forward(request, response);
 
     }
 }

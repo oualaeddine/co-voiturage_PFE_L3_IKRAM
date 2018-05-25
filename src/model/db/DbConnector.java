@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class DbConnector {
+class DbConnector {
 
     private static final String
             db_name = "co_voiturage",

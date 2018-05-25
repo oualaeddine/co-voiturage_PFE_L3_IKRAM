@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> try trips </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Go Taxi Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!-- bootstrap-css -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <!--// bootstrap-css -->
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
+    <!--// css -->
+    <!-- font-awesome icons -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!-- gallery -->
+    <link href='css/simplelightbox.min.css' rel='stylesheet' type='text/css'>
+    <!-- //gallery -->
+    <!-- font -->
+    <link href="//fonts.googleapis.com/css?family=Arvo:400,400i,700,700i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+          rel="stylesheet">
+    <!-- //font -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+            });
+        });
+    </script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!-- banner -->
+<div class="banner jarallax">
+    <div class="w3-header-bottom">
+        <div class="w3layouts-logo">
+            <h1>
+                <a href="index1.html">Try trips </a>
+            </h1>
+        </div>
+        <div class="top-nav">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="first-list"><a class="active" href="C:/Users/LAPTOP/Desktop/projet/web/index1.html">acceuil</a>
+                        </li>
+
+                        <li><a href="#proposer" class="scroll">Proposer un trajet</a></li>
+                        <li><a href="ind.html" class="scroll">Inscription </a></li>
+                        <li><a href="ind.html" class="scroll">Connexion </a></li>
+
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+    <div class="banner-info">
+        <div class="container">
+            <div class="w3-banner-info">
+                <div class="slider">
+                    <div class="callbacks_container">
+                        <ul class="rslides callbacks callbacks1" id="slider4">
+                            <li>
+                                <div class="w3layouts-banner-info">
+                                    <h3>voyager<span>Try</span>visiter</h3>
+                                    <p>Vous avez une voiture ? Ne roulez pas seuls !</p>
+                                    <div class="w3ls-button">
+                                        <a href="#" data-toggle="modal" data-target="#myModal">en savoir plus
+
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="w3layouts-banner-info">
+                                    <h3><span>Trips</span></h3>
+                                    <p>Ensemble, permettons à des millions de personnes de se déplacer.</p>
+                                    <div class="w3ls-button">
+                                        <a href="#" data-toggle="modal" data-target="#myModal">en savoir plus</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                    <script>
+                        // You can also use "$(window).load(function() {"
+                        $(function () {
+                            // Slideshow 4
+                            $("#slider4").responsiveSlides({
+                                auto: true,
+                                pager: true,
+                                nav: false,
+                                speed: 400,
+                                namespace: "callbacks",
+                                before: function () {
+                                    $('.events').append("<li>before event fired.</li>");
+                                },
+                                after: function () {
+                                    $('.events').append("<li>after event fired.</li>");
+                                }
+                            });
+
+                        });
+                    </script>
+                    <!--banner Slider starts Here-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //banner -->
+<!-- modal -->
+<div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Try Trips</h4>
+            </div>
+            <div class="modal-body">
+                <div class="agileits-w3layouts-info">
+                    <img src="images/c2.jpg" alt=""/>
+                    <p> L'augmentation du nombre de passagers par véhicule peut assurer le transport de milliers de
+                        personnes supplémentaires tout en décongestionnant le réseau routier. La plupart des véhicules
+                        circulent avec trois ou quatre places libres. Une des solutions possibles est d'encourager les
+                        migrants journaliers à pratiquer le covoiturage .</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/responsiveslides.min.js"></script>
+<script src="js/jarallax.js"></script>
+<script src="js/SmoothScroll.min.js"></script>
+<script type="text/javascript">
+    /* init Jarallax */
+    $('.jarallax').jarallax({
+        speed: 0.5,
+        imgWidth: 1366,
+        imgHeight: 768
+    })
+</script>
+
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+            };
+        */
+
+        $().UItoTop({easingType: 'easeOutQuart'});
+
+    });
+</script>
+<!-- //here ends scrolling icon -->
+<div class="bienvenue">
+    <div class="container">
+        <div class="wthree-heading">
+            <h2>bienvenue</h2>
+            <p> Le covoiturage selon notre façon </p>
+        </div>
+        <div class="col-md-3 w3-welcome-grid">
+            <div class="w3-welcome-grid-info">
+                <img src="images/c5.jpg" alt=""/>
+                <h4>c'est quoi un covoiturage ??</h4>
+                <p>Le covoiturage est l'utilisation conjointe et organisée d'une voiture automobile, par un conducteur
+                    non professionnel et un ou plusieurs tiers passagers, dans le but d'effectuer un trajet commun. Il
+                    procure des avantages individuels et collectifs</p>
+            </div>
+        </div>
+        <div class="col-md-3 w3-welcome-grid">
+            <div class="w3-welcome-grid-info">
+                <img src="images/c4.jpg" alt=""/>
+                <h4>le principe d'un covoiturage </h4>
+                <p> Un conducteur propose aux passagers de les transporter dans sa voiture pour un trajet qu'il doit
+                    lui-même effectuer, et donc à la date et à l'heure qu'il a décidées. Généralement, le lieu de
+                    départ, déterminé à l'avance, est le même pour tout le monde. </p>
+            </div>
+        </div>
+        <div>
+            <div class="col-md-3 w3-welcome-grid">
+                <div class="w3-welcome-grid-info">
+                    <img src="images/c2.jpg" alt=""/>
+                    <h4>covoiturage régulier </h4>
+                    <p> La voiture est souvent perçue comme un prolongement de l'espace personnel, le conducteur, seul
+                        dans son véhicule est dans un espace clos ; il est libre de faire ce que bon lui semble :
+                        écouter la radio, telephoner ,Covoiturer régulièrement c'est partager un dialogue, des
+                        expériences..</p>
+                </div>
+            </div>
+            <div class="col-md-3 w3-welcome-grid">
+                <div class="w3-welcome-grid-info">
+                    <img src="images/c6.jpg" alt=""/>
+                    <h4>covoiturage ponctuel ou occasionel</h4>
+                    <p>Ce type de covoiturage est surtout utilisé pour les loisirs ou les départs de dernière minute. La
+                        mise en relation se fait souvent par des sites internet, ce qui permet de diminuer
+                        considérablement les frais de déplacements . </p>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <!-- offer -->
+        <div class="offer">
+            <div class="col-md-5 offer-left">
+
+            </div>
+            <div class="col-md-7 offer-right">
+                <div class="wthree-heading offer-heading">
+                    <h3>notre offre</h3>
+                </div>
+                <p> <h4> l’autre avantage TRY TRIPS? Rapprochez-vous un peu plus de votre but ! Ne vous contentez pas
+                d’arriver au centre-ville : voyagez avec le conducteur ou la conductrice qui se rend juste à côté de
+                votre propre destination. Car chez TRY TRIPS, les points de départ et d’arrivée existent par millions.
+                Essayez !</h4></p>
+                <div class="clearfix"></div>
+            </div>
+            <!-- //offer -->
+
+
+        </div>
+    </div>
+</div>
+<!-- les prix  -->
+
+<div class="rate jarallax" id="rate">
+    <div class="container">
+        <div class="wthree-heading about-heading">
+            <h3>Prix d'un covoiturage </h3>
+            <p>C’est simple, les rendez-vous sont fixés sur la route prévue par le conducteur et au plus près des
+                passagers ! Des trajets sont disponibles à n’importe quel moment de la journée, même en dernière minute.
+                Parfait pour le trajet domicile – travail / université / loisirs.</p>
+            <p> selon cette vision vous pouvez prendre une tres bonne idée sur les prix . </p>
+        </div>
+        <div class="agileinfo-rate-grids">
+            <div class="agileinfo-rate-grid-nfo">
+                <div class="agileinfo-rate-grid">
+                    <ul>
+                        <li>Premiere 30 min</li>
+                        <li> 70 DA</li>
+                    </ul>
+                </div>
+                <div class="agileinfo-rate-grid">
+                    <ul>
+                        <li>Plus que 30 min</li>
+                        <li>+100 DA</li>
+                    </ul>
+                </div>
+                <div class="agileinfo-rate-grid">
+                    <ul>
+                        <li> Bagage</li>
+                        <li>+ 40 DA</li>
+                    </ul>
+                </div>
+                <div class="agileinfo-rate-grid">
+                    <ul>
+                        <li> Attendre plus que 10 min</li>
+                        <li>20 DA</li>
+                    </ul>
+                </div>
+                <div class="agileinfo-rate-grid">
+                    <ul>
+                        <li>Baby chair</li>
+                        <li>50 DA</li>
+                    </ul>
+                </div>
+                <div class="agileinfo-rate-grid">
+                    <ul>
+                        <li>1 animal</li>
+                        <li> + 70 DA</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //Les prix  -->
+
+
+<!-- contact -->
+<div class="contact" id="contact">
+    <div class="container">
+        <div class="wthree-heading">
+            <h3>Contacter-nous</h3>
+            <p>C’est simple, les rendez-vous sont fixés sur la route prévue par le conducteur et au plus près des
+                passagers ! Des trajets sont disponibles à n’importe quel moment de la journée, même en dernière minute.
+                Parfait pour le trajet domicile – travail / université / loisirs. .</p>
+        </div>
+
+
+        <div class="col-sm-4 address-grids">
+            <h4> mobile :</h4>
+            <p>+213676513435</p>
+            <p>+213555882679</p>
+        </div>
+        <div class="col-sm-4 address-grids">
+            <h4>Email :</h4>
+            <p><a href="mailto:example@email.com"> Dakhliikram@gmail.com</a></p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="contact-form">
+        <h4>Contact Form</h4>
+        <form action="#" method="post">
+            <div class="fields-grid">
+                <div class="styled-input agile-styled-input-top">
+                    <input type="text" name="Full Name" required="">
+                    <label>Nom et Prénom </label>
+                    <span></span>
+                </div>
+                <div class="styled-input agile-styled-input-top">
+                    <input type="text" name="Phone" required="">
+                    <label>téléphone </label>
+                    <span></span>
+                </div>
+                <div class="styled-input">
+                    <input type="email" name="Email" required="">
+                    <label>Email</label>
+                    <span></span>
+                </div>
+                <div class="styled-input">
+                    <input type="text" name="Subject" required="">
+                    <label>Sujet</label>
+                    <span></span>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="styled-input textarea-grid">
+                <textarea name="Message" required=""></textarea>
+                <label>Message</label>
+                <span></span>
+            </div>
+            <input type="submit" value="envoyer">
+        </form>
+    </div>
+
+    <!-- team -->
+    <div class="team jarallax" id="team">
+        <div class="team-dot">
+            <div class="container">
+                <div class="wthree-heading about-heading">
+                    <h3>la plus belle équipe </h3>
+                    <p>Le covoiturage à notre façon merveilleuse .</p>
+                </div>
+                <div class="agile-team-grids">
+                    <div class="col-sm-3 team-grid">
+                        <div class="flip-container">
+                            <div class="flipper">
+                                <div class="front">
+                                    <img src="images/k02.jpg" alt=""/>
+                                </div>
+                                <div class="back">
+                                    <h4>Dakhli Ikram</h4>
+                                    <p> L3 SI</p>
+                                    <div class="w3l-social">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 team-grid">
+                        <div class="flip-container">
+                            <div class="flipper">
+                                <div class="front">
+                                    <img src="images/n03.jpg" alt=""/>
+                                </div>
+                                <div class="back">
+                                    <h4>Bouhlala Nessrine </h4>
+                                    <p>L3 SI </p>
+                                    <div class="w3l-social">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 team-grid">
+                        <div class="flip-container">
+                            <div class="flipper">
+                                <div class="front">
+                                    <img src="images/d04.jpg" alt=""/>
+                                </div>
+                                <div class="back">
+                                    <h4>Abidi Nihad</h4>
+                                    <p>L3 SI</p>
+                                    <div class="w3l-social">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- //team -->
+
+</body>
+</html>
