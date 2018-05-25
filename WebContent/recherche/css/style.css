@@ -133,6 +133,7 @@ table {
     border-spacing: 0;
 }
 
+
 /* start editing from here */
 
 a {
@@ -143,11 +144,13 @@ a {
     text-align: right;
 }
 
+
 /* text align right */
 
 .txt-lt {
     text-align: left;
 }
+
 
 /* text align left */
 
@@ -155,11 +158,13 @@ a {
     text-align: center;
 }
 
+
 /* text align center */
 
 .float-rt {
     float: right;
 }
+
 
 /* float right */
 
@@ -167,11 +172,13 @@ a {
     float: left;
 }
 
+
 /* float left */
 
 .clear {
     clear: both;
 }
+
 
 /* clear float */
 
@@ -179,11 +186,13 @@ a {
     position: relative;
 }
 
+
 /* Position Relative */
 
 .pos-absolute {
     position: absolute;
 }
+
 
 /* Position Absolute */
 
@@ -191,11 +200,13 @@ a {
     vertical-align: baseline;
 }
 
+
 /* vertical align baseline */
 
 .vertical-top {
     vertical-align: top;
 }
+
 
 /* vertical align top */
 
@@ -203,17 +214,20 @@ nav.vertical ul li {
     display: block;
 }
 
+
 /* vertical menu */
 
 nav.horizontal ul li {
     display: inline-block;
 }
 
+
 /* horizontal menu */
 
 img {
     max-width: 100%;
 }
+
 
 /*end reset*/
 
@@ -294,7 +308,6 @@ body {
     -o-background-size: cover;
     min-height: 100vh;
 }
-
 h1.header-w3ls {
     text-align: center;
     text-transform: uppercase;
@@ -304,7 +317,6 @@ h1.header-w3ls {
     letter-spacing: 2px;
 
 }
-
 .mid-cls {
     width: 45%;
     margin: 0 auto;
@@ -313,11 +325,9 @@ h1.header-w3ls {
     -webkit-justify-content: space-between;
     justify-content: space-between;
 }
-
 .swm-left-w3ls:nth-child(1) {
     margin-right: 35px;
 }
-
 .swm-left-w3ls, .swm-right-w3ls {
     background: #ffffff26;
     padding: 1em 2em 3em;
@@ -331,7 +341,6 @@ h1.header-w3ls {
 .icon-head-wthree {
     text-align: center;
 }
-
 h2 span.t-w3 {
     padding: 16px 0px;
     font-size: 42px;
@@ -344,7 +353,6 @@ h2 span.t-w3 {
     padding-bottom: 15px;
     text-align: center;
 }
-
 .form-left-to-w3l input[type="text"], .form-right-w3ls input[type="password"], .form-left-w3l input[type="email"] {
     width: 100%;
     color: #000;
@@ -363,7 +371,6 @@ h2 span.t-w3 {
     -ms-transition: all 0.5s ease-in-out;
     box-sizing: border-box;
 }
-
 ::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
     color: #000;
@@ -383,11 +390,9 @@ h2 span.t-w3 {
     /* Firefox 18- */
     color: #000;
 }
-
 .buttom-social-grids ul li {
     display: inline-block;
 }
-
 .buttom-social-grids ul li a {
     font-size: 15px;
     color: #FFFFFF;
@@ -397,7 +402,6 @@ h2 span.t-w3 {
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;
 }
-
 .buttom-social-grids ul li a:hover {
     color: #000;
 }
@@ -405,11 +409,9 @@ h2 span.t-w3 {
 .buttom-social-grids {
     text-align: center;
 }
-
 .buttom-social-grids ul li:nth-child(2) {
     margin: 0px 15px;
 }
-
 .btnn .for {
     font-size: 12px;
     padding: 2em 0em;
@@ -419,15 +421,12 @@ h2 span.t-w3 {
     letter-spacing: 1px;
     text-transform: uppercase;
 }
-
 .btnn a.for:hover {
     color: #33e8ff;
 }
-
 .btnn {
     margin: 6px 0px 24px;
 }
-
 button[type=submit] {
     width: 100%;
     background: #f10b59;
@@ -445,23 +444,19 @@ button[type=submit] {
     -moz-transition: 0.5s all;
     -ms-transition: 0.5s all;
 }
-
 button:hover {
     color: #000;
     background: #fff;
 }
-
 .copy {
     padding: 30px 0px;
 }
-
 .copy p {
     margin: 0em;
     text-align: center;
     font-size: 15px;
     color: white;
 }
-
 .copy p a {
     color: #fff;
     text-decoration: none;
@@ -470,7 +465,6 @@ button:hover {
 .copy p a:hover {
     color: #33e8ff;
 }
-
 /*--responsive--*/
 @media (max-width: 1920px) {
     h1.header-w3ls {
@@ -766,5 +760,4 @@ button:hover {
         padding: 13px 0px;
     }
 }
-
 /*--//responsive--*/

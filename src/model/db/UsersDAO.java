@@ -77,4 +77,8 @@ public class UsersDAO extends DAO {
         }
         return false;
     }
+
+    public User getById(int createur) {
+        return null;
+    }
 }
