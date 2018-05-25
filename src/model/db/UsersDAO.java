@@ -15,7 +15,7 @@ public class UsersDAO extends DAO {
         try {
             result = statement.executeQuery("SELECT * FROM `users`;");
             while (result.next()) {
-                String username_ = result.getString("username");
+                String username_ = result.getString("email");
                 String password_ = result.getString("password");
                 if (person.getUsername().equals(username_) && person.getPassword().equals(password_))
                     return true;
@@ -51,16 +51,7 @@ public class UsersDAO extends DAO {
         ResultSet result;
         try {
             result = statement.executeQuery("SELECT * FROM users WHERE email='" + email + "';");
-            if (result.next()) {
-                User client = new User();
-                client.setId(result.getInt("id"));
-                client.setNom(result.getString("nom"));
-                client.setPrenom(result.getString("prenom"));
-                client.setEmail(result.getString("email"));
-                client.setPassword(result.getString("password"));
-
-                return client;
-            }
+            return resultToClient(result);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -78,7 +69,33 @@ public class UsersDAO extends DAO {
         return false;
     }
 
-    public User getById(int createur) {
+    public User getById(int id) {
+        ResultSet result;
+        try {
+            result = statement.executeQuery("SELECT * FROM users WHERE id=" + id + ";");
+            return resultToClient(result);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    private User resultToClient(ResultSet result) {
+        try {
+            if (result.next()) {
+                User client = new User();
+                client.setId(result.getInt("id"));
+                client.setNom(result.getString("nom"));
+                client.setPrenom(result.getString("prenom"));
+                client.setEmail(result.getString("email"));
+                client.setPassword(result.getString("password"));
+
+                return client;
+            } else return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }

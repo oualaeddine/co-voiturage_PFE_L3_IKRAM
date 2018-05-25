@@ -11,7 +11,7 @@ public class TrajetsDAO extends DAO {
     public boolean ajouterTrajet(Trajet trajet) {
         try {
             statement.execute("insert into `trajets`(etat,depart,desti,createur) values " +
-                    "('" + trajet.getEtat() +
+                    "('disponible" +
                     "','" + trajet.getDepart() +
                     "','" + trajet.getDesti() +
                     "'," + trajet.getCreateur().getId() + ")");
@@ -22,10 +22,14 @@ public class TrajetsDAO extends DAO {
         return false;
     }
 
-    public LinkedList<Trajet> getByDate(String date) {
+    public LinkedList<Trajet> getByDate(String depart, String arrive, String date) {
         ResultSet result;
         try {
-            result = statement.executeQuery("SELECT * FROM trajets WHERE date='" + date + "';");
+            result = statement.executeQuery("SELECT * FROM trajets " +
+                    " WHERE date ='" + date + "' " +
+                    " and depart ='" + depart + "' " +
+                    " and etat ='disponible' " +
+                    " and desti ='" + arrive + "';");
             LinkedList<Trajet> trajets = new LinkedList<>();
             while (result.next()) {
                 Trajet trajet = new Trajet();
