@@ -90,7 +90,6 @@ public class ClientsDAO extends DAO implements DAOInterface {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 

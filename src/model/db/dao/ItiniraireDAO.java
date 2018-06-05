@@ -43,7 +43,7 @@ public class ItiniraireDAO extends DAO implements DAOInterface {
                 int id = resultSet.getInt("id");
                 int depart = resultSet.getInt("ville_depart");
                 int arrive = resultSet.getInt("ville_depart");
-                float prix = resultSet.getInt("ville_depart");
+                float prix = resultSet.getInt("prix");
 
                 VillesDAO villesDAO = new VillesDAO();
                 Ville v_depart = (Ville) villesDAO.getById(depart);
@@ -52,6 +52,8 @@ public class ItiniraireDAO extends DAO implements DAOInterface {
                 Itiniraire itiniraire = new Itiniraire();
                 itiniraire.setArrive(v_arrive);
                 itiniraire.setDepart(v_depart);
+                itiniraire.setPrix(prix);
+                itiniraire.setId(id);
 
                 return itiniraire;
             } else return null;
