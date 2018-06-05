@@ -12,7 +12,7 @@ import static util.enums.UserType.CLIENT;
 
 public class ClientsDAO extends DAO implements DAOInterface {
 
-    private static String TABLE_NAME = "clients";
+    private static String TABLE_NAME = "utilisateurs";
 
 
     public boolean exists(String username, String password) {
