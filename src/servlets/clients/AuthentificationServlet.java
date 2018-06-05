@@ -1,4 +1,4 @@
-package servlets;
+package servlets.clients;
 
 import model.beans.User;
 import model.db.dao.ClientsDAO;

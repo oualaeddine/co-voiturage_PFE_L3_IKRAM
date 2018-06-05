@@ -4,6 +4,7 @@ import model.beans.Ville;
 import model.db.DAO;
 import model.db.DAOInterface;
 
+import java.sql.ResultSet;
 import java.util.LinkedList;
 
 public class VillesDAO extends DAO implements DAOInterface {
@@ -31,5 +32,11 @@ public class VillesDAO extends DAO implements DAOInterface {
     @Override
     public boolean edit(Object object) {
         return false;
+    }
+
+    @Override
+    public Object resultSetToObject(ResultSet resultSet) {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

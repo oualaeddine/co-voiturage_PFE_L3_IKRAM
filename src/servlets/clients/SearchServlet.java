@@ -1,4 +1,4 @@
-package servlets;
+package servlets.clients;
 
 import model.beans.Trajet;
 import model.db.dao.ClientsDAO;
