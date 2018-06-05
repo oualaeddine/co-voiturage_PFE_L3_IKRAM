@@ -71,7 +71,7 @@ CREATE TABLE `users` (
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id`, `nom`, `prenom`, `email`, `password`) VALUES
+INSERT INTO clients (`id`, `nom`, `prenom`, `email`, `password`) VALUES
   (1, 'toumiat', 'Abderrahman', 'vlad@vlad.vlad', 'vlad');
 
 --
@@ -87,7 +87,7 @@ ALTER TABLE `trajets`
 --
 -- Index pour la table `users`
 --
-ALTER TABLE `users`
+ALTER TABLE clients
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
@@ -104,7 +104,7 @@ ALTER TABLE `trajets`
 --
 -- AUTO_INCREMENT pour la table `users`
 --
-ALTER TABLE `users`
+ALTER TABLE clients
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
   AUTO_INCREMENT = 2;
 /*!40101 SET CHARACTER_SET_CLIENT = @OLD_CHARACTER_SET_CLIENT */;

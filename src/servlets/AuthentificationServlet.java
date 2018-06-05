@@ -1,7 +1,7 @@
 package servlets;
 
 import model.beans.User;
-import model.db.UsersDAO;
+import model.db.dao.ClientsDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,8 +20,8 @@ public class AuthentificationServlet extends HttpServlet {
                 case "login": {
                     String email = request.getParameter("email");
                     String password = request.getParameter("password");
-                    if (new UsersDAO().exists(email, password)) {
-                        User loggedInUser = new UsersDAO().getByEmail(email);
+                    if (new ClientsDAO().exists(email, password)) {
+                        User loggedInUser = new ClientsDAO().getByEmail(email);
 
                         HttpSession session = request.getSession(true);
                         session.setAttribute("user", loggedInUser);
@@ -41,9 +41,9 @@ public class AuthentificationServlet extends HttpServlet {
                     String password = request.getParameter("password");
                     String nom = request.getParameter("nom");
                     String prenom = request.getParameter("prenom");
-                    if (new UsersDAO().createUser(nom, prenom, email, password)) {
+                    if (new ClientsDAO().createClient(nom, prenom, email, password)) {
                         System.out.println("signup : true");
-                        User loggedInUser = new UsersDAO().getByEmail(email);
+                        User loggedInUser = new ClientsDAO().getByEmail(email);
 
                         HttpSession session = request.getSession(true);
                         session.setAttribute("user", loggedInUser);

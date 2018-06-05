@@ -5,7 +5,8 @@ import java.sql.Date;
 public class Trajet {
 
     private int id;
-    private String depart, desti, etat;
+    private Itiniraire itiniraire;
+    private boolean etat;
     private User createur;
     private Date date;
 
@@ -18,26 +19,30 @@ public class Trajet {
     }
 
     public String getDepart() {
-        return depart;
+        return itiniraire.getDepart().getName();
     }
 
     public void setDepart(String depart) {
-        this.depart = depart;
+        Ville depa = new Ville();
+        depa.setName(depart);
+        itiniraire.setArrive(depa);
     }
 
     public String getDesti() {
-        return desti;
+        return itiniraire.getArrive().getName();
     }
 
     public void setDesti(String desti) {
-        this.desti = desti;
+        Ville destination = new Ville();
+        destination.setName(desti);
+        itiniraire.setArrive(destination);
     }
 
-    public String getEtat() {
+    public boolean isEtatDispo() {
         return etat;
     }
 
-    public void setEtat(String etat) {
+    public void setEtat(boolean etat) {
         this.etat = etat;
     }
 
@@ -55,5 +60,13 @@ public class Trajet {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Itiniraire getItiniraire() {
+        return itiniraire;
+    }
+
+    public void setItiniraire(Itiniraire itiniraire) {
+        this.itiniraire = itiniraire;
     }
 }

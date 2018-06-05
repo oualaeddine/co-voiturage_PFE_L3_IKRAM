@@ -1,14 +1,28 @@
-package model.db;
+package model.db.dao;
 
 import model.beans.Trajet;
+import model.db.DAO;
+import model.db.DAOInterface;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 
-public class TrajetsDAO extends DAO {
+public class TrajetsDAO extends DAO implements DAOInterface {
 
-    public boolean ajouterTrajet(Trajet trajet) {
+    @Override
+    public LinkedList getAll() {
+        return null;
+    }
+
+    @Override
+    public Object getById(int id) {
+        return null;
+    }
+
+    @Override
+    public boolean add(Object object) {
+        Trajet trajet = (Trajet) object;
         try {
             statement.execute("insert into `trajets`(etat,depart,desti,createur) values " +
                     "('disponible" +
@@ -19,6 +33,16 @@ public class TrajetsDAO extends DAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return false;
+    }
+
+    @Override
+    public boolean delete(Object object) {
+        return false;
+    }
+
+    @Override
+    public boolean edit(Object object) {
         return false;
     }
 
@@ -36,7 +60,7 @@ public class TrajetsDAO extends DAO {
                 trajet.setId(result.getInt("id"));
                 trajet.setDepart(result.getString("nom"));
                 trajet.setDesti(result.getString("prenom"));
-                trajet.setCreateur(new UsersDAO().getById(Integer.parseInt(result.getString("createur"))));
+                trajet.setCreateur(new ClientsDAO().getById(Integer.parseInt(result.getString("createur"))));
                 trajet.setDate(result.getDate("date"));
                 trajets.add(trajet);
             }
@@ -46,6 +70,5 @@ public class TrajetsDAO extends DAO {
         }
         return null;
     }
-
 
 }

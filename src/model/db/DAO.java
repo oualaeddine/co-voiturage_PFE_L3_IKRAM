@@ -4,11 +4,9 @@ import com.mysql.jdbc.Statement;
 
 public class DAO {
 
-    protected Statement
-            statement;
+    protected Statement statement;
 
-
-    public DAO() {
+    protected DAO() {
         statement = (Statement) DbConnector.getStatment();
     }
 }
