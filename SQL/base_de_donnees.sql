@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 25 Mai 2018 à 15:30
+-- Généré le :  Mar 05 Juin 2018 à 16:39
 -- Version du serveur :  10.1.21-MariaDB
 -- Version de PHP :  7.1.1
 
@@ -19,45 +19,14 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `co_voiturage`
 --
-CREATE DATABASE IF NOT EXISTS `co_voiturage`
-  DEFAULT CHARACTER SET latin1
-  COLLATE latin1_swedish_ci;
-USE `co_voiturage`;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `trajets`
+-- Structure de la table `admins`
 --
 
-CREATE TABLE `trajets` (
-  `id`       int(11)                             NOT NULL,
-  `etat`     enum ('disponible', 'indisponible') NOT NULL,
-  `depart`   varchar(200)                        NOT NULL,
-  `desti`    varchar(200)                        NOT NULL,
-  `createur` int(11)                             NOT NULL,
-  `date`     timestamp                           NOT NULL DEFAULT CURRENT_TIMESTAMP
-)
-  ENGINE = InnoDB
-  DEFAULT CHARSET = latin1;
-
---
--- Contenu de la table `trajets`
---
-
-INSERT INTO `trajets` (`id`, `etat`, `depart`, `desti`, `createur`, `date`) VALUES
-  (1, 'disponible', 'blida', 'constantine', 1, '2018-05-25 11:39:43'),
-  (2, 'disponible', 'blida', 'constantine', 1, '2018-05-25 11:39:58'),
-  (3, 'disponible', 'blida', 'constantine', 1, '2018-05-25 11:40:22'),
-  (4, 'disponible', 'blida', 'constantine', 1, '2018-05-25 11:40:27');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `users`
---
-
-CREATE TABLE `users` (
+CREATE TABLE `admins` (
   `id`       int(11)      NOT NULL,
   `nom`      varchar(200) NOT NULL,
   `prenom`   varchar(200) NOT NULL,
@@ -67,34 +36,132 @@ CREATE TABLE `users` (
   ENGINE = InnoDB
   DEFAULT CHARSET = latin1;
 
+-- --------------------------------------------------------
+
 --
--- Contenu de la table `users`
+-- Structure de la table `prix`
 --
 
-INSERT INTO utilisateurs (`id`, `nom`, `prenom`, `email`, `password`) VALUES
-  (1, 'toumiat', 'Abderrahman', 'vlad@vlad.vlad', 'vlad');
+CREATE TABLE `prix` (
+  `id`           int(11) NOT NULL,
+  `ville_depart` int(11) NOT NULL,
+  `ville_arrive` int(11) NOT NULL,
+  `prix`         float   NOT NULL
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `trajets`
+--
+
+CREATE TABLE `trajets` (
+  `id`       int(11)    NOT NULL,
+  `etat`     tinyint(4) NOT NULL DEFAULT '1',
+  `depart`   int(11)    NOT NULL,
+  `desti`    int(11)    NOT NULL,
+  `createur` int(11)    NOT NULL,
+  `date`     timestamp  NOT NULL DEFAULT CURRENT_TIMESTAMP
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateurs`
+--
+
+CREATE TABLE `utilisateurs` (
+  `id`       int(11)      NOT NULL,
+  `nom`      varchar(200) NOT NULL,
+  `prenom`   varchar(200) NOT NULL,
+  `email`    varchar(200) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `type`     enum ('voyageur', 'conducteur') DEFAULT NULL
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = latin1;
+
+--
+-- Contenu de la table `utilisateurs`
+--
+
+INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `email`, `password`, `type`) VALUES
+  (1, 'toumiat', 'Abderrahman', 'vlad@vlad.vlad', 'vlad', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `villes`
+--
+
+CREATE TABLE `villes` (
+  `id`   int(11)      NOT NULL,
+  `name` varchar(200) NOT NULL
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = latin1;
 
 --
 -- Index pour les tables exportées
 --
 
 --
+-- Index pour la table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Index pour la table `prix`
+--
+ALTER TABLE `prix`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `prix_villes_id_fk` (`ville_depart`),
+  ADD KEY `prix_villes_id_fk_2` (`ville_arrive`);
+
+--
 -- Index pour la table `trajets`
 --
 ALTER TABLE `trajets`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `trajets_clients_id_fk` (`createur`),
+  ADD KEY `trajets_villes_id_fk` (`depart`),
+  ADD KEY `trajets_villes_id_fk_2` (`desti`);
 
 --
--- Index pour la table `users`
+-- Index pour la table `utilisateurs`
 --
-ALTER TABLE utilisateurs
+ALTER TABLE `utilisateurs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Index pour la table `villes`
+--
+ALTER TABLE `villes`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `villes_id_uindex` (`id`),
+  ADD UNIQUE KEY `villes_name_uindex` (`name`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
 --
 
+--
+-- AUTO_INCREMENT pour la table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `prix`
+--
+ALTER TABLE `prix`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `trajets`
 --
@@ -102,11 +169,35 @@ ALTER TABLE `trajets`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
   AUTO_INCREMENT = 5;
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT pour la table `utilisateurs`
 --
-ALTER TABLE utilisateurs
+ALTER TABLE `utilisateurs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
   AUTO_INCREMENT = 2;
+--
+-- AUTO_INCREMENT pour la table `villes`
+--
+ALTER TABLE `villes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `prix`
+--
+ALTER TABLE `prix`
+  ADD CONSTRAINT `prix_villes_id_fk` FOREIGN KEY (`ville_depart`) REFERENCES `villes` (`id`),
+  ADD CONSTRAINT `prix_villes_id_fk_2` FOREIGN KEY (`ville_arrive`) REFERENCES `villes` (`id`);
+
+--
+-- Contraintes pour la table `trajets`
+--
+ALTER TABLE `trajets`
+  ADD CONSTRAINT `trajets_clients_id_fk` FOREIGN KEY (`createur`) REFERENCES `utilisateurs` (`id`),
+  ADD CONSTRAINT `trajets_villes_id_fk` FOREIGN KEY (`depart`) REFERENCES `villes` (`id`),
+  ADD CONSTRAINT `trajets_villes_id_fk_2` FOREIGN KEY (`desti`) REFERENCES `villes` (`id`);
+
 /*!40101 SET CHARACTER_SET_CLIENT = @OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS = @OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION = @OLD_COLLATION_CONNECTION */;
