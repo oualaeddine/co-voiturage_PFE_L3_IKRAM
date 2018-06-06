@@ -5,7 +5,11 @@ import util.enums.UserType;
 public class User extends Person {
 
 
-    private UserType userType;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 762327623399539888L;
+	private UserType userType;
 
     public UserType getUserType() {
         return userType;

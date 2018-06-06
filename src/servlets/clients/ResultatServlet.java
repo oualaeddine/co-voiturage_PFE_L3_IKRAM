@@ -1,15 +1,17 @@
 package servlets.clients;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @WebServlet(name = "ResultatServlet", urlPatterns = "/resultat")
 public class ResultatServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO: 6/6/2018
         getServletContext().getRequestDispatcher("").forward(request, response);
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {

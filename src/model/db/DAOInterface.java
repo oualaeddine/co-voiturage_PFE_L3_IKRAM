@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.util.LinkedList;
 
 public interface DAOInterface {
-    LinkedList getAll();
+    LinkedList<Object> getAll();
 
     Object getById(int id);
 

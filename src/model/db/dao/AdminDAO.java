@@ -1,19 +1,31 @@
 package model.db.dao;
 
-public class AdminDAO extends DAO implements DAOInterface{
+import model.beans.User;
+import model.db.DAO;
+import model.db.DAOInterface;
+
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.LinkedList;
+
+import static util.enums.UserType.ADMIN;
+
+public class AdminDAO extends DAO implements DAOInterface {
 
     private static String TABLE_NAME = "admins";
 
-    public boolean editProfile(String currentEmail, String nom, String prenom,String email, String password,Date dateNaissance,String sexe) {
+    public boolean editProfile(String currentEmail, String nom, String prenom, String email, String password, Date dateNaissance, String sexe) {
         try {
-            statement.execute("UPDATE `" + TABLE_NAME + "` SET nom = '" + nom + "' , prenom = '"+prenom+"',  email ='"+email+"' ,password ='"+ password +"',dateNaissance ='"+dateNaissance+"' , sexe ='"sexe"'   WHERE email=" + currentEmail+ ";");
+            statement.execute("UPDATE `" + TABLE_NAME + "` SET nom = '" + nom + "' , prenom = '" + prenom + "',  email ='" + email + "' ,password ='" + password + "',dateNaissance ='" + dateNaissance + "' , sexe ='" + sexe + "'   WHERE email=" + currentEmail + ";");
+
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
     }
-    
+
     public boolean exists(String username, String password) {
         User person = new User();
         person.setPassword(password);
@@ -32,7 +44,7 @@ public class AdminDAO extends DAO implements DAOInterface{
         }
         return false;
     }
-    
+
     public User getByEmail(String email) {
         ResultSet result;
         try {
@@ -43,7 +55,7 @@ public class AdminDAO extends DAO implements DAOInterface{
         }
         return null;
     }
-    
+
     @Override
     public Object resultSetToObject(ResultSet resultSet) {
         try {
@@ -64,6 +76,32 @@ public class AdminDAO extends DAO implements DAOInterface{
         }
         return null;
     }
-    
-    
+
+
+    @Override
+    public LinkedList getAll() {
+        return null;
+    }
+
+    @Override
+    public Object getById(int id) {
+        return null;
+    }
+
+    @Override
+    public boolean add(Object object) {
+        return false;
+    }
+
+    @Override
+    public boolean delete(Object object) {
+        return false;
+    }
+
+    @Override
+    public boolean edit(Object object) {
+        return false;
+    }
+
+
 }

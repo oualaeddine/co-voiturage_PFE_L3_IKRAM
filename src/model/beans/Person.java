@@ -4,7 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 
 public abstract class Person implements Serializable {
-    private int id;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -3194952904286755553L;
+	private int id;
     private String nom, prenom, adresse, email, username, password, tel;
     private Date dateNaissance;
 

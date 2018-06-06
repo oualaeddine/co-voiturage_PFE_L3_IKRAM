@@ -1,4 +1,6 @@
-<%@ 
+<%@ page import="model.beans.Ville" %>
+<%@ page import="java.util.LinkedList" %>
+<%@
 	page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"    
 %>
@@ -61,7 +63,7 @@
 <body>
 <div id="main_container">
     <div class="header">
-        <div class="right_header"><a href="#" class="logout">DÃ©connexion</a></div>
+        <div class="right_header"><a href="#" class="logout">Déconnexion</a></div>
         <div id="clock_a"></div>
     </div>
     <div class="main_content">

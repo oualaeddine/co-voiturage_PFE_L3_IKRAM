@@ -5,27 +5,28 @@ import model.db.DAO;
 import model.db.DAOInterface;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.LinkedList;
 
 public class VillesDAO extends DAO implements DAOInterface {
-	
-    private static String TABLE_NAME = "villes";
+
+    private static final String TABLE_NAME = "villes";
 
     @Override
-    public LinkedList<Ville> getAll() {
-    	 ResultSet result;
-         try {
-             result = statement.executeQuery("SELECT * FROM `" + TABLE_NAME + "`;");
+    public LinkedList<Object> getAll() {
+        ResultSet result;
+        try {
+            result = statement.executeQuery("SELECT * FROM `" + TABLE_NAME + "`;");
 
-             LinkedList<Ville> villes = new LinkedList<>();
-             while (result.next()) {
-            	 Ville ville=this.resultSetToObject(result.next());
-            	 villes.add(ville);
-             }
-             return villes;
-         } catch (SQLException e) {
-             e.printStackTrace();
-         }
+            LinkedList<Object> villes = new LinkedList<>();
+            while (result.next()) {
+                Ville ville = (Ville) this.resultSetToObject(result);
+                villes.add(ville);
+            }
+            return villes;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -50,22 +51,20 @@ public class VillesDAO extends DAO implements DAOInterface {
         return false;
     }
 
-<<<<<<< HEAD
-	
+
     @Override
     public Object resultSetToObject(ResultSet resultSet) {
-		try {
-			if (resultSet.next()) {
-				Ville ville = new Ville();
-				ville.setId(resultSet.getInt("id"));
-				ville.setName(resultSet.getString("name"));
+        try {
+            if (resultSet.next()) {
+                Ville ville = new Ville();
+                ville.setId(resultSet.getInt("id"));
+                ville.setName(resultSet.getString("name"));
 
-				return ville;
-			} else return null;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
+                return ville;
+            } else return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
->>>>>>> b671916719d511350a39f0b05f0f604715b4f793
 }

@@ -10,6 +10,6 @@ public class AccueilAdminServlet extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-
+// TODO: 6/6/2018
     }
 }

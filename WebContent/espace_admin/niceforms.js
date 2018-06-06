@@ -585,7 +585,8 @@ function selects(el) { //extend Selects
         var reltg = (e.relatedTarget) ? e.relatedTarget : e.toElement;
         if ((reltg.nodeName == 'A') || (reltg.nodeName == 'LI') || (reltg.nodeName == 'UL')) return;
         if ((reltg.nodeName == 'DIV') || (reltg.className == 'NFSelectTarget')) // ki yodkhol ll if wech ydir 
-        else
+            console.log();
+   else
         {
             this.style.display = "none";
         }
@@ -597,7 +598,8 @@ function selects(el) { //extend Selects
         var reltg = (e.relatedTarget) ? e.relatedTarget : e.toElement;
         if ((reltg.nodeName == 'A') || (reltg.nodeName == 'LI') || (reltg.nodeName == 'UL')) return;
         if ((reltg.nodeName == 'DIV') || (reltg.className == 'NFSelectTarget')) //w hna tani kifkif
-        else
+     console.log();
+        	else
         {
             this.ref.bg.style.display = "none";
         }

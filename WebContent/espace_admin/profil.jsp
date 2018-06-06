@@ -1,9 +1,9 @@
-<%@ 
-	page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"    
+<%@
+        page language="java" contentType="text/html; charset=ISO-8859-1"
+             pageEncoding="ISO-8859-1"
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -55,7 +55,7 @@
     <div class="header">
 
 
-        <div class="right_header"><a href="#" class="logout">DÃ©connexion</a></div>
+        <div class="right_header"><a href="#" class="logout">Déconnexion</a></div>
         <div id="clock_a"></div>
     </div>
 
@@ -103,30 +103,30 @@
 
                         <fieldset>
                             <dl>
-                                <dt><label for="email">Nom :</label></dt>
-                                <dd><input type="text" name="nom" id="" size="54"/></dd>
+                                <dt><label for="nom">Nom :</label></dt>
+                                <dd><input type="text" name="nom" id="nom" size="54"/></dd>
                             </dl>
 
                             <dl>
-                                <dt><label for="email">PrÃ©nom :</label></dt>
-                                <dd><input type="text" name="prenom" id="" size="54"/></dd>
+                                <dt><label for="prenom">Prénom :</label></dt>
+                                <dd><input type="text" name="prenom" id="prenom" size="54"/></dd>
                             </dl>
                             <dl>
                                 <dt><label for="email">E-mail:</label></dt>
-                                <dd><input type="text" name="email" id="" size="54"/></dd>
+                                <dd><input type="text" name="email" id="email" size="54"/></dd>
                             </dl>
                             <dl>
                                 <dt><label for="password">Mot de passe:</label></dt>
-                                <dd><input type="text" name="password" id="" size="54"/></dd>
+                                <dd><input type="text" name="password" id="password" size="54"/></dd>
                             </dl>
 
 
                             <dl>
                                 <dt><label for="date">Date de naissance:</label></dt>
-                                <dd><input type="text" name="dateNaissance"/></dd>
+                                <dd><input type="text" id="date" name="dateNaissance"/></dd>
                             </dl>
                             <dl>
-                                <dt><label for="color">Sexe:</label></dt>
+                                <dt><label>Sexe:</label></dt>
                                 <dd>
                                     <input type="radio" name="sexe" id="optionsRadios1" value="femme"/><label
                                         class="check_label">Femme</label>
