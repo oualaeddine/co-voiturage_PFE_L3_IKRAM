@@ -7,7 +7,6 @@ import util.Util;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,7 +17,7 @@ import java.sql.Date;
 public class ModifierProfilAdminServlet extends MyServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (isLoggedIn()) {
+        if (isAdminLoggedIn(request)) {
         	String nom = request.getParameter("nom");
         	String prenom = request.getParameter("prenom");
         	String email = request.getParameter("email");
@@ -43,7 +42,7 @@ public class ModifierProfilAdminServlet extends MyServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (isLoggedIn()) {
+        if (isAdminLoggedIn(request)) {
         	getServletContext().getRequestDispatcher("/espace_admin/profil.jsp").forward(request, response);
         } else
             redirectToLogin(response);

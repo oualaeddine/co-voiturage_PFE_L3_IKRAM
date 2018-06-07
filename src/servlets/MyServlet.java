@@ -1,5 +1,6 @@
 package servlets;
 
+import javax.net.ssl.HandshakeCompletedEvent;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,13 +14,18 @@ import java.io.IOException;
 @WebServlet(name = "MyServlet", urlPatterns = "/servlet")
 public class MyServlet extends HttpServlet {
 
-    protected boolean isLoggedIn() {
-    	HttpSession session = request.getSession(false);
-    	User admin = (User) session.getAttribute("admin");
+    protected boolean isAdminLoggedIn(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        User admin = (User) session.getAttribute("admin");
 
-    	if(admin!= null)
-    		return true;
-        return false;
+        return admin != null;
+    }
+
+    protected boolean isClientLoggedIn(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        User client = (User) session.getAttribute("client");
+
+        return client != null;
     }
 
     protected void redirectToLogin(HttpServletResponse response) throws IOException {

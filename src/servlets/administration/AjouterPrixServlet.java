@@ -7,7 +7,6 @@ import servlets.MyServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -16,7 +15,7 @@ import java.io.IOException;
 public class AjouterPrixServlet extends MyServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (isLoggedIn()) {
+        if (isAdminLoggedIn(request)) {
         	String depart = request.getParameter("depart");
         	String arrive = request.getParameter("arrive");
         	String prix = request.getParameter("prix");
@@ -47,7 +46,7 @@ public class AjouterPrixServlet extends MyServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (isLoggedIn()) {
+        if (isAdminLoggedIn(request)) {
         	getServletContext().getRequestDispatcher("/espace_admin/ajouter prix.jsp").forward(request, response);
         } else
             redirectToLogin(response);

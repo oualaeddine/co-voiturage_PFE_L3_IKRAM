@@ -6,7 +6,6 @@ import servlets.MyServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,7 +14,7 @@ import java.io.IOException;
 @WebServlet(name = "AuthentificationAdminServlet", urlPatterns = "/authentification")
 public class AuthentificationAdminServlet extends MyServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (isLoggedIn()) {
+        if (isAdminLoggedIn(request)) {
         	String email = request.getParameter("email");
         	String password = request.getParameter("password");
 
@@ -38,7 +37,7 @@ public class AuthentificationAdminServlet extends MyServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (isLoggedIn()) {
+        if (isAdminLoggedIn(request)) {
         	getServletContext().getRequestDispatcher("/espace_admin/connexion.html").forward(request, response);
         } else
             redirectToLogin(response);
