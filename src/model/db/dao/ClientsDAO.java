@@ -85,7 +85,13 @@ public class ClientsDAO extends DAO implements DAOInterface {
 
             LinkedList<User> clients = new LinkedList<>();
             while (result.next()) {
-                User client = (User) this.resultSetToObject(result);
+                User client = new User();
+                client.setUserType(CLIENT);
+                client.setId(result.getInt("id"));
+                client.setNom(result.getString("nom"));
+                client.setPrenom(result.getString("prenom"));
+                client.setEmail(result.getString("email"));
+                client.setPassword(result.getString("password"));
                 clients.add(client);
             }
             return clients;
