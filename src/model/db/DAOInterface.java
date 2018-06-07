@@ -1,10 +1,8 @@
 package model.db;
 
 import java.sql.ResultSet;
-import java.util.LinkedList;
 
 public interface DAOInterface {
-    LinkedList<Object> getAll();
 
     Object getById(int id);
 

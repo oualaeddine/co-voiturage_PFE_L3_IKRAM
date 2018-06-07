@@ -14,13 +14,12 @@ public class ItiniraireDAO extends DAO implements DAOInterface {
     private static String TABLE_NAME = "prix";
 
 
-    @Override
-    public LinkedList<Object> getAll() {
+    public LinkedList<Itiniraire> getAll() {
         ResultSet result;
         try {
             result = statement.executeQuery("SELECT * FROM `" + TABLE_NAME + "`;");
 
-            LinkedList<Object> itiniraires = new LinkedList<>();
+            LinkedList<Itiniraire> itiniraires = new LinkedList<>();
             while (result.next()) {
                 Itiniraire itiniraire = (Itiniraire) this.resultSetToObject(result);
                 itiniraires.add(itiniraire);

@@ -15,6 +15,7 @@ public class ClientsDAO extends DAO implements DAOInterface {
     private static String TABLE_NAME = "utilisateurs";
 
 
+    @SuppressWarnings("Duplicates")
     public boolean exists(String username, String password) {
         User person = new User();
         person.setPassword(password);
@@ -77,13 +78,12 @@ public class ClientsDAO extends DAO implements DAOInterface {
         return false;
     }
 
-    @Override
-    public LinkedList<Object> getAll() {
+    public LinkedList<User> getAll() {
         ResultSet result;
         try {
             result = statement.executeQuery("SELECT * FROM `" + TABLE_NAME + "`;");
 
-            LinkedList<Object> clients = new LinkedList<>();
+            LinkedList<User> clients = new LinkedList<>();
             while (result.next()) {
                 User client = (User) this.resultSetToObject(result);
                 clients.add(client);

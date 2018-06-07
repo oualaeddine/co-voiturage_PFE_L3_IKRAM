@@ -1,5 +1,6 @@
 package model.db.dao;
 
+import model.beans.Itiniraire;
 import model.beans.User;
 import model.db.DAO;
 import model.db.DAOInterface;
@@ -26,6 +27,7 @@ public class AdminDAO extends DAO implements DAOInterface {
         return false;
     }
 
+    @SuppressWarnings("Duplicates")
     public boolean exists(String username, String password) {
         User person = new User();
         person.setPassword(password);
@@ -68,6 +70,7 @@ public class AdminDAO extends DAO implements DAOInterface {
                 admin.setPrenom(resultSet.getString("prenom"));
                 admin.setEmail(resultSet.getString("email"));
                 admin.setPassword(resultSet.getString("password"));
+                admin.setDateNaissance(resultSet.getDate("dateNaissance"));
 
                 return admin;
             } else return null;
@@ -78,8 +81,7 @@ public class AdminDAO extends DAO implements DAOInterface {
     }
 
 
-    @Override
-    public LinkedList getAll() {
+    public LinkedList<Itiniraire> getAll() {
         return null;
     }
 

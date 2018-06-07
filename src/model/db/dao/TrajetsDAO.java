@@ -10,8 +10,7 @@ import java.util.LinkedList;
 
 public class TrajetsDAO extends DAO implements DAOInterface {
 
-    @Override
-    public LinkedList getAll() {
+    public LinkedList<Trajet> getAll() {
         return null;
     }
 

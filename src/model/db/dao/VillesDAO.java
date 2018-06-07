@@ -2,12 +2,13 @@ package model.db.dao;
 
 import model.beans.Ville;
 import model.db.DAO;
+import model.db.DAOInterface;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 
-public class VillesDAO extends DAO {
+public class VillesDAO extends DAO implements DAOInterface {
 
     private static final String TABLE_NAME = "villes";
 
@@ -29,10 +30,12 @@ public class VillesDAO extends DAO {
         return null;
     }
 
+    @Override
     public Object getById(int id) {
         return null;
     }
 
+    @Override
     public boolean add(Object object) {
         Ville ville = (Ville) object;
         try {
@@ -45,15 +48,17 @@ public class VillesDAO extends DAO {
         return false;
     }
 
+    @Override
     public boolean delete(Object object) {
         return false;
     }
 
+    @Override
     public boolean edit(Object object) {
         return false;
     }
 
-
+    @Override
     public Object resultSetToObject(ResultSet resultSet) {
         try {
             if (resultSet.next()) {
