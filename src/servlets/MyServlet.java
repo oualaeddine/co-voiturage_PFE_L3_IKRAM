@@ -15,24 +15,31 @@ import java.io.IOException;
 public class MyServlet extends HttpServlet {
 
     protected boolean isAdminLoggedIn(HttpServletRequest request) {
-        HttpSession session = request.getSession(false);
-        User admin = (User) session.getAttribute("admin");
+        HttpSession session = request.getSession();
+        User admin = null;
+        if (session != null)
+            admin = (User) session.getAttribute("admin");
 
         return admin != null;
     }
 
     protected boolean isClientLoggedIn(HttpServletRequest request) {
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession();
         User client = (User) session.getAttribute("user");
 
         return client != null;
     }
 
     protected void redirectToLogin(HttpServletResponse response) throws IOException {
-        response.sendRedirect("/accueilAdmin");
+        response.sendRedirect("/authentification");
     }
-    
+
     protected void redirectToLoginClient(HttpServletResponse response) throws IOException {
         response.sendRedirect("/home");
+    }
+
+    protected void redirectToDashboard(HttpServletResponse response) throws IOException {
+        response.sendRedirect("/accueilAdmin");
+
     }
 }

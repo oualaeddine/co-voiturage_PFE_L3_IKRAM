@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet(name = "AuthentificationAdminServlet", urlPatterns = "/authentification")
 public class AuthentificationAdminServlet extends MyServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (isAdminLoggedIn(request)) {
+        if (!isAdminLoggedIn(request)) {
         	String email = request.getParameter("email");
         	String password = request.getParameter("password");
 
@@ -32,15 +32,17 @@ public class AuthentificationAdminServlet extends MyServlet {
         		getServletContext().getRequestDispatcher("/espace_admin/connexion.html").forward(request, response);
         	}
         } else
-            redirectToLogin(response);
+			redirectToDashboard(response);
     }
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (isAdminLoggedIn(request)) {
+        if (!isAdminLoggedIn(request)) {
         	getServletContext().getRequestDispatcher("/espace_admin/connexion.html").forward(request, response);
         } else
-            redirectToLogin(response);
+            redirectToDashboard(response);
     }
+
+
 
 }
