@@ -19,7 +19,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>IN ADMIN PANEL | Powered by INDEZINER</title>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="/espace_admin/style.css"/>
     <script type="text/javascript" src="/espace_admin/clockp.js"></script>
     <script type="text/javascript" src="/espace_admin/clockh.js"></script>
     <script type="text/javascript" src="/espace_admin/jquery.min.js"></script>
@@ -80,7 +80,7 @@
                     <a class="menuitem" href="<%=request.getContextPath()+"/ListePrix"%>">Liste de prix</a>
                     <a class="menuitem" href="<%=request.getContextPath()+"/ListeVilles"%>">Liste de villes </a>
                     <a class="menuitem" href="<%=request.getContextPath()+"/ListeClients"%>">Liste d'utilisateurs</a>
-                    <a class="menuitem" href="profil.jsp">Profil</a>
+                    <a class="menuitem" href="/profil">Profil</a>
                 </div>
             </div>
 

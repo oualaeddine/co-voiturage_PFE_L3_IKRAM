@@ -2,6 +2,7 @@ package servlets.administration;
 
 import model.beans.Itiniraire;
 import model.db.dao.ItiniraireDAO;
+import servlets.MyServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,18 +13,14 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 @WebServlet(name = "ListePrixServlet", urlPatterns = "/ListePrix")
-public class ListePrixServlet extends HttpServlet {
+public class ListePrixServlet extends MyServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        LinkedList<Itiniraire> itiniraires = new ItiniraireDAO().getAll();
-        if (itiniraires.size() > 0) {
-            request.setAttribute("itiniraires", itiniraires);
-            getServletContext().getRequestDispatcher("/espace_admin/liste de prix.jsp").forward(request, response);
-        } else
-            doGet(request, response);
+        doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/accueilAdmin").forward(request, response);
-
+        LinkedList<Itiniraire> itiniraires = new ItiniraireDAO().getAll();
+        request.setAttribute("itiniraires", itiniraires);
+        getServletContext().getRequestDispatcher("/espace_admin/liste de prix.jsp").forward(request, response);
     }
 }

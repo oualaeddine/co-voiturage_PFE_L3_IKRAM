@@ -7,7 +7,7 @@
              pageEncoding="ISO-8859-1"
 %>
 <%!
-    LinkedList<Object> villes;
+    LinkedList<Ville> villes;
 %>
 <%
     villes = new VillesDAO().getAll();
@@ -103,101 +103,6 @@
             </div>
 
             <div class="right_content">
-
-
-                <h2></h2>
-
-                <div class="form">
-                    <form action="/accueilAdmin" method="post" class="niceform">
-
-                        <fieldset>
-
-
-                            <dl>
-                                <dt><label for="depart">ville de départ:</label></dt>
-                                <dd>
-                                    <select size="1" name="depart" id="depart">
-                                        <option value=""></option>
-                                        <%
-                                            if (villes.size() > 0) {
-                                                for (int i = 0; i < villes.size(); i++) {
-                                        %>
-                                        <option value="<%=((Ville)villes.get(i)).getName()%>"><%=((Ville) villes.get(i)).getName()%>
-                                        </option>
-                                        <%
-                                                }
-                                            }
-                                        %>
-                                    </select>
-                                </dd>
-                            </dl>
-
-
-                            <dl>
-                                <dt><label for="arrive">ville d'arrivée:</label></dt>
-                                <dd>
-                                    <select size="1" name="arrive" id="arrive">
-                                        <option value=""></option>
-                                        <%
-                                            if (villes.size() > 0) {
-                                                for (int i = 0; i < villes.size(); i++) {
-                                        %>
-                                        <option value="<%=((Ville)villes.get(i)).getName()%>"><%=((Ville) villes.get(i)).getName()%>
-                                        </option>
-                                        <%
-                                                }
-                                            }
-                                        %>
-                                    </select>
-                                </dd>
-                            </dl>
-
-                            <dl>
-                                <dt><label for="prix">Prix:</label></dt>
-                                <dd><input type="text" id="prix" name="prix" placeholder="prix" required=""/></dd>
-                            </dl>
-
-                            <dl>
-                                <dt><label for="places">Nombres de places:</label></dt>
-                                <dd><input type="text" name="places" id="places" placeholder="Nombres de places"
-                                           required=""/></dd>
-                            </dl>
-
-                            <dl>
-                                <dt><label for="type1">Type de vehicule:</label></dt>
-                                <dd>
-                                    <input type="checkbox" name="type" id="type1" value="automobile"/><label
-                                        class="check_label">Automobile</label>
-                                    <input type="checkbox" name="type" id="type2" value="autobus"/><label
-                                        class="check_label">Autobus</label>
-                                    <input type="checkbox" name="type" id="type3" value="autocar"/><label
-                                        class="check_label">Autocar</label>
-                                    <input type="checkbox" name="type" id="type4" value="Camion"/><label
-                                        class="check_label">Camion</label>
-                                </dd>
-                            </dl>
-
-
-                            <dl>
-                                <dt><label for="upload">Importer un fichier:</label></dt>
-                                <dd><input type="file" name="upload" required="" id="upload"/></dd>
-                            </dl>
-
-
-                            <dl>
-                                <dt><label></label></dt>
-
-                            </dl>
-
-                            <dl class="submit">
-                                <input type="submit" name="submit" id="submit" value="Valider"/>
-                            </dl>
-
-
-                        </fieldset>
-
-                    </form>
-                </div>
 
 
             </div><!-- end of right content-->

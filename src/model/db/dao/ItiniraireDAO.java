@@ -79,9 +79,13 @@ public class ItiniraireDAO extends DAO implements DAOInterface {
         return null;
     }
 
-    public boolean addItiniraire(String depart, String arrive, String prix) {
+    public boolean addItiniraire(Itiniraire itiniraire) {
         try {
-            statement.execute("insert into `" + TABLE_NAME + "`(ville_depart ,ville_arrive ,prix) values ('" + depart + "','" + arrive + "','" + prix + "')");
+
+            statement.execute("insert into `" + TABLE_NAME + "`(ville_depart ,ville_arrive ,prix) " +
+                    "values (" + itiniraire.getDepart().getId() +
+                    "," + itiniraire.getArrive().getId() +
+                    "," + itiniraire.getPrix() + ")");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();

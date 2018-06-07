@@ -85,7 +85,7 @@
                                 <thead>
                                 <dl>
                                     <dt><label for="prix">Ville :</label></dt>
-                                    <dd><input type="text" name="ville" placeholder="ville" required=""/></dd>
+                                    <dd><input type="text" id="prix" name="ville" placeholder="ville" required=""/></dd>
                                 </dl>
 
 								<dl class="submit">

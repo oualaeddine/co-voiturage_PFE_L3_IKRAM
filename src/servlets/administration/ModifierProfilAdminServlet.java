@@ -2,6 +2,7 @@ package servlets.administration;
 
 import model.beans.User;
 import model.db.dao.AdminDAO;
+import servlets.MyServlet;
 import util.Util;
 
 import javax.servlet.ServletException;
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.sql.Date;
 
 @WebServlet(name = "ModifierProfilAdminServlet", urlPatterns = "/profil")
-public class ModifierProfilAdminServlet extends HttpServlet {
+public class ModifierProfilAdminServlet extends MyServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nom = request.getParameter("nom");

@@ -2,6 +2,7 @@ package servlets.administration;
 
 import model.beans.User;
 import model.db.dao.AdminDAO;
+import servlets.MyServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "AuthentificationAdminServlet", urlPatterns = "/authentification")
-public class AuthentificationAdminServlet extends HttpServlet {
+public class AuthentificationAdminServlet extends MyServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String email = request.getParameter("email");

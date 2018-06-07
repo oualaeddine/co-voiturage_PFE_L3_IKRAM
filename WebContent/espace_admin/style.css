@@ -1,5 +1,5 @@
 body {
-    background: url(images/bg.jpg) no-repeat center top #310b28;
+    background: url(/espace_admin/images/bg.jpg) no-repeat center top #310b28;
     font-family: Arial, Helvetica, sans-serif;
     padding: 0;
     font-size: 12px;
@@ -38,7 +38,7 @@ a.forgot_pass {
     float: right;
     color: #256c89;
     text-decoration: none;
-    background: url(images/help.png) no-repeat left;
+    background: url(/espace_admin/images/help.png) no-repeat left;
     padding: 0 0 0 18px;
     display: block;
     margin: 15px 20px 0 0;
@@ -93,12 +93,12 @@ a.forgot_pass {
 }
 
 .right_header a.messages {
-    background: url(images/comment.png) no-repeat right;
+    background: url(/espace_admin/images/comment.png) no-repeat right;
     padding-right: 20px;
 }
 
 .right_header a.logout {
-    background: url(images/user_logout.png) no-repeat right;
+    background: url(/espace_admin/images/user_logout.png) no-repeat right;
     padding-right: 20px;
 }
 
@@ -107,13 +107,13 @@ a.forgot_pass {
     width: 900px;
     height: auto;
     padding: 0px 0 50px 0;
-    background: url(images/menu_bg.jpg) no-repeat center top #fff;
+    background: url(/espace_admin/images/menu_bg.jpg) no-repeat center top #fff;
 }
 
 .footer {
     width: 900px;
     height: 87px;
-    background: url(images/footer_bg.jpg) no-repeat center top;
+    background: url(/espace_admin/images/footer_bg.jpg) no-repeat center top;
 }
 
 .footer_login {
@@ -204,7 +204,7 @@ a.forgot_pass {
 }
 
 .menu a.current {
-    background: url(images/menu_bg.gif) repeat-x center;
+    background: url(/espace_admin/images/menu_bg.gif) repeat-x center;
 }
 
 /* style the sub level links */
@@ -261,49 +261,49 @@ a.forgot_pass {
 
 /* style the sub level 1 background */
 .menu ul :hover a.sub1 {
-    background: url(images/arrow.gif) no-repeat right #309dc7;
+    background: url(/espace_admin/images/arrow.gif) no-repeat right #309dc7;
 }
 
 /* style the sub level 2 background */
 .menu ul ul :hover a.sub2 {
-    background: url(images/arrow.gif) no-repeat right #088bb4;
+    background: url(/espace_admin/images/arrow.gif) no-repeat right #088bb4;
 }
 
 /* style the level hovers */
 /* first */
 .menu a:hover {
     color: #fff;
-    background: url(images/menu_bg.gif) repeat-x center;
+    background: url(/espace_admin/images/menu_bg.gif) repeat-x center;
 }
 
 .menu :hover > a {
     color: #fff;
-    background: url(images/menu_bg.gif) repeat-x center;
+    background: url(/espace_admin/images/menu_bg.gif) repeat-x center;
 }
 
 /* second */
 .menu ul ul a:hover {
     color: #fff;
-    background: url(images/menu_bg_a.gif) repeat-x center;
+    background: url(/espace_admin/images/menu_bg_a.gif) repeat-x center;
 }
 
 .menu ul ul :hover > a {
     color: #fff;
-    background: url(images/menu_bg_a.gif) repeat-x center;
+    background: url(/espace_admin/images/menu_bg_a.gif) repeat-x center;
 }
 
 /* third */
 .menu ul ul ul a:hover {
-    background: url(images/menu_bg_a.gif) repeat-x center;
+    background: url(/espace_admin/images/menu_bg_a.gif) repeat-x center;
 }
 
 .menu ul ul ul :hover > a {
-    background: url(images/menu_bg_a.gif) repeat-x center;
+    background: url(/espace_admin/images/menu_bg_a.gif) repeat-x center;
 }
 
 /* fourth */
 .menu ul ul ul ul a:hover {
-    background: url(images/menu_bg_a.gif) repeat-x center;
+    background: url(/espace_admin/images/menu_bg_a.gif) repeat-x center;
 }
 
 /* hide the sub levels and give them a positon absolute so that they take up no room */
@@ -334,7 +334,7 @@ a.forgot_pass {
     visibility: visible;
     height: auto;
     padding-bottom: 3em;
-    background: transparent url(images/trans.gif);
+    background: transparent url(/espace_admin/images/trans.gif);
 }
 
 /* keep the third level hidden when you hover on first level list OR link */
@@ -380,7 +380,7 @@ a.forgot_pass {
 }
 
 .sidebarmenu a.menuitem {
-    background: url(images/sidebar_menu_top.gif) no-repeat center top;
+    background: url(/espace_admin/images/sidebar_menu_top.gif) no-repeat center top;
     color: #fff;
     display: block;
     position: relative;
@@ -393,7 +393,7 @@ a.forgot_pass {
 }
 
 .sidebarmenu a.menuitem_green {
-    background: url(images/green_bt.gif) no-repeat center top;
+    background: url(/espace_admin/images/green_bt.gif) no-repeat center top;
     color: #fff;
     display: block;
     position: relative;
@@ -406,7 +406,7 @@ a.forgot_pass {
 }
 
 .sidebarmenu a.menuitem_red {
-    background: url(images/red_bt.gif) no-repeat center top;
+    background: url(/espace_admin/images/red_bt.gif) no-repeat center top;
     color: #fff;
     display: block;
     position: relative;
@@ -419,15 +419,15 @@ a.forgot_pass {
 }
 
 .sidebarmenu a.menuitem:hover {
-    background: url(images/sidebar_menu_top_a.gif) no-repeat center top;
+    background: url(/espace_admin/images/sidebar_menu_top_a.gif) no-repeat center top;
 }
 
 .sidebarmenu a.menuitem_green:hover {
-    background: url(images/green_bt_a.gif) no-repeat center top;
+    background: url(/espace_admin/images/green_bt_a.gif) no-repeat center top;
 }
 
 .sidebarmenu a.menuitem_red:hover {
-    background: url(images/red_bt_a.gif) no-repeat center top;
+    background: url(/espace_admin/images/red_bt_a.gif) no-repeat center top;
 }
 
 .sidebarmenu a.menuitem:visited, .sidebarmenu .menuitem:active {
@@ -469,7 +469,7 @@ a.forgot_pass {
 }
 
 .sidebar_search {
-    background: url(images/sidebar_menu_top.gif) no-repeat center;
+    background: url(/espace_admin/images/sidebar_menu_top.gif) no-repeat center;
     width: 195px;
     height: 31px;
     margin: 0 0 5px 0;
@@ -503,11 +503,11 @@ input.search_submit {
 
 #rounded-corner thead th.rounded-company {
     width: 26px;
-    background: #60c8f2 url('images/left.jpg') left top no-repeat;
+    background: #60c8f2 url('/espace_admin/images/left.jpg') left top no-repeat;
 }
 
 #rounded-corner thead th.rounded-q4 {
-    background: #60c8f2 url('images/right.jpg') right top no-repeat;
+    background: #60c8f2 url('/espace_admin/images/right.jpg') right top no-repeat;
 }
 
 #rounded-corner th {
@@ -526,11 +526,11 @@ input.search_submit {
 }
 
 #rounded-corner tfoot td.rounded-foot-left {
-    background: #ecf8fd url('images/botleft.jpg') left bottom no-repeat;
+    background: #ecf8fd url('/espace_admin/images/botleft.jpg') left bottom no-repeat;
 }
 
 #rounded-corner tfoot td.rounded-foot-right {
-    background: #ecf8fd url('images/botright.jpg') right bottom no-repeat;
+    background: #ecf8fd url('/espace_admin/images/botright.jpg') right bottom no-repeat;
 }
 
 #rounded-corner tbody tr:hover td {
@@ -545,7 +545,7 @@ input.search_submit {
     height: 78px;
     font-size: 13px;
     line-height: 1.5em;
-    background: url('images/bubble.png') left top no-repeat;
+    background: url('/espace_admin/images/bubble.png') left top no-repeat;
     padding: 10px 0 0 0;
     text-shadow: 0px 1px 0px #fff;
     margin-left: -7em;
@@ -562,7 +562,7 @@ input.search_submit {
     height: 21px;
     color: #434d17;
     text-shadow: 0px 1px 0px #fff;
-    background: url('images/buttony.png') left top no-repeat;
+    background: url('/espace_admin/images/buttony.png') left top no-repeat;
 }
 
 .cancel {
@@ -574,7 +574,7 @@ input.search_submit {
     height: 21px;
     color: #fff;
     text-shadow: 0px 1px 0px #000;
-    background: url('images/buttonn.png') left top no-repeat;
+    background: url('/espace_admin/images/buttonn.png') left top no-repeat;
 }
 
 a.bt_green {
@@ -593,7 +593,7 @@ a.bt_green strong {
     padding: 0 10px 0 10px;
     display: block;
     float: left;
-    background: url(images/bt_green_center.gif) repeat-x center;
+    background: url(/espace_admin/images/bt_green_center.gif) repeat-x center;
 }
 
 a.bt_green span.bt_green_lft {
@@ -601,7 +601,7 @@ a.bt_green span.bt_green_lft {
     height: 31px;
     display: block;
     float: left;
-    background: url(images/bt_green_left.gif) no-repeat center right;
+    background: url(/espace_admin/images/bt_green_left.gif) no-repeat center right;
 }
 
 a.bt_green span.bt_green_r {
@@ -609,7 +609,7 @@ a.bt_green span.bt_green_r {
     height: 31px;
     display: block;
     float: left;
-    background: url(images/bt_green_r.gif) no-repeat center right;
+    background: url(/espace_admin/images/bt_green_r.gif) no-repeat center right;
 }
 
 a:hover.bt_green {
@@ -632,7 +632,7 @@ a.bt_blue strong {
     padding: 0 10px 0 10px;
     display: block;
     float: left;
-    background: url(images/bt_blue_center.gif) repeat-x center;
+    background: url(/espace_admin/images/bt_blue_center.gif) repeat-x center;
 }
 
 a.bt_blue span.bt_blue_lft {
@@ -640,7 +640,7 @@ a.bt_blue span.bt_blue_lft {
     height: 31px;
     display: block;
     float: left;
-    background: url(images/bt_blue_left.gif) no-repeat center right;
+    background: url(/espace_admin/images/bt_blue_left.gif) no-repeat center right;
 }
 
 a.bt_blue span.bt_blue_r {
@@ -648,7 +648,7 @@ a.bt_blue span.bt_blue_r {
     height: 31px;
     display: block;
     float: left;
-    background: url(images/bt_blue_r.gif) no-repeat center right;
+    background: url(/espace_admin/images/bt_blue_r.gif) no-repeat center right;
 }
 
 a:hover.bt_blue {
@@ -671,7 +671,7 @@ a.bt_red strong {
     padding: 0 10px 0 10px;
     display: block;
     float: left;
-    background: url(images/bt_red_center.gif) repeat-x center;
+    background: url(/espace_admin/images/bt_red_center.gif) repeat-x center;
 }
 
 a.bt_red span.bt_red_lft {
@@ -679,7 +679,7 @@ a.bt_red span.bt_red_lft {
     height: 31px;
     display: block;
     float: left;
-    background: url(images/bt_red_left.gif) no-repeat center right;
+    background: url(/espace_admin/images/bt_red_left.gif) no-repeat center right;
 }
 
 a.bt_red span.bt_red_r {
@@ -687,7 +687,7 @@ a.bt_red span.bt_red_r {
     height: 31px;
     display: block;
     float: left;
-    background: url(images/bt_red_r.gif) no-repeat center right;
+    background: url(/espace_admin/images/bt_red_r.gif) no-repeat center right;
 }
 
 a:hover.bt_red {
@@ -702,13 +702,13 @@ a:hover.bt_red {
 .sidebar_box_top {
     width: 195px;
     height: 8px;
-    background: url(images/sidebar_box_top.gif) no-repeat center bottom;
+    background: url(/espace_admin/images/sidebar_box_top.gif) no-repeat center bottom;
 }
 
 .sidebar_box_bottom {
     width: 195px;
     height: 8px;
-    background: url(images/sidebar_box_bottom.gif) no-repeat center bottom;
+    background: url(/espace_admin/images/sidebar_box_bottom.gif) no-repeat center bottom;
 }
 
 .sidebar_box_content {
@@ -768,14 +768,14 @@ img.sidebar_icon_right {
 
 .sidebar_box_content ul li {
     padding: 5px 0 5px 10px;
-    background: url(images/list_bullet.gif) no-repeat left top;
+    background: url(/espace_admin/images/list_bullet.gif) no-repeat left top;
     background-position: 0px 10px;
 }
 
 .warning_box {
     width: 540px;
     clear: both;
-    background: url(images/warning.png) no-repeat left #fcfae9;
+    background: url(/espace_admin/images/warning.png) no-repeat left #fcfae9;
     border: 1px #e9e6c7 solid;
     background-position: 15px 10px;
     padding: 20px 20px 15px 60px;
@@ -785,7 +785,7 @@ img.sidebar_icon_right {
 .valid_box {
     width: 540px;
     clear: both;
-    background: url(images/valid.png) no-repeat left #edfce9;
+    background: url(/espace_admin/images/valid.png) no-repeat left #edfce9;
     border: 1px #cceac4 solid;
     background-position: 15px 10px;
     padding: 20px 20px 15px 60px;
@@ -795,7 +795,7 @@ img.sidebar_icon_right {
 .error_box {
     width: 540px;
     clear: both;
-    background: url(images/error.png) no-repeat left #fce9e9;
+    background: url(/espace_admin/images/error.png) no-repeat left #fce9e9;
     border: 1px #eac7c7 solid;
     background-position: 15px 10px;
     padding: 20px 20px 15px 60px;

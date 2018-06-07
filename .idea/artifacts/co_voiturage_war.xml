@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="co-voiturage:war">
-    <output-path>$PROJECT_DIR$/classes/artifacts/co_voiturage_war</output-path>
-    <root id="archive" name="co-voiturage_war.war">
-      <element id="artifact" artifact-name="co-voiturage:war exploded" />
-    </root>
-  </artifact>
-</component>

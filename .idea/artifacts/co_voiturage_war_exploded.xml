@@ -1,7 +1,22 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" build-on-make="true" name="co-voiturage:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/co_voiturage_war_exploded</output-path>
+  <artifact type="exploded-war" name="co-voiturage:war exploded">
+    <output-path>$PROJECT_DIR$/classes/artifacts/co_voiturage_war_exploded</output-path>
     <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="co-voiturage" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="com.mysql.jdbc_5.1.5.jar" module-name="co-voiturage" />
+          <element id="library" level="module" name="hamcrest-core-1.3.jar" module-name="co-voiturage" />
+          <element id="library" level="module" name="javax.annotation.jar" module-name="co-voiturage" />
+          <element id="library" level="module" name="javax.jms.jar" module-name="co-voiturage" />
+          <element id="library" level="module" name="javax.persistence.jar" module-name="co-voiturage" />
+          <element id="library" level="module" name="javax.resource.jar" module-name="co-voiturage" />
+          <element id="library" level="module" name="javax.servlet.jsp.jstl.jar" module-name="co-voiturage" />
+          <element id="library" level="module" name="javax.transaction.jar" module-name="co-voiturage" />
+        </element>
+      </element>
       <element id="javaee-facet-resources" facet="co-voiturage/web/Web" />
     </root>
   </artifact>

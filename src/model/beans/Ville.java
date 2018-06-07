@@ -23,4 +23,12 @@ public class Ville {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Ville{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

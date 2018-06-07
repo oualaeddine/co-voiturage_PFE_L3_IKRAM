@@ -1,6 +1,9 @@
 package servlets.administration;
 
+import model.beans.Itiniraire;
 import model.db.dao.ItiniraireDAO;
+import model.db.dao.VillesDAO;
+import servlets.MyServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,14 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "AjouterPrixServlet", urlPatterns = "/ajouterPrix")
-public class AjouterPrixServlet extends HttpServlet {
+public class AjouterPrixServlet extends MyServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String depart = request.getParameter("depart");
+        String depart = request.getParameter("depart");
         String arrive = request.getParameter("arrive");
-        String prix = request.getParameter("prix");     
-        
-        if (new ItiniraireDAO().addItiniraire(depart, arrive, prix)) {
+        String prix = request.getParameter("prix");
+        String places = request.getParameter("places");
+        String type = request.getParameter("type");
+
+        Itiniraire itiniraire= new Itiniraire();
+        VillesDAO villesDAO = new VillesDAO();
+        itiniraire.setDepart(villesDAO.getVilleByName(depart));
+        itiniraire.setArrive(villesDAO.getVilleByName(arrive));
+        itiniraire.setPrix(Float.parseFloat(prix));
+
+        if (new ItiniraireDAO().addItiniraire(itiniraire)) {
             System.out.println("ajouterPrix : true");
             try {
                 response.sendRedirect("/accueilAdmin");

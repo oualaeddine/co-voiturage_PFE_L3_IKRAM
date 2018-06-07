@@ -20,7 +20,10 @@ public class VillesDAO extends DAO implements DAOInterface {
 
             LinkedList<Ville> villes = new LinkedList<>();
             while (result.next()) {
-                Ville ville = (Ville) this.resultSetToObject(result);
+                Ville ville = new Ville();
+                ville.setId(result.getInt("id"));
+                ville.setName(result.getString("name"));
+                System.out.println(ville);
                 villes.add(ville);
             }
             return villes;
@@ -59,18 +62,12 @@ public class VillesDAO extends DAO implements DAOInterface {
     }
 
     @Override
-    public Object resultSetToObject(ResultSet resultSet) {
-        try {
-            if (resultSet.next()) {
-                Ville ville = new Ville();
-                ville.setId(resultSet.getInt("id"));
-                ville.setName(resultSet.getString("name"));
+    public Ville resultSetToObject(ResultSet resultSet) {
+        return null;
+    }
 
-                return ville;
-            } else return null;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public Ville getVilleByName(String villeName) {
+        // TODO: 6/7/2018
         return null;
     }
 }
