@@ -2,28 +2,28 @@
 <%@ page import="model.db.dao.VillesDAO" %>
 <%@ page import="java.util.LinkedList" %>
 
-<%@ 
-	page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"    
+<%@
+        page language="java" contentType="text/html; charset=ISO-8859-1"
+             pageEncoding="ISO-8859-1"
 %>
 <%!
-	LinkedList<Object> villes;
+    LinkedList<Object> villes;
 %>
-<% 
-	villes= new VillesDAO().getAll();
+<%
+    villes = new VillesDAO().getAll();
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Espace Admin | Ty trips </title>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-    <script type="text/javascript" src="clockp.js"></script>
-    <script type="text/javascript" src="clockh.js"></script>
-    <script type="text/javascript" src="jquery.min.js"></script>
-    <script type="text/javascript" src="ddaccordion.js"></script>
+    <link rel="stylesheet" type="text/css" href="/espace_admin/style.css"/>
+    <script type="text/javascript" src="/espace_admin/clockp.js"></script>
+    <script type="text/javascript" src="/espace_admin/clockh.js"></script>
+    <script type="text/javascript" src="/espace_admin/jquery.min.js"></script>
+    <script type="text/javascript" src="/espace_admin/ddaccordion.js"></script>
     <script type="text/javascript">
         ddaccordion.init({
             headerclass: "submenuheader", //Shared CSS class name of headers group
@@ -36,7 +36,7 @@
             animatedefault: false, //Should contents open by default be animated into view?
             persiststate: true, //persist state of opened contents within browser session?
             toggleclass: ["", ""], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
-            togglehtml: ["suffix", "<img src='images/plus.gif' class='statusicon' />", "<img src='images/minus.gif' class='statusicon' />"], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+            togglehtml: ["suffix", "<img src='/espace_admin/images/plus.gif' class='statusicon' />", "<img src='/espace_admin/images/minus.gif' class='statusicon' />"], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
             animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
             oninit: function (headers, expandedindices) { //custom code to run when headers have initalized
                 //do nothing
@@ -47,7 +47,7 @@
         })
     </script>
 
-    <script type="text/javascript" src="jconfirmaction.jquery.js"></script>
+    <script type="text/javascript" src="/espace_admin/jconfirmaction.jquery.js"></script>
     <script type="text/javascript">
 
         $(document).ready(function () {
@@ -56,8 +56,8 @@
 
     </script>
 
-    <script language="javascript" type="text/javascript" src="niceforms.js"></script>
-    <link rel="stylesheet" type="text/css" media="all" href="niceforms-default.css"/>
+    <script language="javascript" type="text/javascript" src="/espace_admin/niceforms.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="/espace_admin/niceforms-default.css"/>
 
 </head>
 <body>
@@ -74,7 +74,7 @@
 
         <div class="menu">
             <ul>
-                <li><a class="current" href="administrateur.jsp">Espace Admin </a></li>
+                <li><a class="current" href="/accueilAdmin">Espace Admin </a></li>
 
             </ul>
         </div>
@@ -86,12 +86,12 @@
             <div class="left_content">
 
                 <div class="sidebarmenu">
-                    <a class="menuitem" href="ajouter ville.html">Ajouter villes</a>
-                    <a class="menuitem" href="ajouter prix.jsp">Ajouter prix</a>
+                    <a class="menuitem" href="/ajouterVille">Ajouter villes</a>
+                    <a class="menuitem" href="/ajouterPrix">Ajouter prix</a>
                     <a class="menuitem" href="<%=request.getContextPath()+"/ListePrix"%>">Liste de prix</a>
                     <a class="menuitem" href="<%=request.getContextPath()+"/ListeVilles"%>">Liste de villes </a>
                     <a class="menuitem" href="<%=request.getContextPath()+"/ListeClients"%>">Liste d'utilisateurs</a>
-                    <a class="menuitem" href="profil.jsp">Profil</a>
+                    <a class="menuitem" href="/profil">Profil</a>
                 </div>
 
 
@@ -116,17 +116,18 @@
                             <dl>
                                 <dt><label for="depart">ville de départ:</label></dt>
                                 <dd>
-                                    <select size="1" name="depart" id="">
+                                    <select size="1" name="depart" id="depart">
                                         <option value=""></option>
                                         <%
-                                        	if (villes.size() > 0) {
-                                        		for(int i=0;i<villes.size();i++){
-										%>
-                                        <option value="<%=villes.get(i).getName()%>"><%=villes.get(i).getName()%></option>
-                                        <% 
-                    							} 
-                                        	}
-                    					%>
+                                            if (villes.size() > 0) {
+                                                for (int i = 0; i < villes.size(); i++) {
+                                        %>
+                                        <option value="<%=((Ville)villes.get(i)).getName()%>"><%=((Ville) villes.get(i)).getName()%>
+                                        </option>
+                                        <%
+                                                }
+                                            }
+                                        %>
                                     </select>
                                 </dd>
                             </dl>
@@ -135,41 +136,43 @@
                             <dl>
                                 <dt><label for="arrive">ville d'arrivée:</label></dt>
                                 <dd>
-                                    <select size="1" name="arrive" id="">
-                                            <option value=""></option>
-                                            <%
-                                        		if (villes.size() > 0) {
-                                        			for(int i=0;i<villes.size();i++){
-											%>
-                                            <option value="<%=villes.get(i).getName()%>"> <%=villes.get(i).getName()%></option>
-                                            <% 
-                    								} 
-                                        		}
-                    						%>
-                                   </select>
+                                    <select size="1" name="arrive" id="arrive">
+                                        <option value=""></option>
+                                        <%
+                                            if (villes.size() > 0) {
+                                                for (int i = 0; i < villes.size(); i++) {
+                                        %>
+                                        <option value="<%=((Ville)villes.get(i)).getName()%>"><%=((Ville) villes.get(i)).getName()%>
+                                        </option>
+                                        <%
+                                                }
+                                            }
+                                        %>
+                                    </select>
                                 </dd>
                             </dl>
 
                             <dl>
                                 <dt><label for="prix">Prix:</label></dt>
-                                <dd><input type="text" name="prix" placeholder="prix" required=""/></dd>
+                                <dd><input type="text" id="prix" name="prix" placeholder="prix" required=""/></dd>
                             </dl>
 
                             <dl>
                                 <dt><label for="places">Nombres de places:</label></dt>
-                                <dd><input type="text" name="places" placeholder="Nombres de places" required=""/></dd>
+                                <dd><input type="text" name="places" id="places" placeholder="Nombres de places"
+                                           required=""/></dd>
                             </dl>
 
                             <dl>
-                                <dt><label for="type">Type de vehicule:</label></dt>
+                                <dt><label for="type1">Type de vehicule:</label></dt>
                                 <dd>
-                                    <input type="checkbox" name="type" id="" value="automobile"/><label
+                                    <input type="checkbox" name="type" id="type1" value="automobile"/><label
                                         class="check_label">Automobile</label>
-                                    <input type="checkbox" name="type" id="" value="autobus"/><label
+                                    <input type="checkbox" name="type" id="type2" value="autobus"/><label
                                         class="check_label">Autobus</label>
-                                    <input type="checkbox" name="type" id="" value="autocar"/><label
+                                    <input type="checkbox" name="type" id="type3" value="autocar"/><label
                                         class="check_label">Autocar</label>
-                                    <input type="checkbox" name="type" id="" value="Camion"/><label
+                                    <input type="checkbox" name="type" id="type4" value="Camion"/><label
                                         class="check_label">Camion</label>
                                 </dd>
                             </dl>
@@ -177,7 +180,7 @@
 
                             <dl>
                                 <dt><label for="upload">Importer un fichier:</label></dt>
-                                <dd><input type="file" name="upload" required=""id="upload"/></dd>
+                                <dd><input type="file" name="upload" required="" id="upload"/></dd>
                             </dl>
 
 

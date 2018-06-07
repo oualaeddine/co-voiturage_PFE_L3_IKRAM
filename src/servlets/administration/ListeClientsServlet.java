@@ -1,6 +1,5 @@
 package servlets.administration;
 
-import model.beans.User;
 import model.db.dao.ClientsDAO;
 
 import javax.servlet.ServletException;
@@ -18,13 +17,12 @@ public class ListeClientsServlet extends HttpServlet {
         LinkedList<Object> clients = new ClientsDAO().getAll();
         if (clients.size() > 0) {
             request.setAttribute("clients", clients);
-            getServletContext().getRequestDispatcher("/liste utilisateur.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/espace_admin/liste utilisateur.jsp").forward(request, response);
         } else
             doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/administrateur.html").forward(request, response);
-
+        getServletContext().getRequestDispatcher("/accueilAdmin").forward(request, response);
     }
 }

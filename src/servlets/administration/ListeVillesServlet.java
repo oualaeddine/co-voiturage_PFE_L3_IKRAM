@@ -15,16 +15,15 @@ import java.util.LinkedList;
 public class ListeVillesServlet extends HttpServlet {
 	
 	 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	        LinkedList<Object> villes = new VillesDAO().getAll();
+         LinkedList<Ville> villes = new VillesDAO().getAll();
 	        if (villes.size() > 0) {
-	    		request.setAttribute("villes", villes);	
-	            getServletContext().getRequestDispatcher("/liste de ville.jsp").forward(request, response);
+	    		request.setAttribute("villes", villes);
+                getServletContext().getRequestDispatcher("/espace_admin/liste de ville.jsp").forward(request, response);
 	        } else
 	            doGet(request, response);
 	    }
 
 	    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	        getServletContext().getRequestDispatcher("/administrateur.html").forward(request, response);
-
+            getServletContext().getRequestDispatcher("/accueilAdmin").forward(request, response);
 	    }
 }

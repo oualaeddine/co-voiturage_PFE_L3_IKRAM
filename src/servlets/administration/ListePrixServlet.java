@@ -1,6 +1,5 @@
 package servlets.administration;
 
-import model.beans.Itiniraire;
 import model.db.dao.ItiniraireDAO;
 
 import javax.servlet.ServletException;
@@ -17,13 +16,13 @@ public class ListePrixServlet extends HttpServlet {
         LinkedList<Object> itiniraires = new ItiniraireDAO().getAll();
         if (itiniraires.size() > 0) {
             request.setAttribute("itiniraires", itiniraires);
-            getServletContext().getRequestDispatcher("/liste de prix.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/espace_admin/liste de prix.jsp").forward(request, response);
         } else
             doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/administrateur.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/accueilAdmin").forward(request, response);
 
     }
 }

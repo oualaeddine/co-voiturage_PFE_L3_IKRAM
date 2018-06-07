@@ -14,7 +14,8 @@ public class ResultatServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("").forward(request, response);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // getServletContext().getRequestDispatcher("").forward(request, response);
+        response.getWriter().append("hedi la page lazm tetcrea");
     }
 }

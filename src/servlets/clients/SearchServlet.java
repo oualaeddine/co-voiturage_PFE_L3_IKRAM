@@ -27,10 +27,10 @@ public class SearchServlet extends HttpServlet {
                     LinkedList<Trajet> trajets = new TrajetsDAO().getByDate(depart, arrive, date);
 
                     if (trajets.size() > 0)
-                        getServletContext().getRequestDispatcher("/resultat/resultat.jsp").forward(request, response);
+                        //getServletContext().getRequestDispatcher("/resultat/resultat.jsp").forward(request, response);
+                        response.getWriter().append("hedi la page lazm tetcrea");
                     else
                         doGet(request, response);
-
                     break;
                 }
                 case "add": {
@@ -49,6 +49,7 @@ public class SearchServlet extends HttpServlet {
                         Date _date = Util.getDateFromString(date);
                         trajet.setDate(_date);
                         new TrajetsDAO().add(trajet);
+
                         LinkedList<Trajet> trajets = new TrajetsDAO().getByDate(depart, arrive, date);
 
                         if (trajets.size() > 0)

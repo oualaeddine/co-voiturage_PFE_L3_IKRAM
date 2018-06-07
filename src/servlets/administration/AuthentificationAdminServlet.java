@@ -24,7 +24,7 @@ public class AuthentificationAdminServlet extends HttpServlet {
             HttpSession session = request.getSession(true);
             session.setAttribute("admin", loggedInAdmin);
 
-            response.sendRedirect("/administrateur.html");
+            response.sendRedirect("/accueilAdmin");
 
             System.out.println("login : true");
         } else {

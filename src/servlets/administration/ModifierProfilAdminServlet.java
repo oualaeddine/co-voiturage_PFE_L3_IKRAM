@@ -31,16 +31,16 @@ public class ModifierProfilAdminServlet extends HttpServlet {
 
         if (new AdminDAO().editProfile(admin.getEmail(), nom, prenom, email, password, dateNaissance, sexe)) {
             System.out.println("Edit : true");
-            response.sendRedirect("/administrateur.html");
+            response.sendRedirect("/accueilAdmin");
         } else {
-            getServletContext().getRequestDispatcher("/profil.html").forward(request, response);
+            getServletContext().getRequestDispatcher("/espace_admin/profil.jsp").forward(request, response);
             System.out.println("Edit : false");
         }
     }
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        getServletContext().getRequestDispatcher("/espace_admin/profil.jsp").forward(request, response);
     }
 
 }

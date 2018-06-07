@@ -20,19 +20,19 @@ public class AjouterPrixServlet extends HttpServlet {
         if (new ItiniraireDAO().addItiniraire(depart, arrive, prix)) {
             System.out.println("ajouterPrix : true");
             try {
-                response.sendRedirect("/administrateur.jsp");
+                response.sendRedirect("/accueilAdmin");
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
         } else {
-            getServletContext().getRequestDispatcher("/ajouter prix.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/espace_admin/ajouter prix.jsp").forward(request, response);
             System.out.println("ajouterPrix : false");
         }
     }
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-// TODO: 6/6/2018
+        getServletContext().getRequestDispatcher("/espace_admin/ajouter prix.jsp").forward(request, response);
     }
 }
