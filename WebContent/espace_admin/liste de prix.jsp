@@ -1,21 +1,21 @@
 <%@ page import="model.beans.Trajet" %>
 <%@ page import="java.util.LinkedList" %>
 <%@
-	page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"    
+        page language="java" contentType="text/html; charset=ISO-8859-1"
+             pageEncoding="ISO-8859-1"
 %>
 
 <%!
-	LinkedList<Trajet> trajets;
+    LinkedList<Trajet> trajets;
 %>
-	
-<% 
-	session=request.getSession(false);
-	trajets=(LinkedList<Trajet> )request.getAttribute("trajets");
+
+<%
+    session = request.getSession();
+    trajets = (LinkedList<Trajet>) request.getAttribute("trajets");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -99,17 +99,28 @@
 
                     <tbody>
                     <%
-						for(int i=0;i<trajets.size();i++){
-					%>
+                        for (Trajet trajet : trajets) {
+                            System.out.println(trajet);
+                    %>
                     <tr>
-                        <td><%=trajets.get(i).getId()%></td>
-                        <td><%=trajets.get(i).getDepart().getName()%></td>
-                        <td><%=trajets.get(i).getArrive().getName()%></td>
-                        <td><%=trajets.get(i).getDate()%></td>
-                        <td><%=trajets.get(i).getPrix()%></td>
+                        <td><%=trajet.getId() %>
+                        </td>
+                        <td>
+                            <%=trajet.getDepart().getName() %>
+                        </td>
+                        <td>
+                            <%=trajet.getArrive().getName() %>
+                        </td>
+                        <td>
+                            <%=trajet.getDate() %>
+                        </td>
+                        <td>
+                            <%=trajet.getPrix() %>
+                        </td>
                     </tr>
-                    <% 
-                   		} 
+
+                    <%
+                        }
                     %>
 
                     </tbody>

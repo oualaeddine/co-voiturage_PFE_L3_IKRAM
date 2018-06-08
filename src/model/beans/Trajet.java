@@ -87,16 +87,18 @@ public class Trajet {
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+	@Override
+	public String toString() {
+		return "Trajet{" +
+				"id=" + id +
+				", nombrePlaces=" + nombrePlaces +
+				", etat=" + etat +
+				", createur=" + createur +
+				", date=" + date +
+				", depart=" + depart +
+				", arrive=" + arrive +
+				", prix=" + prix +
+				", typeVéhicule='" + typeVéhicule + '\'' +
+				'}';
+	}
 }

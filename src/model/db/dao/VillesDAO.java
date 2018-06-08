@@ -46,7 +46,6 @@ public class VillesDAO extends DAO implements DAOInterface {
         Ville ville = (Ville) object;
         try {
             statement.execute("insert into `" + TABLE_NAME + "`(name) values ('" + ville.getName() + "')");
-
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
