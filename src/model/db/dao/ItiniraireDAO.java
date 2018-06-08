@@ -22,7 +22,20 @@ public class ItiniraireDAO extends DAO implements DAOInterface {
 
             LinkedList<Itiniraire> itiniraires = new LinkedList<>();
             while (result.next()) {
-                Itiniraire itiniraire = (Itiniraire) this.resultSetToObject(result);
+                int id = result.getInt("id");
+                int depart = result.getInt("ville_depart");
+                int arrive = result.getInt("ville_depart");
+                float prix = result.getInt("prix");
+
+                VillesDAO villesDAO = new VillesDAO();
+                Ville v_depart = (Ville) villesDAO.getById(depart);
+                Ville v_arrive = (Ville) villesDAO.getById(arrive);
+
+                Itiniraire itiniraire = new Itiniraire();
+                itiniraire.setArrive(v_arrive);
+                itiniraire.setDepart(v_depart);
+                itiniraire.setPrix(prix);
+                itiniraire.setId(id);
                 itiniraires.add(itiniraire);
             }
             return itiniraires;
@@ -94,13 +107,14 @@ public class ItiniraireDAO extends DAO implements DAOInterface {
         return false;
     }
 
-	public Itiniraire getByVille(Ville v_depart, Ville v_arrive) {
-		ResultSet result;
+    public Itiniraire getByVille(Ville v_depart, Ville v_arrive) {
+        ResultSet result;
         try {
-            result = statement.executeQuery("SELECT * FROM `" + TABLE_NAME + "` WHERE ville_depart=" + v_depart.getId() +"AND ville_arrive="+v_arrive.getId() + ";");
+            result = statement.executeQuery("SELECT * FROM `" + TABLE_NAME + "` WHERE ville_depart=" + v_depart.getId() + "AND ville_arrive=" + v_arrive.getId() + ";");
             return (Itiniraire) resultSetToObject(result);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;	}
+        return null;
+    }
 }
