@@ -83,7 +83,7 @@ public class TrajetsDAO extends DAO implements DAOInterface {
                 int nombrePlaces = resultSet.getInt("nombrePlaces");
                 String typeVéhicule = resultSet.getString("typeVéhicule");
                 
-                Time heure=resultSet.getTime(heure);
+                Time heure=resultSet.getTime("heure");
 
 
                 VillesDAO villesDAO = new VillesDAO();
