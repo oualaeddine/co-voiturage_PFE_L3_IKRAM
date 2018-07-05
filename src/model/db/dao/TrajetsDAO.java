@@ -71,4 +71,10 @@ public class TrajetsDAO extends DAO implements DAOInterface {
         return null;
     }
 
+	@Override
+	public Object resultSetToObject(ResultSet resultSet) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
