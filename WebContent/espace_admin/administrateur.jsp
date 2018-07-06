@@ -1,3 +1,8 @@
+<%@ 
+	page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"    
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -51,7 +56,7 @@
     <div class="header">
 
 
-        <div class="right_header"><a href="#" class="logout">Déconnexion</a></div>
+        <div class="right_header"><a href="#" class="logout">D�connexion</a></div>
         <div id="clock_a"></div>
     </div>
 
@@ -59,7 +64,7 @@
 
         <div class="menu">
             <ul>
-                <li><a class="current" href="administrateur.html">Espace Admin </a></li>
+                <li><a class="current" href="administrateur.jsp">Espace Admin </a></li>
 
             </ul>
         </div>
@@ -71,19 +76,12 @@
             <div class="left_content">
 
                 <div class="sidebarmenu">
-
-                    <a class="menuitem " href="ajouter ville.html">Ajouter villes</a>
-
-
-                    <a class="menuitem " href=" ajouter prix.html">Ajouter prix</a>
-
-                    <a class="menuitem" href="liste de prix.html">Liste de prix</a>
-                    <a class="menuitem" href="liste de ville.html">Liste de villes </a>
-
-                    <a class="menuitem" href="liste utilisateur.html">Liste d'utilisateurs</a>
-
-                    <a class="menuitem_red" href="profil.html">Profil</a>
-
+                    <a class="menuitem" href="ajouter ville.html">Ajouter villes</a>
+                    <a class="menuitem" href="ajouter prix.jsp">Ajouter prix</a>
+                    <a class="menuitem" href="<%=request.getContextPath()+"/ListePrix"%>">Liste de prix</a>
+                    <a class="menuitem" href="<%=request.getContextPath()+"/ListeVilles"%>">Liste de villes </a>
+                    <a class="menuitem" href="<%=request.getContextPath()+"/ListeClients"%>">Liste d'utilisateurs</a>
+                    <a class="menuitem" href="profil.jsp">Profil</a>
                 </div>
 
 
@@ -100,15 +98,15 @@
                 <h2></h2>
 
                 <div class="form">
-                    <form action="" method="post" class="niceform">
+                    <form action="/accueilAdmin" method="post" class="niceform">
 
                         <fieldset>
 
 
                             <dl>
-                                <dt><label for="gender">ville de départ:</label></dt>
+                                <dt><label for="depart">ville de d�part:</label></dt>
                                 <dd>
-                                    <select size="1" name="gender" id="">
+                                    <select size="1" name="depart" id="">
                                         <option value=""></option>
                                         <option value="">Adar</option>
                                         <option value="">Chlef</option>
@@ -122,17 +120,15 @@
                                         <option value="">Bouira</option>
                                         <option value="">Tamanrasset</option>
                                         <option value="">Tébessa</option>
-
-
                                     </select>
                                 </dd>
                             </dl>
 
 
                             <dl>
-                                <dt><label for="gender">ville d'arrivée:</label></dt>
+                                <dt><label for="arrive">ville d'arriv�e:</label></dt>
                                 <dd>
-                                    <select size="1" name="gender" id="">
+                                    <select size="1" name="arrive" id="">
                                         <option value=""></option>
                                         <option value="">Adar</option>
                                         <option value="">Chlef</option>
@@ -142,32 +138,30 @@
                                         <option value="">Béjaia</option>
                                         <option value="">Biskra</option>
                                         <option value="">Béchar</option>
-
-
                                     </select>
                                 </dd>
                             </dl>
 
                             <dl>
                                 <dt><label for="prix">Prix:</label></dt>
-                                <dd><input type="text" name=""/></dd>
+                                <dd><input type="text" name="prix"/></dd>
                             </dl>
 
                             <dl>
                                 <dt><label for="places">Nombres de places:</label></dt>
-                                <dd><input type="text" name=""/></dd>
+                                <dd><input type="text" name="places"/></dd>
                             </dl>
 
                             <dl>
-                                <dt><label for="interests">Type de vehicule:</label></dt>
+                                <dt><label for="type">Type de vehicule:</label></dt>
                                 <dd>
-                                    <input type="checkbox" name="interests[]" id="" value=""/><label
+                                    <input type="checkbox" name="type" id="" value="automobile"/><label
                                         class="check_label">Automobile</label>
-                                    <input type="checkbox" name="interests[]" id="" value=""/><label
+                                    <input type="checkbox" name="type" id="" value="autobus"/><label
                                         class="check_label">Autobus</label>
-                                    <input type="checkbox" name="interests[]" id="" value=""/><label
-                                        class="check_label">autocar</label>
-                                    <input type="checkbox" name="interests[]" id="" value=""/><label
+                                    <input type="checkbox" name="type" id="" value="autocar"/><label
+                                        class="check_label">Autocar</label>
+                                    <input type="checkbox" name="type" id="" value="Camion"/><label
                                         class="check_label">Camion</label>
                                 </dd>
                             </dl>

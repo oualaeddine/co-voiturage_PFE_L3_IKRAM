@@ -47,7 +47,7 @@ public class ClientsDAO extends DAO implements DAOInterface {
 
     public boolean updatePassword(String pwd, int id) {
         try {
-            statement.execute("UPDATE `" + TABLE_NAME + "` SET password = '" + pwd + "' WHERE id=" + id);
+            statement.execute("UPDATE `" + TABLE_NAME + "` SET password = '" + pwd + "' WHERE id=" + id+ ";");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -78,7 +78,20 @@ public class ClientsDAO extends DAO implements DAOInterface {
     }
 
     @Override
-    public LinkedList getAll() {
+    public LinkedList<User> getAll() {
+    	 ResultSet result;
+         try {
+             result = statement.executeQuery("SELECT * FROM `" + TABLE_NAME + "`;");
+
+             LinkedList<User> clients = new LinkedList<>();
+             while (result.next()) {
+            	 User client=this.resultSetToObject(result.next());
+            	 clients.add(client);
+             }
+             return clients;
+         } catch (SQLException e) {
+             e.printStackTrace();
+         }
         return null;
     }
 

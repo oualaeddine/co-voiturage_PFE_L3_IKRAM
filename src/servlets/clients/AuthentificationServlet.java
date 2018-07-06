@@ -1,4 +1,4 @@
-package servlets;
+package servlets.clients;
 
 import model.beans.User;
 import model.db.dao.ClientsDAO;
@@ -26,14 +26,13 @@ public class AuthentificationServlet extends HttpServlet {
                         HttpSession session = request.getSession(true);
                         session.setAttribute("user", loggedInUser);
 
-                        response.sendRedirect("/recherche");
+                        response.sendRedirect("/recherche/rechercher.html");
 
                         System.out.println("login : true");
-                    } else
-                        // TODO: 5/25/2018 error
+                    } else {
                         System.out.println("login : false");
                     getServletContext().getRequestDispatcher("/connexion/connexion.html").forward(request, response);
-
+                    }
                     break;
                 }
                 case "signup": {
@@ -48,7 +47,7 @@ public class AuthentificationServlet extends HttpServlet {
                         HttpSession session = request.getSession(true);
                         session.setAttribute("user", loggedInUser);
 
-                        response.sendRedirect("/recherche");
+                        response.sendRedirect("/recherche/rechercher.html");
 
                     } else {
                         getServletContext().getRequestDispatcher("/connexion/connexion.html").forward(request, response);

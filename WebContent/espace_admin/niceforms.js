@@ -584,7 +584,7 @@ function selects(el) { //extend Selects
         if (e.stopPropagation) e.stopPropagation();
         var reltg = (e.relatedTarget) ? e.relatedTarget : e.toElement;
         if ((reltg.nodeName == 'A') || (reltg.nodeName == 'LI') || (reltg.nodeName == 'UL')) return;
-        if ((reltg.nodeName == 'DIV') || (reltg.className == 'NFSelectTarget'))
+        if ((reltg.nodeName == 'DIV') || (reltg.className == 'NFSelectTarget')) // ki yodkhol ll if wech ydir 
         else
         {
             this.style.display = "none";
@@ -596,7 +596,7 @@ function selects(el) { //extend Selects
         if (e.stopPropagation) e.stopPropagation();
         var reltg = (e.relatedTarget) ? e.relatedTarget : e.toElement;
         if ((reltg.nodeName == 'A') || (reltg.nodeName == 'LI') || (reltg.nodeName == 'UL')) return;
-        if ((reltg.nodeName == 'DIV') || (reltg.className == 'NFSelectTarget'))
+        if ((reltg.nodeName == 'DIV') || (reltg.className == 'NFSelectTarget')) //w hna tani kifkif
         else
         {
             this.ref.bg.style.display = "none";

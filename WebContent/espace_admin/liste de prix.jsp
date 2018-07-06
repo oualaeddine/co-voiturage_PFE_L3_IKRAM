@@ -1,3 +1,17 @@
+<%@ 
+	page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"    
+%>
+
+<%!
+	LinkedList<Itiniraire> itiniraires;
+%>
+	
+<% 
+	session=request.getSession(false);
+	itiniraires=(LinkedList<Itiniraire> )request.getAttribute("itiniraires");
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -54,18 +68,18 @@
     <div class="main_content">
         <div class="menu">
             <ul>
-                <li><a class="current" href="ville.html">Espace Admin </a></li>
+                <li><a class="current" href="administrateur.jsp">Espace Admin </a></li>
             </ul>
         </div>
         <div class="center_content">
             <div class="left_content">
                 <div class="sidebarmenu">
-                    <a class="menuitem " href="">Ajouter villes</a>
-                    <a class="menuitem " href="">Ajouter prix</a>
-                    <a class="menuitem" href="">Liste de prix</a>
-                    <a class="menuitem" href="">Liste de villes </a>
-                    <a class="menuitem" href="">Liste d'utilisateurs</a>
-                    <a class="menuitem_red" href="">Profil</a>
+                    <a class="menuitem" href="ajouter ville.html">Ajouter villes</a>
+                    <a class="menuitem" href="ajouter prix.jsp">Ajouter prix</a>
+                    <a class="menuitem_red" href="<%=request.getContextPath()+"/ListePrix"%>">Liste de prix</a>
+                    <a class="menuitem" href="<%=request.getContextPath()+"/ListeVilles"%>">Liste de villes </a>
+                    <a class="menuitem" href="<%=request.getContextPath()+"/ListeClients"%>">Liste d'utilisateurs</a>
+                    <a class="menuitem" href="profil.jsp">Profil</a>
                 </div>
             </div>
             <div class="right_content">
@@ -81,20 +95,17 @@
                     </thead>
 
                     <tbody>
+                    <%
+						for(int i=0;i<itiniraires.size();i++){
+					%>
                     <tr>
-
-                        <td>Alger</td>
-
-                        <td>Blida</td>
-                        <td>300 Da</td>
+                        <td><%=itiniraires.get(i).getDepart().getName()%></td>
+                        <td><%=itiniraires.get(i).getArrive().getName()%></td>
+                        <td><%=itiniraires.get(i).getPrix()%></td>
                     </tr>
-                    <tr>
-
-                        <td>Tébessa</td>
-
-                        <td>Khenchla</td>
-                        <td>250 Da</td>
-                    </tr>
+                    <% 
+                   		} 
+                    %>
 
                     </tbody>
                 </table>

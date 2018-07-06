@@ -1,9 +1,13 @@
+<%@ 
+	page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"    
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>IN ADMIN PANEL | Powered by INDEZINER</title>
+    <title>Espace Admin | Ty trips </title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <script type="text/javascript" src="clockp.js"></script>
     <script type="text/javascript" src="clockh.js"></script>
@@ -47,73 +51,113 @@
 </head>
 <body>
 <div id="main_container">
+
     <div class="header">
+
+
         <div class="right_header"><a href="#" class="logout">Déconnexion</a></div>
         <div id="clock_a"></div>
     </div>
+
+
     <div class="main_content">
+
         <div class="menu">
             <ul>
-                <li><a class="current" href="liste utilisateur.html">Espace Admin </a></li>
+                <li><a class="current" href="administrateur.jsp">Espace Admin </a></li>
+
             </ul>
         </div>
+
+
         <div class="center_content">
+
+
             <div class="left_content">
+
                 <div class="sidebarmenu">
-                    <a class="menuitem " href="">Ajouter villes</a>
-                    <a class="menuitem " href="">Ajouter prix</a>
-                    <a class="menuitem" href="">Liste de prix</a>
-                    <a class="menuitem" href="">Liste de villes </a>
-                    <a class="menuitem" href="">Liste d'utilisateurs</a>
-                    <a class="menuitem_red" href="">Profil</a>
+                    <a class="menuitem" href="ajouter ville.html">Ajouter villes</a>
+                    <a class="menuitem" href="ajouter prix.jsp">Ajouter prix</a>
+                    <a class="menuitem" href="<%=request.getContextPath()+"/ListePrix"%>">Liste de prix</a>
+                    <a class="menuitem" href="<%=request.getContextPath()+"/ListeVilles"%>">Liste de villes </a>
+                    <a class="menuitem" href="<%=request.getContextPath()+"/ListeClients"%>">Liste d'utilisateurs</a>
+                    <a class="menuitem_red" href="profil.jsp">Profil</a>
                 </div>
+
+
+                <div class="sidebar_box">
+
+                </div>
+
+
             </div>
+
             <div class="right_content">
-                <h2>Liste d'utilisateurs </h2>
-                <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
-                    <thead>
-                    <tr>
-
-                        <th scope="col" class="rounded">id</th>
-                        <th scope="col" class="rounded">Nom</th>
-                        <th scope="col" class="rounded">Prénom</th>
-                        <th scope="col" class="rounded">E-mail</th>
-                        <th scope="col" class="rounded">Password</th>
 
 
-                    </tr>
-                    </thead>
+                <h2></h2>
 
-                    <tbody>
-                    <tr>
+                <div class="form">
+                    <form action="/profil" method="post" class="niceform">
 
-                        <td>01</td>
 
-                        <td> Dakhli</td>
-                        <td> Ikram</td>
-                        <td> Dakhliikram@gmail.com</td>
-                        <td> *******</td>
-                    </tr>
-                    <tr>
+                        <fieldset>
+                            <dl>
+                                <dt><label for="email">Nom :</label></dt>
+                                <dd><input type="text" name="nom" id="" size="54"/></dd>
+                            </dl>
 
-                        <td>02</td>
+                            <dl>
+                                <dt><label for="email">Prénom :</label></dt>
+                                <dd><input type="text" name="prenom" id="" size="54"/></dd>
+                            </dl>
+                            <dl>
+                                <dt><label for="email">E-mail:</label></dt>
+                                <dd><input type="text" name="email" id="" size="54"/></dd>
+                            </dl>
+                            <dl>
+                                <dt><label for="password">Mot de passe:</label></dt>
+                                <dd><input type="text" name="password" id="" size="54"/></dd>
+                            </dl>
 
-                        <td> Abidi</td>
-                        <td> Nihad</td>
-                        <td> AbidiNihadd@gmail.com</td>
-                        <td> *******</td>
-                    </tr>
 
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                            <dl>
+                                <dt><label for="date">Date de naissance:</label></dt>
+                                <dd><input type="text" name="dateNaissance"/></dd>
+                            </dl>
+                            <dl>
+                                <dt><label for="color">Sexe:</label></dt>
+                                <dd>
+                                    <input type="radio" name="sexe" id="optionsRadios1" value="femme"/><label
+                                        class="check_label">Femme</label>
+                                    <input type="radio" name="sexe" id="optionsRadios2" value="homme"/><label
+                                        class="check_label">Homme</label>
+
+                                </dd>
+                            </dl>
+
+
+                            <dl class="submit">
+                                <input type="submit" name="submit" id="submit" value="Valider"/>
+                            </dl>
+
+
+                        </fieldset>
+
+                    </form>
+                </div>
+
+
+            </div><!-- end of right content-->
+
+
+        </div>   <!--end of center content -->
+
+
         <div class="clear"></div>
-    </div><!-- end of right content-->
+    </div> <!--end of main content-->
 
 
-</div>   <!--end of center content -->
-
-
+</div>
 </body>
 </html>

@@ -1,3 +1,16 @@
+<%@ 
+	page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"    
+%>
+
+<%!
+	LinkedList<Ville> villes;
+%>
+	
+<% 
+	session=request.getSession(false);
+	villes=(LinkedList<Ville> )request.getAttribute("villes");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -54,18 +67,18 @@
     <div class="main_content">
         <div class="menu">
             <ul>
-                <li><a class="current" href="ville.html">Espace Admin </a></li>
+                <li><a class="current" href="administrateur.jsp">Espace Admin </a></li>
             </ul>
         </div>
         <div class="center_content">
             <div class="left_content">
                 <div class="sidebarmenu">
-                    <a class="menuitem " href="">Ajouter villes</a>
-                    <a class="menuitem " href="">Ajouter prix</a>
-                    <a class="menuitem" href="">Liste de prix</a>
-                    <a class="menuitem" href="">Liste de villes </a>
-                    <a class="menuitem" href="">Liste d'utilisateurs</a>
-                    <a class="menuitem_red" href="">Profil</a>
+                    <a class="menuitem" href="ajouter ville.html">Ajouter villes</a>
+                    <a class="menuitem" href="ajouter prix.jsp">Ajouter prix</a>
+                    <a class="menuitem" href="<%=request.getContextPath()+"/ListePrix"%>">Liste de prix</a>
+                    <a class="menuitem_red" href="<%=request.getContextPath()+"/ListeVilles"%>">Liste de villes </a>
+                    <a class="menuitem" href="<%=request.getContextPath()+"/ListeClients"%>">Liste d'utilisateurs</a>
+                    <a class="menuitem" href="profil.jsp">Profil</a>
                 </div>
             </div>
             <div class="right_content">
@@ -80,18 +93,16 @@
                     </thead>
 
                     <tbody>
-                    <tr>
-
-                        <td>16</td>
-
-                        <td>Alger</td>
-                    </tr>
-                    <tr>
-
-                        <td>12</td>
-
-                        <td>Tébessa</td>
-                    </tr>
+                    	<%
+							for(int i=0;i<villes.size();i++){
+						%>
+                    	<tr>
+                        	<td><%=villes.get(i).getId()%></td>
+                        	<td><%=villes.get(i).getName()%></td>
+                    	</tr>
+                    	<% 
+                    		} 
+                    	%>
 
                     </tbody>
                 </table>

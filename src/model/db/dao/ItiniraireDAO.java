@@ -11,9 +11,25 @@ import java.util.LinkedList;
 
 public class ItiniraireDAO extends DAO implements DAOInterface {
 
+    private static String TABLE_NAME = "prix";
+
+	
     @Override
-    public LinkedList getAll() {
-        return null;
+    public LinkedList<Itiniraire> getAll() {
+    	ResultSet result;
+        try {
+            result = statement.executeQuery("SELECT * FROM `" + TABLE_NAME + "`;");
+
+            LinkedList<Itiniraire> itiniraires = new LinkedList<>();
+            while (result.next()) {
+            	Itiniraire itiniraire=this.resultSetToObject(result.next());
+            	itiniraires.add(itiniraire);
+            }
+            return villes;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+       return null;
     }
 
     @Override
@@ -35,7 +51,8 @@ public class ItiniraireDAO extends DAO implements DAOInterface {
     public boolean edit(Object object) {
         return false;
     }
-
+    
+    
     @Override
     public Object resultSetToObject(ResultSet resultSet) {
         try {
@@ -61,5 +78,15 @@ public class ItiniraireDAO extends DAO implements DAOInterface {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public boolean addItiniraire(String depart, String arrive, String prix) {
+        try {
+            statement.execute("insert into `" + TABLE_NAME + "`(ville_depart ,ville_arrive ,prix) values ('" + depart + "','" + arrive + "','" + prix+"')");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

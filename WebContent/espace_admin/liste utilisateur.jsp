@@ -1,3 +1,17 @@
+<%@ 
+	page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"    
+%>
+
+<%!
+    LinkedList<User> clients;
+%>
+	
+<% 
+	session=request.getSession(false);
+	clients=(LinkedList<User> )request.getAttribute("clients");
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -54,77 +68,66 @@
     <div class="main_content">
         <div class="menu">
             <ul>
-                <li><a class="current" href="ajouter prix.html">Espace Admin</a></li>
+                <li><a class="current" href="administrateur.jsp">Espace Admin </a></li>
             </ul>
         </div>
         <div class="center_content">
             <div class="left_content">
                 <div class="sidebarmenu">
-                    <a class="menuitem " href="">Ajouter villes</a>
-                    <a class="menuitem " href="">Ajouter prix</a>
-                    <a class="menuitem" href="">Liste de prix</a>
-                    <a class="menuitem" href="">Liste de villes </a>
-                    <a class="menuitem" href="">Liste d'utilisateurs</a>
-                    <a class="menuitem_red" href="">Profil</a>
+                    <a class="menuitem" href="ajouter ville.html">Ajouter villes</a>
+                    <a class="menuitem" href="ajouter prix.jsp">Ajouter prix</a>
+                    <a class="menuitem" href="<%=request.getContextPath()+"/ListePrix"%>">Liste de prix</a>
+                    <a class="menuitem" href="<%=request.getContextPath()+"/ListeVilles"%>">Liste de villes </a>
+                    <a class="menuitem_red" href="<%=request.getContextPath()+"/ListeClients"%>">Liste d'utilisateurs</a>
+                    <a class="menuitem" href="profil.jsp">Profil</a>
                 </div>
             </div>
-
-
             <div class="right_content">
+                <h2>Liste d'utilisateurs </h2>
+                
+                
+                
+                
+                
+                <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
+                    <thead>
+                    <tr>
 
-                <h2>Ajouter prix </h2>
-                <div class="form">
-                    <form action="" method="post" class="niceform">
-
-                        <fieldset>
-                            <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
-                                <thead>
-                                <dt><label for="gender">ville de départ:</label></dt>
-                                <dd>
-                                    <select size="1" name="gender" id="">
-                                        <option value=""></option>
-                                        <option value="">Blida</option>
-
-
-                                    </select>
-                                </dd>
-                                </dl>
+                        <th scope="col" class="rounded">id</th>
+                        <th scope="col" class="rounded">Nom</th>
+                        <th scope="col" class="rounded">Pr�nom</th>
+                        <th scope="col" class="rounded">E-mail</th>
+                        <th scope="col" class="rounded">Password</th>
 
 
-                                <dl>
-                                    <dt><label for="gender">ville d'arrivée:</label></dt>
-                                    <dd>
-                                        <select size="1" name="gender" id="">
-                                            <option value=""></option>
-                                            <option value=""> Alger</option>
-
-
-                                        </select>
-                                    </dd>
-                                </dl>
-
-                                <dl>
-                                    <dt><label for="prix">Prix:</label></dt>
-                                    <dd><input type="text" name=""/></dd>
-                                </dl>
-
-                        </fieldset>
-
-                    </form>
+                    </tr>
                     </thead>
 
                     <tbody>
-
+                    	<%
+							for(int i=0;i<clients.size();i++){
+						%>
+                    <tr>
+                        <td><%=clients.get(i).getId()%></td>
+                        <td><%=clients.get(i).getNom()%></td>
+                        <td><%=clients.get(i).getPrenom()%></td>
+                        <td><%=clients.get(i).getEmail()%></td>
+                        <td><%=clients.get(i).getPassword()%></td>
+                    </tr>
+                    	<% 
+                    		} 
+                    	%>
 
                     </tbody>
-                    </table>
-                </div>
+                </table>
             </div>
-            <div class="clear"></div>
-        </div><!-- end of right content-->
+        </div>
+        <div class="clear"></div>
+    </div><!-- end of right content-->
 
 
-    </div>   <!--end of center content -->
+</div>   <!--end of center content -->
+
 
 </body>
 </html>

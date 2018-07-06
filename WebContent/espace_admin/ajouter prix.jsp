@@ -1,3 +1,8 @@
+<%@ 
+	page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"    
+%> 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -54,60 +59,76 @@
     <div class="main_content">
         <div class="menu">
             <ul>
-                <li><a class="current" href="ajouter ville.html">Espace Admin</a></li>
+                <li><a class="current" href="administrateur.jsp">Espace Admin</a></li>
             </ul>
         </div>
         <div class="center_content">
             <div class="left_content">
                 <div class="sidebarmenu">
-                    <a class="menuitem " href="">Ajouter villes</a>
-                    <a class="menuitem " href="">Ajouter prix</a>
-                    <a class="menuitem" href="">Liste de prix</a>
-                    <a class="menuitem" href="">Liste de villes </a>
-                    <a class="menuitem" href="">Liste d'utilisateurs</a>
-                    <a class="menuitem_red" href="">Profil</a>
+                    <a class="menuitem" href="ajouter ville.html">Ajouter villes</a>
+                    <a class="menuitem_red" href="ajouter prix.jsp">Ajouter prix</a>
+                    <a class="menuitem" href="<%=request.getContextPath()+"/ListePrix"%>">Liste de prix</a>
+                    <a class="menuitem" href="<%=request.getContextPath()+"/ListeVilles"%>">Liste de villes </a>
+                    <a class="menuitem" href="<%=request.getContextPath()+"/ListeClients"%>">Liste d'utilisateurs</a>
+                    <a class="menuitem" href="profil.jsp">Profil</a>
                 </div>
             </div>
-            <div class="right_content">
-                <h2>Ajouter Villes </h2>
-                <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
-                    <thead>
-                    <tr>
 
-                        <th scope="col" class="rounded">Ville de départ</th>
-                        <th scope="col" class="rounded">Ville d'arrivée</th>
-                    </tr>
+
+            <div class="right_content">
+
+                <h2>Ajouter prix </h2>
+                <div class="form">
+                    <form action="/ajouterPrix" method="post" class="niceform">
+
+                        <fieldset>
+                            <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
+                                <thead>
+                                <dt><label for="gender">ville de d�part:</label></dt>
+                                <dd>
+                                    <select size="1" name="depart" id="">
+                                        <option value=""></option>
+                                        <option value="Blida">Blida</option>
+                                    </select>
+                                </dd>
+                                </dl>
+
+
+                                <dl>
+                                    <dt><label for="gender">ville d'arriv�e:</label></dt>
+                                    <dd>
+                                        <select size="1" name="arrive" id="">
+                                            <option value=""></option>
+                                            <option value="Alger"> Alger</option>
+                                        </select>
+                                    </dd>
+                                </dl>
+
+                                <dl>
+                                    <dt><label for="prix">Prix:</label></dt>
+                                    <dd><input type="text" name="prix"/></dd>
+                                </dl>
+
+								<dl class="submit">
+                                	<input type="submit" name="submit" id="submit" value="Ajouter"/>
+                            	</dl>
+                        </fieldset>
+
+                    </form>
                     </thead>
 
                     <tbody>
-                    <tr>
 
-                        <td>Alger</td>
 
-                        <td>Alger</td>
-                    </tr>
-                    <tr>
-
-                        <td>Tébessa</td>
-
-                        <td>Khenchla</td>
-                    </tr>
-                    <tr>
-
-                        <td>Annaba</td>
-
-                        <td>Oran</td>
-                    </tr>
                     </tbody>
-                </table>
+                    </table>
+                </div>
             </div>
-        </div>
-        <div class="clear"></div>
-    </div><!-- end of right content-->
+            <div class="clear"></div>
+        </div><!-- end of right content-->
 
 
-</div>   <!--end of center content -->
-
+    </div>   <!--end of center content -->
 
 </body>
 </html>
