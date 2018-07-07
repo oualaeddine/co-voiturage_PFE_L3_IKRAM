@@ -1,7 +1,17 @@
+<%@ page import="model.beans.Ville" %>
+<%@ page import="model.db.dao.VillesDAO" %>
+<%@ page import="java.util.LinkedList" %>
+
 <%@ 
 	page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"    
-%> 
+%>
+<%!
+	LinkedList<Object> villes;
+%>
+<% 
+	villes= new VillesDAO().getAll();
+%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -53,7 +63,7 @@
 <body>
 <div id="main_container">
     <div class="header">
-        <div class="right_header"><a href="#" class="logout">DÃ©connexion</a></div>
+        <div class="right_header"><a href="#" class="logout">Déconnexion</a></div>
         <div id="clock_a"></div>
     </div>
     <div class="main_content">
@@ -84,29 +94,45 @@
                         <fieldset>
                             <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
                                 <thead>
-                                <dt><label for="gender">ville de dï¿½part:</label></dt>
+                                <dt><label for="depart">ville de départ:</label></dt>
                                 <dd>
                                     <select size="1" name="depart" id="">
                                         <option value=""></option>
-                                        <option value="Blida">Blida</option>
+                                        <%
+                                        	if (villes.size() > 0) {
+                                        		for(int i=0;i<villes.size();i++){
+										%>
+                                        <option value="<%=villes.get(i).getName()%>"><%=villes.get(i).getName()%></option>
+                                        <% 
+                    							} 
+                                        	}
+                    					%>
                                     </select>
                                 </dd>
                                 </dl>
 
 
                                 <dl>
-                                    <dt><label for="gender">ville d'arrivï¿½e:</label></dt>
+                                    <dt><label for="arrive">ville d'arrivée:</label></dt>
                                     <dd>
                                         <select size="1" name="arrive" id="">
                                             <option value=""></option>
-                                            <option value="Alger"> Alger</option>
+                                            <%
+                                        		if (villes.size() > 0) {
+                                        			for(int i=0;i<villes.size();i++){
+											%>
+                                            <option value="<%=villes.get(i).getName()%>"> <%=villes.get(i).getName()%></option>
+                                            <% 
+                    								} 
+                                        		}
+                    						%>
                                         </select>
                                     </dd>
                                 </dl>
 
                                 <dl>
                                     <dt><label for="prix">Prix:</label></dt>
-                                    <dd><input type="text" name="prix"/></dd>
+                                    <dd><input type="text" name="prix" placeholder="prix" required=""/></dd>
                                 </dl>
 
 								<dl class="submit">

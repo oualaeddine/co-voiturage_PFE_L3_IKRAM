@@ -1,6 +1,16 @@
+<%@ page import="model.beans.Ville" %>
+<%@ page import="model.db.dao.VillesDAO" %>
+<%@ page import="java.util.LinkedList" %>
+
 <%@ 
 	page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"    
+%>
+<%!
+	LinkedList<Object> villes;
+%>
+<% 
+	villes= new VillesDAO().getAll();
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -108,18 +118,15 @@
                                 <dd>
                                     <select size="1" name="depart" id="">
                                         <option value=""></option>
-                                        <option value="">Adar</option>
-                                        <option value="">Chlef</option>
-                                        <option value="">Laghouat</option>
-                                        <option value="">Oum elBouaghi</option>
-                                        <option value="">Batna</option>
-                                        <option value="">Béjaia</option>
-                                        <option value="">Biskra</option>
-                                        <option value="">Béchar</option>
-                                        <option value="">Blida</option>
-                                        <option value="">Bouira</option>
-                                        <option value="">Tamanrasset</option>
-                                        <option value="">Tébessa</option>
+                                        <%
+                                        	if (villes.size() > 0) {
+                                        		for(int i=0;i<villes.size();i++){
+										%>
+                                        <option value="<%=villes.get(i).getName()%>"><%=villes.get(i).getName()%></option>
+                                        <% 
+                    							} 
+                                        	}
+                    					%>
                                     </select>
                                 </dd>
                             </dl>
@@ -129,27 +136,28 @@
                                 <dt><label for="arrive">ville d'arriv�e:</label></dt>
                                 <dd>
                                     <select size="1" name="arrive" id="">
-                                        <option value=""></option>
-                                        <option value="">Adar</option>
-                                        <option value="">Chlef</option>
-                                        <option value="">Laghouat</option>
-                                        <option value="">Oum elBouaghi</option>
-                                        <option value="">Batna</option>
-                                        <option value="">Béjaia</option>
-                                        <option value="">Biskra</option>
-                                        <option value="">Béchar</option>
-                                    </select>
+                                            <option value=""></option>
+                                            <%
+                                        		if (villes.size() > 0) {
+                                        			for(int i=0;i<villes.size();i++){
+											%>
+                                            <option value="<%=villes.get(i).getName()%>"> <%=villes.get(i).getName()%></option>
+                                            <% 
+                    								} 
+                                        		}
+                    						%>
+                                   </select>
                                 </dd>
                             </dl>
 
                             <dl>
                                 <dt><label for="prix">Prix:</label></dt>
-                                <dd><input type="text" name="prix"/></dd>
+                                <dd><input type="text" name="prix" placeholder="prix" required=""/></dd>
                             </dl>
 
                             <dl>
                                 <dt><label for="places">Nombres de places:</label></dt>
-                                <dd><input type="text" name="places"/></dd>
+                                <dd><input type="text" name="places" placeholder="Nombres de places" required=""/></dd>
                             </dl>
 
                             <dl>
@@ -169,7 +177,7 @@
 
                             <dl>
                                 <dt><label for="upload">Importer un fichier:</label></dt>
-                                <dd><input type="file" name="upload" id="upload"/></dd>
+                                <dd><input type="file" name="upload" required=""id="upload"/></dd>
                             </dl>
 
 

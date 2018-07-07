@@ -73,46 +73,40 @@
                     <a class="menuitem" href="profil.jsp">Profil</a>
                 </div>
             </div>
-            <div class="right_content">
-                <h2>Ajouter Villes </h2>
-                <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
-                    <thead>
-                    <tr>
 
-                        <th scope="col" class="rounded">Ville de départ</th>
-                        <th scope="col" class="rounded">Ville d'arrivée</th>
-                    </tr>
+
+            <div class="right_content">
+
+                <h2>Ajouter ville </h2>
+                <div class="form">
+                    <form action="/ajouterVille" method="post" class="niceform">
+                        <fieldset>
+                            <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
+                                <thead>
+                                <dl>
+                                    <dt><label for="prix">Ville :</label></dt>
+                                    <dd><input type="text" name="ville" placeholder="ville" required=""/></dd>
+                                </dl>
+
+								<dl class="submit">
+                                	<input type="submit" name="submit" id="submit" value="Ajouter"/>
+                            	</dl>
+                        </fieldset>
+                    </form>
                     </thead>
 
                     <tbody>
-                    <tr>
 
-                        <td>Alger</td>
 
-                        <td>Alger</td>
-                    </tr>
-                    <tr>
-
-                        <td>Tébessa</td>
-
-                        <td>Khenchla</td>
-                    </tr>
-                    <tr>
-
-                        <td>Annaba</td>
-
-                        <td>Oran</td>
-                    </tr>
                     </tbody>
-                </table>
+                    </table>
+                </div>
             </div>
-        </div>
-        <div class="clear"></div>
-    </div><!-- end of right content-->
+            <div class="clear"></div>
+        </div><!-- end of right content-->
 
 
-</div>   <!--end of center content -->
-
+    </div>   <!--end of center content -->
 
 </body>
 </html>

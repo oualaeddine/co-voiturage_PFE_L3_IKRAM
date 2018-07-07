@@ -1,5 +1,6 @@
 package model.db.dao;
 
+import model.beans.Trajet;
 import model.beans.Ville;
 import model.db.DAO;
 import model.db.DAOInterface;
@@ -16,6 +17,7 @@ public class VillesDAO extends DAO implements DAOInterface {
     public LinkedList<Object> getAll() {
         ResultSet result;
         try {
+        	
             result = statement.executeQuery("SELECT * FROM `" + TABLE_NAME + "`;");
 
             LinkedList<Object> villes = new LinkedList<>();
@@ -38,6 +40,13 @@ public class VillesDAO extends DAO implements DAOInterface {
     @Override
     public boolean add(Object object) {
         Ville ville = (Ville) object;
+        try {
+            statement.execute("insert into `" + TABLE_NAME + "`(name) values ('"+ ville.getName() +"')");
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 
