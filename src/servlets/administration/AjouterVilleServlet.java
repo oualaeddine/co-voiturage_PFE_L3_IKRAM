@@ -15,24 +15,30 @@ import java.io.IOException;
 public class AjouterVilleServlet extends MyServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nom = request.getParameter("ville");
-        Ville ville = new Ville();
-        ville.setName(nom);
-        if (new VillesDAO().add(ville)) {
-            System.out.println("ajouterVille : true");
-            try {
-                response.sendRedirect("/accueilAdmin");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    	if (isLoggedIn()) {
+    		String nom = request.getParameter("ville");
+    		Ville ville = new Ville();
+    		ville.setName(nom);
+    		if (new VillesDAO().add(ville)) {
+    			System.out.println("ajouterVille : true");
+    			try {
+    				response.sendRedirect("/accueilAdmin");
+    			} catch (IOException e) {
+    				e.printStackTrace();
+    			}
 
-        } else {
-            getServletContext().getRequestDispatcher("/espace_admin/ajouter ville.jsp").forward(request, response);
-            System.out.println("ajouterVille : false");
-        }
+    		} else {
+    			getServletContext().getRequestDispatcher("/espace_admin/ajouter ville.jsp").forward(request, response);
+    			System.out.println("ajouterVille : false");
+    		}
+    	} else
+            redirectToLogin(response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/espace_admin/ajouter ville.jsp").forward(request, response);
+        if (isLoggedIn()) {
+        	getServletContext().getRequestDispatcher("/espace_admin/ajouter ville.jsp").forward(request, response);
+        } else
+            redirectToLogin(response);
     }
 }

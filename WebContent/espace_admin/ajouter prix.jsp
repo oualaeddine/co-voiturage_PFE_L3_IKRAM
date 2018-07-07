@@ -63,7 +63,7 @@
 <body>
 <div id="main_container">
     <div class="header">
-        <div class="right_header"><a href="#" class="logout">Déconnexion</a></div>
+        <div class="right_header"><a href="<%=request.getContextPath()+"/logout"%>" class="logout">DÃ©connexion</a></div>
         <div id="clock_a"></div>
     </div>
     <div class="main_content">
@@ -94,7 +94,7 @@
                         <fieldset>
                             <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
                                 <thead>
-                                <dt><label for="depart">ville de départ:</label></dt>
+                                <dt><label for="depart">ville de dï¿½part:</label></dt>
                                 <dd>
                                     <select size="1" name="depart" id="depart">
                                         <option value=""></option>
@@ -114,7 +114,7 @@
 
 
                                 <dl>
-                                    <dt><label for="arrive">ville d'arrivée:</label></dt>
+                                    <dt><label for="arrive">ville d'arrivï¿½e:</label></dt>
                                     <dd>
                                         <select size="1" name="arrive" id="arrive">
                                             <option value=""></option>

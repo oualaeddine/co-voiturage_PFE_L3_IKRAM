@@ -16,18 +16,23 @@ import java.util.LinkedList;
 public class ListeVillesServlet extends MyServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        LinkedList<Ville> villes = new VillesDAO().getAll();
-        if (villes.size() > 0) {
-            request.setAttribute("villes", villes);
-            getServletContext().getRequestDispatcher("/espace_admin/liste de ville.jsp").forward(request, response);
+        if (isLoggedIn()) {
+        	LinkedList<Ville> villes = new VillesDAO().getAll();
+        	if (villes.size() > 0) {
+        		request.setAttribute("villes", villes);
+        		getServletContext().getRequestDispatcher("/espace_admin/liste de ville.jsp").forward(request, response);
+        	} else
+        		doGet(request, response);
         } else
-            doGet(request, response);
+            redirectToLogin(response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        LinkedList<Ville> villes = new VillesDAO().getAll();
-        request.setAttribute("villes", villes);
-        getServletContext().getRequestDispatcher("/espace_admin/liste de ville.jsp").forward(request, response);
-
+        if (isLoggedIn()) {
+        	LinkedList<Ville> villes = new VillesDAO().getAll();
+        	request.setAttribute("villes", villes);
+        	getServletContext().getRequestDispatcher("/espace_admin/liste de ville.jsp").forward(request, response);
+        } else
+            redirectToLogin(response);
     }
 }

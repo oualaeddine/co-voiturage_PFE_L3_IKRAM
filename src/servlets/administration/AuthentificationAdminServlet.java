@@ -15,28 +15,33 @@ import java.io.IOException;
 @WebServlet(name = "AuthentificationAdminServlet", urlPatterns = "/authentification")
 public class AuthentificationAdminServlet extends MyServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (isLoggedIn()) {
+        	String email = request.getParameter("email");
+        	String password = request.getParameter("password");
 
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        	if (new AdminDAO().exists(email, password)) {
+        		User loggedInAdmin = new AdminDAO().getByEmail(email);
 
-        if (new AdminDAO().exists(email, password)) {
-            User loggedInAdmin = new AdminDAO().getByEmail(email);
+        		HttpSession session = request.getSession(true);
+        		session.setAttribute("admin", loggedInAdmin);
 
-            HttpSession session = request.getSession(true);
-            session.setAttribute("admin", loggedInAdmin);
+        		response.sendRedirect("/accueilAdmin");
 
-            response.sendRedirect("/accueilAdmin");
-
-            System.out.println("login : true");
-        } else {
-            System.out.println("login : false");
-            getServletContext().getRequestDispatcher("/espace_admin/connexion.html").forward(request, response);
-        }
+        		System.out.println("login : true");
+        	} else {
+        		System.out.println("login : false");
+        		getServletContext().getRequestDispatcher("/espace_admin/connexion.html").forward(request, response);
+        	}
+        } else
+            redirectToLogin(response);
     }
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/espace_admin/connexion.html").forward(request, response);
+        if (isLoggedIn()) {
+        	getServletContext().getRequestDispatcher("/espace_admin/connexion.html").forward(request, response);
+        } else
+            redirectToLogin(response);
     }
 
 }

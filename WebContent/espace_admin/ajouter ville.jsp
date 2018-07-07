@@ -53,7 +53,7 @@
 <body>
 <div id="main_container">
     <div class="header">
-        <div class="right_header"><a href="#" class="logout">Déconnexion</a></div>
+        <div class="right_header"><a href="<%=request.getContextPath()+"/logout"%>" class="logout">DÃ©connexion</a></div>
         <div id="clock_a"></div>
     </div>
     <div class="main_content">

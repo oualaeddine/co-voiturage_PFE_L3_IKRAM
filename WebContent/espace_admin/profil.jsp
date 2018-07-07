@@ -1,6 +1,14 @@
+<%@ page import="model.beans.User" %>
 <%@
         page language="java" contentType="text/html; charset=ISO-8859-1"
              pageEncoding="ISO-8859-1"
+%>
+<%!
+	User admin;
+%>
+<% 
+	session=request.getSession(false);
+    admin=(User)session.getAttribute("admin");                        		
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -55,7 +63,7 @@
     <div class="header">
 
 
-        <div class="right_header"><a href="#" class="logout">Déconnexion</a></div>
+        <div class="right_header"><a href="<%=request.getContextPath()+"/logout"%>" class="logout">DÃ©connexion</a></div>
         <div id="clock_a"></div>
     </div>
 
@@ -104,26 +112,26 @@
                         <fieldset>
                             <dl>
                                 <dt><label for="nom">Nom :</label></dt>
-                                <dd><input type="text" name="nom" id="nom" size="54"/></dd>
+                                <dd><input type="text" name="nom" id="nom" size="54" value="<%=admin.getNom() %>"/></dd>
                             </dl>
 
                             <dl>
-                                <dt><label for="prenom">Prénom :</label></dt>
-                                <dd><input type="text" name="prenom" id="prenom" size="54"/></dd>
+                                <dt><label for="prenom">Prï¿½nom :</label></dt>
+                                <dd><input type="text" name="prenom" id="prenom" size="54" value="<%=admin.getPrenom() %>"/></dd>
                             </dl>
                             <dl>
                                 <dt><label for="email">E-mail:</label></dt>
-                                <dd><input type="text" name="email" id="email" size="54"/></dd>
+                                <dd><input type="text" name="email" id="email" size="54" value="<%=admin.getEmail() %>"/></dd>
                             </dl>
                             <dl>
                                 <dt><label for="password">Mot de passe:</label></dt>
-                                <dd><input type="text" name="password" id="password" size="54"/></dd>
+                                <dd><input type="text" name="password" id="password" size="54" value="<%=admin.getPassword() %>"/></dd>
                             </dl>
 
 
                             <dl>
                                 <dt><label for="date">Date de naissance:</label></dt>
-                                <dd><input type="text" id="date" name="dateNaissance"/></dd>
+                                <dd><input type="text" id="date" name="dateNaissance" value="<%=admin.getDateNaissance() %>"/></dd>
                             </dl>
                             <dl>
                                 <dt><label>Sexe:</label></dt>

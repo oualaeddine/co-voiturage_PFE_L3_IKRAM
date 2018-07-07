@@ -1,8 +1,11 @@
 package model.db.dao;
 
+import model.beans.User;
 import model.beans.Ville;
 import model.db.DAO;
 import model.db.DAOInterface;
+
+import static util.enums.UserType.ADMIN;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -63,11 +66,29 @@ public class VillesDAO extends DAO implements DAOInterface {
 
     @Override
     public Ville resultSetToObject(ResultSet resultSet) {
+    	try {
+            if (resultSet.next()) {
+
+                Ville ville = new Ville();
+                ville.setId(resultSet.getInt("id"));
+                ville.setName(resultSet.getString("name"));
+               
+                return ville;
+            } else return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
     public Ville getVilleByName(String villeName) {
-        // TODO: 6/7/2018
-        return null;
+    	 ResultSet result;
+         try {
+             result = statement.executeQuery("SELECT * FROM `" + TABLE_NAME + "` WHERE name ='" + villeName + "';");
+             return (Ville) resultSetToObject(result);
+         } catch (SQLException e) {
+             e.printStackTrace();
+         }
+         return null;
     }
 }

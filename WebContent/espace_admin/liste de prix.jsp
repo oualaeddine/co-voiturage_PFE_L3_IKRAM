@@ -64,7 +64,7 @@
 <body>
 <div id="main_container">
     <div class="header">
-        <div class="right_header"><a href="#" class="logout">Déconnexion</a></div>
+        <div class="right_header"><a href="<%=request.getContextPath()+"/logout"%>" class="logout">DÃ©connexion</a></div>
         <div id="clock_a"></div>
     </div>
     <div class="main_content">
@@ -90,8 +90,8 @@
                     <thead>
                     <tr>
 
-                        <th scope="col" class="rounded">Ville de départ</th>
-                        <th scope="col" class="rounded">Ville d'arrivée</th>
+                        <th scope="col" class="rounded">Ville de dï¿½part</th>
+                        <th scope="col" class="rounded">Ville d'arrivï¿½e</th>
                         <th scope="col" class="rounded">Prix</th>
                     </tr>
                     </thead>

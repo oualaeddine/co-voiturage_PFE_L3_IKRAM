@@ -16,34 +16,40 @@ import java.io.IOException;
 public class AjouterPrixServlet extends MyServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String depart = request.getParameter("depart");
-        String arrive = request.getParameter("arrive");
-        String prix = request.getParameter("prix");
-        String places = request.getParameter("places");
-        String type = request.getParameter("type");
+        if (isLoggedIn()) {
+        	String depart = request.getParameter("depart");
+        	String arrive = request.getParameter("arrive");
+        	String prix = request.getParameter("prix");
+        	String places = request.getParameter("places");
+        	String type = request.getParameter("type");
 
-        Itiniraire itiniraire= new Itiniraire();
-        VillesDAO villesDAO = new VillesDAO();
-        itiniraire.setDepart(villesDAO.getVilleByName(depart));
-        itiniraire.setArrive(villesDAO.getVilleByName(arrive));
-        itiniraire.setPrix(Float.parseFloat(prix));
+        	Itiniraire itiniraire= new Itiniraire();
+        	VillesDAO villesDAO = new VillesDAO();
+        	itiniraire.setDepart(villesDAO.getVilleByName(depart));
+        	itiniraire.setArrive(villesDAO.getVilleByName(arrive));
+        	itiniraire.setPrix(Float.parseFloat(prix));
 
-        if (new ItiniraireDAO().addItiniraire(itiniraire)) {
-            System.out.println("ajouterPrix : true");
-            try {
-                response.sendRedirect("/accueilAdmin");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        	if (new ItiniraireDAO().addItiniraire(itiniraire)) {
+        		System.out.println("ajouterPrix : true");
+        		try {
+        			response.sendRedirect("/accueilAdmin");
+        		} catch (IOException e) {
+        			e.printStackTrace();
+        		}
 
-        } else {
-            getServletContext().getRequestDispatcher("/espace_admin/ajouter prix.jsp").forward(request, response);
-            System.out.println("ajouterPrix : false");
-        }
+        	} else {
+        		getServletContext().getRequestDispatcher("/espace_admin/ajouter prix.jsp").forward(request, response);
+        		System.out.println("ajouterPrix : false");
+        	}
+        } else
+            redirectToLogin(response);
     }
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/espace_admin/ajouter prix.jsp").forward(request, response);
+        if (isLoggedIn()) {
+        	getServletContext().getRequestDispatcher("/espace_admin/ajouter prix.jsp").forward(request, response);
+        } else
+            redirectToLogin(response);
     }
 }

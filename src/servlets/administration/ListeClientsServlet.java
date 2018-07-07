@@ -20,8 +20,11 @@ public class ListeClientsServlet extends MyServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        LinkedList<User> clients = new ClientsDAO().getAll();
-        request.setAttribute("clients", clients);
-        getServletContext().getRequestDispatcher("/espace_admin/liste utilisateur.jsp").forward(request, response);
+        if (isLoggedIn()) {
+        	LinkedList<User> clients = new ClientsDAO().getAll();
+        	request.setAttribute("clients", clients);
+        	getServletContext().getRequestDispatcher("/espace_admin/liste utilisateur.jsp").forward(request, response);
+        } else
+            redirectToLogin(response);
     }
 }

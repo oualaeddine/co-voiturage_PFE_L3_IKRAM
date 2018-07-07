@@ -19,8 +19,11 @@ public class ListePrixServlet extends MyServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        LinkedList<Itiniraire> itiniraires = new ItiniraireDAO().getAll();
-        request.setAttribute("itiniraires", itiniraires);
-        getServletContext().getRequestDispatcher("/espace_admin/liste de prix.jsp").forward(request, response);
+        if (isLoggedIn()) {
+        	LinkedList<Itiniraire> itiniraires = new ItiniraireDAO().getAll();
+        	request.setAttribute("itiniraires", itiniraires);
+        	getServletContext().getRequestDispatcher("/espace_admin/liste de prix.jsp").forward(request, response);
+        } else
+            redirectToLogin(response);
     }
 }

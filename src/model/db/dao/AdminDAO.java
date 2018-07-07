@@ -16,9 +16,9 @@ public class AdminDAO extends DAO implements DAOInterface {
 
     private static String TABLE_NAME = "admins";
 
-    public boolean editProfile(String currentEmail, String nom, String prenom, String email, String password, Date dateNaissance, String sexe) {
+    public boolean editProfile(int id, String nom, String prenom, String email, String password, Date dateNaissance, String sexe) {
         try {
-            statement.execute("UPDATE `" + TABLE_NAME + "` SET nom = '" + nom + "' , prenom = '" + prenom + "',  email ='" + email + "' ,password ='" + password + "',dateNaissance ='" + dateNaissance + "' , sexe ='" + sexe + "'   WHERE email=" + currentEmail + ";");
+            statement.execute("UPDATE `" + TABLE_NAME + "` SET nom = '" + nom + "' , prenom = '" + prenom + "',  email ='" + email + "' ,password ='" + password + "',dateNaissance ='" + dateNaissance + "' , sexe ='" + sexe + "'   WHERE id=" + id + ";");
 
             return true;
         } catch (SQLException e) {
