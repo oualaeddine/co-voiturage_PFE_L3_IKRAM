@@ -48,7 +48,7 @@ public class AuthentificationServlet extends HttpServlet {
                         session.setAttribute("user", loggedInUser);
 
                         response.sendRedirect("/recherche/rechercher.html");
-
+                        
                     } else {
                         getServletContext().getRequestDispatcher("/connexion/connexion.html").forward(request, response);
                         System.out.println("signup : false");

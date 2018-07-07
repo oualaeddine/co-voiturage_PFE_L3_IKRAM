@@ -121,7 +121,7 @@
                             </dl>
                             <dl>
                                 <dt><label for="email">E-mail:</label></dt>
-                                <dd><input type="text" name="email" id="email" size="54" value="<%=admin.getEmail() %>"/></dd>
+                                <dd><input type="email" name="email" id="email" size="54" value="<%=admin.getEmail() %>"/></dd>
                             </dl>
                             <dl>
                                 <dt><label for="password">Mot de passe:</label></dt>

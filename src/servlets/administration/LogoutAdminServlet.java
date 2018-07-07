@@ -14,9 +14,9 @@ import java.io.IOException;
 public class LogoutAdminServlet extends MyServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (isAdminLoggedIn(request)) {
+        	getServletContext().getRequestDispatcher("/connexion.html").include(request, response);
         	HttpSession session=request.getSession(false);
         	session.invalidate();
-        	getServletContext().getRequestDispatcher("/connexion.html").include(request, response);
         } else
             redirectToLogin(response);
     }

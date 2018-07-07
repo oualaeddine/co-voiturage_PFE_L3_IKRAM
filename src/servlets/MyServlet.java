@@ -23,12 +23,16 @@ public class MyServlet extends HttpServlet {
 
     protected boolean isClientLoggedIn(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
-        User client = (User) session.getAttribute("client");
+        User client = (User) session.getAttribute("user");
 
         return client != null;
     }
 
     protected void redirectToLogin(HttpServletResponse response) throws IOException {
         response.sendRedirect("/accueilAdmin");
+    }
+    
+    protected void redirectToLoginClient(HttpServletResponse response) throws IOException {
+        response.sendRedirect("/home");
     }
 }
