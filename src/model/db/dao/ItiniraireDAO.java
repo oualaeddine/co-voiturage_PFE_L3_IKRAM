@@ -1,6 +1,7 @@
 package model.db.dao;
 
 import model.beans.Itiniraire;
+import model.beans.User;
 import model.beans.Ville;
 import model.db.DAO;
 import model.db.DAOInterface;
@@ -92,4 +93,14 @@ public class ItiniraireDAO extends DAO implements DAOInterface {
         }
         return false;
     }
+
+	public Itiniraire getByVille(Ville v_depart, Ville v_arrive) {
+		ResultSet result;
+        try {
+            result = statement.executeQuery("SELECT * FROM `" + TABLE_NAME + "` WHERE ville_depart=" + v_depart.getId() +"AND ville_arrive="+v_arrive.getId() + ";");
+            return (Itiniraire) resultSetToObject(result);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;	}
 }

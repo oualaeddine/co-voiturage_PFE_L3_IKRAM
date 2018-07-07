@@ -63,7 +63,7 @@
 <body>
 <div id="main_container">
     <div class="header">
-        <div class="right_header"><a href="<%=request.getContextPath()+"/logout"%>" class="logout">Déconnexion</a></div>
+        <div class="right_header"><a href="/logout" class="logout">Déconnexion</a></div>
         <div id="clock_a"></div>
     </div>
     <div class="main_content">
@@ -77,9 +77,9 @@
                 <div class="sidebarmenu">
                     <a class="menuitem" href="/ajouterVille">Ajouter villes</a>
                     <a class="menuitem_red" href="/ajouterPrix">Ajouter prix</a>
-                    <a class="menuitem" href="<%=request.getContextPath()+"/ListePrix"%>">Liste de prix</a>
-                    <a class="menuitem" href="<%=request.getContextPath()+"/ListeVilles"%>">Liste de villes </a>
-                    <a class="menuitem" href="<%=request.getContextPath()+"/ListeClients"%>">Liste d'utilisateurs</a>
+                    <a class="menuitem" href="/ListePrix">Liste de prix</a>
+                    <a class="menuitem" href="/ListeVilles">Liste de villes </a>
+                    <a class="menuitem" href="/ListeClients">Liste d'utilisateurs</a>
                     <a class="menuitem" href="/profil">Profil</a>
                 </div>
             </div>
@@ -87,7 +87,7 @@
 
             <div class="right_content">
 
-                <h2>Ajouter prix </h2>
+                <h2>Ajouter prix :</h2>
                 <div class="form">
                     <form action="/ajouterPrix" method="post" class="niceform">
 
@@ -136,6 +136,25 @@
                                     <dt><label for="prix">Prix:</label></dt>
                                     <dd><input type="text" id="prix" name="prix" placeholder="prix" required=""/></dd>
                                 </dl>
+								 <dl>
+                        <dt><label for="places">Nombres de places:</label></dt>
+                        <dd><input type="text" name="places" placeholder="Nombres de places" required="" /></dd>
+                    </dl>
+                    <dl>
+                            <dt><label for="places">Date:</label></dt>
+                            <dd><input type="date" name="date" placeholder="Date" required=""/></dd>
+                        </dl>
+
+                    <dl>
+                        <dt><label for="interests">Type de vehicule:</label></dt>
+                        <dd>
+                            <input type="checkbox" name="interests[]" id="" value="automobile" /><label class="check_label">Automobile</label>
+                            <input type="checkbox" name="interests[]" id="" value="autobus" /><label class="check_label">Autobus</label>
+                            <input type="checkbox" name="interests[]" id="" value="autocar" /><label class="check_label">Autocar</label>
+                            <input type="checkbox" name="interests[]" id="" value="camion" /><label class="check_label">Camion</label>
+                        </dd>
+                    </dl>
+
 
                                 <dl class="submit">
                                     <input type="submit" name="submit" id="submit" value="Ajouter"/>

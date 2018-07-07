@@ -64,7 +64,7 @@
 <body>
 <div id="main_container">
     <div class="header">
-        <div class="right_header"><a href="<%=request.getContextPath()+"/logout"%>" class="logout">Déconnexion</a></div>
+        <div class="right_header"><a href="/logout" class="logout">Déconnexion</a></div>
         <div id="clock_a"></div>
     </div>
     <div class="main_content">
@@ -78,18 +78,18 @@
                 <div class="sidebarmenu">
                     <a class="menuitem" href="/ajouterVille">Ajouter villes</a>
                     <a class="menuitem" href="/ajouterPrix">Ajouter prix</a>
-                    <a class="menuitem_red" href="<%=request.getContextPath()+"/ListePrix"%>">Liste de prix</a>
-                    <a class="menuitem" href="<%=request.getContextPath()+"/ListeVilles"%>">Liste de villes </a>
-                    <a class="menuitem" href="<%=request.getContextPath()+"/ListeClients"%>">Liste d'utilisateurs</a>
-                    <a class="menuitem" href="profil.jsp">Profil</a>
+                    <a class="menuitem_red" href="/ListePrix">Liste de prix</a>
+                    <a class="menuitem" href="/ListeVilles">Liste de villes </a>
+                    <a class="menuitem" href="/ListeClients">Liste d'utilisateurs</a>
+                    <a class="menuitem" href="/profil">Profil</a>
                 </div>
             </div>
             <div class="right_content">
-                <h2>Liste de prix </h2>
+                <h2>Liste des prix :</h2>
                 <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
                     <thead>
                     <tr>
-
+                        <th scope="col" class="rounded">id</th>
                         <th scope="col" class="rounded">Ville de d�part</th>
                         <th scope="col" class="rounded">Ville d'arriv�e</th>
                         <th scope="col" class="rounded">Prix</th>
@@ -101,6 +101,7 @@
 						for(int i=0;i<itiniraires.size();i++){
 					%>
                     <tr>
+                        <td><%=itiniraires.get(i).getId()%></td>
                         <td><%=itiniraires.get(i).getDepart().getName()%></td>
                         <td><%=itiniraires.get(i).getArrive().getName()%></td>
                         <td><%=itiniraires.get(i).getPrix()%></td>

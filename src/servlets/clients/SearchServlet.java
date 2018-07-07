@@ -53,7 +53,7 @@ public class SearchServlet extends HttpServlet {
                         LinkedList<Trajet> trajets = new TrajetsDAO().getByDate(depart, arrive, date);
 
                         if (trajets.size() > 0)
-                            getServletContext().getRequestDispatcher("/resultat/resultat.jsp").forward(request, response);
+                            getServletContext().getRequestDispatcher("/resultat/resultat.jsp").forward(request, response); // hedi la page ey makanch
                         else
                             doGet(request, response);
                     } else

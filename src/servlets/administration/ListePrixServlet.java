@@ -1,7 +1,9 @@
 package servlets.administration;
 
 import model.beans.Itiniraire;
+import model.beans.Trajet;
 import model.db.dao.ItiniraireDAO;
+import model.db.dao.TrajetsDAO;
 import servlets.MyServlet;
 
 import javax.servlet.ServletException;

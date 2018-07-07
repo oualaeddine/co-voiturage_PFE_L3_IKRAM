@@ -63,7 +63,7 @@
     <div class="header">
 
 
-        <div class="right_header"><a href="<%=request.getContextPath()+"/logout"%>" class="logout">Déconnexion</a></div>
+        <div class="right_header"><a href="/logout" class="logout">Déconnexion</a></div>
         <div id="clock_a"></div>
     </div>
 
@@ -85,10 +85,10 @@
 
                 <div class="sidebarmenu">
                     <a class="menuitem" href="/ajouterVille">Ajouter villes</a>
-                    <a class="menuitem" href="/ajouterPrix">Ajouter prix</a>
-                    <a class="menuitem" href="<%=request.getContextPath()+"/ListePrix"%>">Liste de prix</a>
-                    <a class="menuitem" href="<%=request.getContextPath()+"/ListeVilles"%>">Liste de villes </a>
-                    <a class="menuitem" href="<%=request.getContextPath()+"/ListeClients"%>">Liste d'utilisateurs</a>
+                    <a class="menuitem" href="/ajouterPrix">Ajouter prix </a>
+                    <a class="menuitem" href="/ListePrix">Liste de prix</a>
+                    <a class="menuitem" href="/ListeVilles">Liste de villes </a>
+                    <a class="menuitem" href="/ListeClients">Liste d'utilisateurs</a>
                     <a class="menuitem_red" href="/profil">Profil</a>
                 </div>
 
