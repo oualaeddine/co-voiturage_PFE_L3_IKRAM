@@ -76,8 +76,8 @@
             <div class="left_content">
                 <div class="sidebarmenu">
                     <a class="menuitem" href="/ajouterVille">Ajouter villes</a>
-                    <a class="menuitem_red" href="/ajouterPrix">Ajouter prix</a>
-                    <a class="menuitem" href="/ListePrix">Liste de prix</a>
+                    <a class="menuitem_red" href="#">Ajouter prix</a>
+                    <a class="menuitem" href="/ListePrix">Liste de trajets</a>
                     <a class="menuitem" href="/ListeVilles">Liste de villes </a>
                     <a class="menuitem" href="/ListeClients">Liste d'utilisateurs</a>
                     <a class="menuitem" href="/profil">Profil</a>
@@ -87,89 +87,7 @@
 
             <div class="right_content">
 
-                <h2>Ajouter prix :</h2>
-                <div class="form">
-                    <form action="/ajouterPrix" method="post" class="niceform">
-
-                        <fieldset>
-                            <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
-                                <thead>
-                                <dt><label for="depart">ville de d�part:</label></dt>
-                                <dd>
-                                    <select size="1" name="depart" id="depart">
-                                        <option value=""></option>
-                                        <%
-                                            if (villes.size() > 0) {
-                                                for (int i = 0; i < villes.size(); i++) {
-                                        %>
-                                        <option value="<%=villes.get(i).getName()%>"><%=villes.get(i).getName()%>
-                                        </option>
-                                        <%
-                                                }
-                                            }
-                                        %>
-                                    </select>
-                                </dd>
-                                </thead>
-
-
-                                <dl>
-                                    <dt><label for="arrive">ville d'arriv�e:</label></dt>
-                                    <dd>
-                                        <select size="1" name="arrive" id="arrive">
-                                            <option value=""></option>
-                                            <%
-                                                if (villes.size() > 0) {
-                                                    for (int i = 0; i < villes.size(); i++) {
-                                            %>
-                                            <option value="<%=villes.get(i).getName()%>"><%=villes.get(i).getName()%>
-                                            </option>
-                                            <%
-                                                    }
-                                                }
-                                            %>
-                                        </select>
-                                    </dd>
-                                </dl>
-
-                                <dl>
-                                    <dt><label for="prix">Prix:</label></dt>
-                                    <dd><input type="text" id="prix" name="prix" placeholder="prix" required=""/></dd>
-                                </dl>
-								 <dl>
-                        <dt><label for="places">Nombres de places:</label></dt>
-                        <dd><input type="text" name="places" placeholder="Nombres de places" required="" /></dd>
-                    </dl>
-                    <dl>
-                            <dt><label for="places">Date:</label></dt>
-                            <dd><input type="date" name="date" placeholder="Date" required=""/></dd>
-                        </dl>
-
-                    <dl>
-                        <dt><label for="interests">Type de vehicule:</label></dt>
-                        <dd>
-                            <input type="checkbox" name="interests[]" id="" value="automobile" /><label class="check_label">Automobile</label>
-                            <input type="checkbox" name="interests[]" id="" value="autobus" /><label class="check_label">Autobus</label>
-                            <input type="checkbox" name="interests[]" id="" value="autocar" /><label class="check_label">Autocar</label>
-                            <input type="checkbox" name="interests[]" id="" value="camion" /><label class="check_label">Camion</label>
-                        </dd>
-                    </dl>
-
-
-                                <dl class="submit">
-                                    <input type="submit" name="submit" id="submit" value="Ajouter"/>
-                                </dl>
-                        </fieldset>
-
-                    </form>
-                    </thead>
-
-                    <tbody>
-
-
-                    </tbody>
-                    </table>
-                </div>
+                
             </div>
             <div class="clear"></div>
         </div><!-- end of right content-->

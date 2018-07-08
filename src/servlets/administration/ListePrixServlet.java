@@ -1,8 +1,6 @@
 package servlets.administration;
 
-import model.beans.Itiniraire;
 import model.beans.Trajet;
-import model.db.dao.ItiniraireDAO;
 import model.db.dao.TrajetsDAO;
 import servlets.MyServlet;
 
@@ -21,8 +19,8 @@ public class ListePrixServlet extends MyServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (isAdminLoggedIn(request)) {
-        	LinkedList<Itiniraire> itiniraires = new ItiniraireDAO().getAll();
-        	request.setAttribute("itiniraires", itiniraires);
+        	LinkedList<Trajet> trajets = new TrajetsDAO().getAll();
+        	request.setAttribute("trajets", trajets);
         	getServletContext().getRequestDispatcher("/espace_admin/liste de prix.jsp").forward(request, response);
         } else
             redirectToLogin(response);

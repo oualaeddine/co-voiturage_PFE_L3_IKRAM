@@ -53,7 +53,7 @@
 <body>
 <div id="main_container">
     <div class="header">
-        <div class="right_header"><a href="/logout" class="logout">Déconnexion</a></div>
+        <div class="right_header"><a href="/logout" class="logout">D�connexion</a></div>
         <div id="clock_a"></div>
     </div>
     <div class="main_content">
@@ -66,8 +66,8 @@
             <div class="left_content">
                 <div class="sidebarmenu">
                     <a class="menuitem_red" href="/ajouterVille">Ajouter villes</a>
-                    <a class="menuitem" href="/ajouterPrix">Ajouter prix</a>
-                    <a class="menuitem" href="/ListePrix">Liste de prix</a>
+                    <a class="menuitem" href="#">Ajouter prix</a>
+                    <a class="menuitem" href="/ListePrix">Liste de trajets</a>
                     <a class="menuitem" href="/ListeVilles">Liste de villes </a>
                     <a class="menuitem" href="/ListeClients">Liste d'utilisateurs</a>
                     <a class="menuitem" href="/profil">Profil</a>

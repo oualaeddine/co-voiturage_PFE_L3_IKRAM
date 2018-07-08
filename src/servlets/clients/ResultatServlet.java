@@ -5,17 +5,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import servlets.MyServlet;
+
 import java.io.IOException;
 
 @WebServlet(name = "ResultatServlet", urlPatterns = "/resultat")
-public class ResultatServlet extends HttpServlet {
+public class ResultatServlet extends MyServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO: 6/6/2018
-        getServletContext().getRequestDispatcher("").forward(request, response);
-    }
+    	if (isClientLoggedIn(request)) {
+    		getServletContext().getRequestDispatcher("").forward(request, response);
+    	} else
+            redirectToLoginClient(response);
+    	}
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        // getServletContext().getRequestDispatcher("").forward(request, response);
-        response.getWriter().append("hedi la page lazm tetcrea");
+    	if (isClientLoggedIn(request)) {
+    		// getServletContext().getRequestDispatcher("").forward(request, response);
+    		response.getWriter().append("hedi la page lazm tetcrea");
+    	} else
+            redirectToLoginClient(response);
     }
 }

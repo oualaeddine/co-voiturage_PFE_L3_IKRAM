@@ -85,8 +85,8 @@
 
                 <div class="sidebarmenu">
                     <a class="menuitem" href="/ajouterVille">Ajouter villes</a>
-                    <a class="menuitem" href="/ajouterPrix">Ajouter prix </a>
-                    <a class="menuitem" href="/ListePrix">Liste de prix</a>
+                    <a class="menuitem" href="#">Ajouter prix </a>
+                    <a class="menuitem" href="/ListePrix">Liste de trajets</a>
                     <a class="menuitem" href="/ListeVilles">Liste de villes </a>
                     <a class="menuitem" href="/ListeClients">Liste d'utilisateurs</a>
                     <a class="menuitem_red" href="/profil">Profil</a>

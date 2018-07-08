@@ -25,7 +25,9 @@ public class MyServlet extends HttpServlet {
 
     protected boolean isClientLoggedIn(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        User client = (User) session.getAttribute("user");
+        User client = null;
+        if (session != null)
+        	client = (User) session.getAttribute("user");
 
         return client != null;
     }

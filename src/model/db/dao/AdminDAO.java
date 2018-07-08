@@ -1,6 +1,5 @@
 package model.db.dao;
 
-import model.beans.Itiniraire;
 import model.beans.User;
 import model.db.DAO;
 import model.db.DAOInterface;
@@ -81,7 +80,7 @@ public class AdminDAO extends DAO implements DAOInterface {
     }
 
 
-    public LinkedList<Itiniraire> getAll() {
+    public LinkedList<Object> getAll() {
         return null;
     }
 

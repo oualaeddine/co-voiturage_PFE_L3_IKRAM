@@ -1,8 +1,10 @@
 package servlets.clients;
 
 import model.beans.Trajet;
+import model.beans.Ville;
 import model.db.dao.ClientsDAO;
 import model.db.dao.TrajetsDAO;
+import model.db.dao.VillesDAO;
 import util.Util;
 
 import javax.servlet.ServletException;
@@ -27,7 +29,7 @@ public class SearchServlet extends HttpServlet {
                     LinkedList<Trajet> trajets = new TrajetsDAO().getByDate(depart, arrive, date);
 
                     if (trajets.size() > 0)
-                        //getServletContext().getRequestDispatcher("/resultat/resultat.jsp").forward(request, response);
+                        //getServletContext().getRequestDispatcher("/resultat").forward(request, response);
                         response.getWriter().append("hedi la page lazm tetcrea");
                     else
                         doGet(request, response);
@@ -44,8 +46,8 @@ public class SearchServlet extends HttpServlet {
                     if (userDAO.exists(email, password)) {
                         Trajet trajet = new Trajet();
                         trajet.setCreateur(userDAO.getByEmail(email));
-                        trajet.setDepart(depart);
-                        trajet.setDesti(arrive);
+                        trajet.setDepart(new VillesDAO().getVilleByName(depart));
+                        trajet.setArrive(new VillesDAO().getVilleByName(arrive));
                         Date _date = Util.getDateFromString(date);
                         trajet.setDate(_date);
                         new TrajetsDAO().add(trajet);

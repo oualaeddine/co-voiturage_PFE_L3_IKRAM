@@ -1,7 +1,7 @@
 package servlets.administration;
 
-import model.beans.Itiniraire;
-import model.db.dao.ItiniraireDAO;
+import model.beans.Trajet;
+import model.db.dao.TrajetsDAO;
 import model.db.dao.VillesDAO;
 import servlets.MyServlet;
 
@@ -22,23 +22,26 @@ public class AjouterPrixServlet extends MyServlet {
         	String places = request.getParameter("places");
         	String type = request.getParameter("type");
 
-        	Itiniraire itiniraire= new Itiniraire();
         	VillesDAO villesDAO = new VillesDAO();
-        	itiniraire.setDepart(villesDAO.getVilleByName(depart));
-        	itiniraire.setArrive(villesDAO.getVilleByName(arrive));
-        	itiniraire.setPrix(Float.parseFloat(prix));
-
-        	if (new ItiniraireDAO().addItiniraire(itiniraire)) {
-        		System.out.println("ajouterPrix : true");
+        	
+        	Trajet trajet=new Trajet();
+        	trajet.setDepart(villesDAO.getVilleByName(depart));
+        	trajet.setArrive(villesDAO.getVilleByName(arrive));
+        	trajet.setPrix(Float.parseFloat(prix));
+        	trajet.setNombrePlaces(Integer.parseInt(places));
+        	trajet.setTypeVéhicule(type);
+        	
+        	if (new TrajetsDAO().add(trajet)) {
+        		System.out.println("ajouter : true");
         		try {
-        			response.sendRedirect("/accueilAdmin");
+        			response.sendRedirect("/HomeServlet");
         		} catch (IOException e) {
         			e.printStackTrace();
         		}
 
         	} else {
-        		getServletContext().getRequestDispatcher("/espace_admin/ajouter prix.jsp").forward(request, response);
-        		System.out.println("ajouterPrix : false");
+        		getServletContext().getRequestDispatcher("").forward(request, response);// makanch la page hedi
+        		System.out.println("ajouter : false");
         	}
         } else
             redirectToLogin(response);

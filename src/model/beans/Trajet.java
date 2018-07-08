@@ -3,70 +3,100 @@ package model.beans;
 import java.sql.Date;
 
 public class Trajet {
-
-    private int id;
-    private Itiniraire itiniraire;
+	private int id,nombrePlaces;
     private boolean etat;
     private User createur;
     private Date date;
-
-    public int getId() {
-        return id;
+	private Ville depart, arrive;
+    private float prix;
+    private String typeVéhicule;
+	
+    public Trajet() {
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public String getDepart() {
-        return itiniraire.getDepart().getName();
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setDepart(String depart) {
-        Ville depa = new Ville();
-        depa.setName(depart);
-        itiniraire.setArrive(depa);
-    }
+	public boolean isEtat() {
+		return etat;
+	}
 
-    public String getDesti() {
-        return itiniraire.getArrive().getName();
-    }
+	public void setEtat(boolean etat) {
+		this.etat = etat;
+	}
 
-    public void setDesti(String desti) {
-        Ville destination = new Ville();
-        destination.setName(desti);
-        itiniraire.setArrive(destination);
-    }
+	public User getCreateur() {
+		return createur;
+	}
 
-    public boolean isEtatDispo() {
-        return etat;
-    }
+	public void setCreateur(User createur) {
+		this.createur = createur;
+	}
 
-    public void setEtat(boolean etat) {
-        this.etat = etat;
-    }
+	public int getNombrePlaces() {
+		return nombrePlaces;
+	}
 
-    public User getCreateur() {
-        return createur;
-    }
+	public void setNombrePlaces(int nombrePlaces) {
+		this.nombrePlaces = nombrePlaces;
+	}
 
-    public void setCreateur(User createur) {
-        this.createur = createur;
-    }
+	public Date getDate() {
+		return date;
+	}
 
-    public Date getDate() {
-        return date;
-    }
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+	public Ville getArrive() {
+		return arrive;
+	}
 
-    public Itiniraire getItiniraire() {
-        return itiniraire;
-    }
+	public void setArrive(Ville arrive) {
+		this.arrive = arrive;
+	}
 
-    public void setItiniraire(Itiniraire itiniraire) {
-        this.itiniraire = itiniraire;
-    }
+	public float getPrix() {
+		return prix;
+	}
+
+	public void setPrix(float prix) {
+		this.prix = prix;
+	}
+
+	public String getTypeVéhicule() {
+		return typeVéhicule;
+	}
+
+	public void setTypeVéhicule(String typeVéhicule) {
+		this.typeVéhicule = typeVéhicule;
+	}
+
+	public Ville getDepart() {
+		return depart;
+	}
+
+	public void setDepart(Ville depart) {
+		this.depart = depart;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

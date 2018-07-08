@@ -1,6 +1,5 @@
 package model.db.dao;
 
-import model.beans.Itiniraire;
 import model.beans.Trajet;
 import model.beans.User;
 import model.beans.Ville;
@@ -23,27 +22,7 @@ public class TrajetsDAO extends DAO implements DAOInterface {
 
             LinkedList<Trajet> trajets = new LinkedList<>();
             while (result.next()) {
-                int id = result.getInt("id");
-                boolean etat = result.getBoolean("etat");
-                int depart = result.getInt("depart");
-                int arrive = result.getInt("desti");
-                int createur = result.getInt("createur");
-                Date date = result.getDate("date");
-
-                VillesDAO villesDAO = new VillesDAO();
-                Ville v_depart = (Ville) villesDAO.getById(depart);
-                Ville v_arrive = (Ville) villesDAO.getById(arrive);
-
-                ItiniraireDAO ItiniraireDAO = new ItiniraireDAO();
-                Itiniraire itiniraire = (Itiniraire) ItiniraireDAO.getByVille(v_depart, v_arrive);
-
-                Trajet trajet = new Trajet();
-                trajet.setId(id);
-                trajet.setItiniraire(itiniraire);
-                trajet.setEtat(etat);
-                trajet.setCreateur(new ClientsDAO().getById(id));
-                trajet.setDate(date);
-                trajets.add(trajet);
+                trajets.add((Trajet) resultSetToObject(result));
             }
             return trajets;
         } catch (SQLException e) {
@@ -61,11 +40,15 @@ public class TrajetsDAO extends DAO implements DAOInterface {
     public boolean add(Object object) {
         Trajet trajet = (Trajet) object;
         try {
-            statement.execute("insert into `trajets`(etat,depart,desti,createur) values " +
+            statement.execute("insert into `trajets`(etat,depart,desti,createur,date,prix,nombrePlaces,typeVéhicule) values " +
                     "('disponible" +
-                    "','" + trajet.getDepart() +
-                    "','" + trajet.getDesti() +
-                    "'," + trajet.getCreateur().getId() + ")");
+                    "','" + trajet.getDepart().getId() +
+                    "','" + trajet.getArrive().getId() +
+                    "','" + trajet.getCreateur().getId() +
+                    "','" + trajet.getDate() +
+                    "','" + trajet.getPrix() +
+                    "','" + trajet.getNombrePlaces() +
+                    "','" + trajet.getTypeVéhicule() + ")");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -87,27 +70,30 @@ public class TrajetsDAO extends DAO implements DAOInterface {
     public Object resultSetToObject(ResultSet resultSet) {
         try {
             if (resultSet.next()) {
-
-                int id = resultSet.getInt("id");
+            	int id = resultSet.getInt("id");
                 boolean etat = resultSet.getBoolean("etat");
                 int depart = resultSet.getInt("depart");
                 int arrive = resultSet.getInt("desti");
                 int createur = resultSet.getInt("createur");
                 Date date = resultSet.getDate("date");
+                float prix = resultSet.getFloat("prix");
+                int nombrePlaces = resultSet.getInt("nombrePlaces");
+                String typeVéhicule = resultSet.getString("typeVéhicule");
 
                 VillesDAO villesDAO = new VillesDAO();
                 Ville v_depart = (Ville) villesDAO.getById(depart);
-                Ville v_arrive = (Ville) villesDAO.getById(arrive);
-
-                ItiniraireDAO ItiniraireDAO = new ItiniraireDAO();
-                Itiniraire itiniraire = (Itiniraire) ItiniraireDAO.getByVille(v_depart, v_arrive);
+                Ville v_arrive = (Ville) villesDAO.getById(arrive);           
 
                 Trajet trajet = new Trajet();
-                trajet.setId(id);
-                trajet.setItiniraire(itiniraire);
-                trajet.setEtat(etat);
-                trajet.setCreateur(new ClientsDAO().getById(id));
+                trajet.setArrive(v_arrive);
+                trajet.setCreateur(new ClientsDAO().getById(createur));
                 trajet.setDate(date);
+                trajet.setDepart(v_depart);
+                trajet.setEtat(etat);
+                trajet.setId(id);
+                trajet.setNombrePlaces(nombrePlaces);
+                trajet.setPrix(prix);
+                trajet.setTypeVéhicule(typeVéhicule);
 
                 return trajet;
             } else return null;
@@ -126,14 +112,8 @@ public class TrajetsDAO extends DAO implements DAOInterface {
                     " and etat ='disponible' " +
                     " and desti ='" + arrive + "';");
             LinkedList<Trajet> trajets = new LinkedList<>();
-            while (result.next()) {
-                Trajet trajet = new Trajet();
-                trajet.setId(result.getInt("id"));
-                trajet.setDepart(result.getString("nom"));
-                trajet.setDesti(result.getString("prenom"));
-                trajet.setCreateur(new ClientsDAO().getById(Integer.parseInt(result.getString("createur"))));
-                trajet.setDate(result.getDate("date"));
-                trajets.add(trajet);
+            while (result.next()) {           
+                trajets.add((Trajet) resultSetToObject(result));
             }
             return trajets;
         } catch (SQLException e) {

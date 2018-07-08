@@ -1,4 +1,4 @@
-<%@ page import="model.beans.Itiniraire" %>
+<%@ page import="model.beans.Trajet" %>
 <%@ page import="java.util.LinkedList" %>
 <%@
 	page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -6,12 +6,12 @@
 %>
 
 <%!
-	LinkedList<Itiniraire> itiniraires;
+	LinkedList<Trajet> trajets;
 %>
 	
 <% 
 	session=request.getSession(false);
-	itiniraires=(LinkedList<Itiniraire> )request.getAttribute("itiniraires");
+	trajets=(LinkedList<Trajet> )request.getAttribute("trajets");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -77,34 +77,36 @@
             <div class="left_content">
                 <div class="sidebarmenu">
                     <a class="menuitem" href="/ajouterVille">Ajouter villes</a>
-                    <a class="menuitem" href="/ajouterPrix">Ajouter prix</a>
-                    <a class="menuitem_red" href="/ListePrix">Liste de prix</a>
+                    <a class="menuitem" href="#">Ajouter prix</a>
+                    <a class="menuitem_red" href="/ListePrix">Liste de trajets</a>
                     <a class="menuitem" href="/ListeVilles">Liste de villes </a>
                     <a class="menuitem" href="/ListeClients">Liste d'utilisateurs</a>
                     <a class="menuitem" href="/profil">Profil</a>
                 </div>
             </div>
             <div class="right_content">
-                <h2>Liste des prix :</h2>
+                <h2>Liste des trajets :</h2>
                 <table id="rounded-corner" summary="2007 Major IT Companies' Profit">
                     <thead>
                     <tr>
                         <th scope="col" class="rounded">id</th>
-                        <th scope="col" class="rounded">Ville de dï¿½part</th>
-                        <th scope="col" class="rounded">Ville d'arrivï¿½e</th>
+                        <th scope="col" class="rounded">Ville de départ</th>
+                        <th scope="col" class="rounded">Ville d'arrivée</th>
+                        <th scope="col" class="rounded">Date</th>
                         <th scope="col" class="rounded">Prix</th>
                     </tr>
                     </thead>
 
                     <tbody>
                     <%
-						for(int i=0;i<itiniraires.size();i++){
+						for(int i=0;i<trajets.size();i++){
 					%>
                     <tr>
-                        <td><%=itiniraires.get(i).getId()%></td>
-                        <td><%=itiniraires.get(i).getDepart().getName()%></td>
-                        <td><%=itiniraires.get(i).getArrive().getName()%></td>
-                        <td><%=itiniraires.get(i).getPrix()%></td>
+                        <td><%=trajets.get(i).getId()%></td>
+                        <td><%=trajets.get(i).getDepart().getName()%></td>
+                        <td><%=trajets.get(i).getArrive().getName()%></td>
+                        <td><%=trajets.get(i).getDate()%></td>
+                        <td><%=trajets.get(i).getPrix()%></td>
                     </tr>
                     <% 
                    		} 
