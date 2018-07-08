@@ -26,6 +26,7 @@ public class SearchServlet extends HttpServlet {
                     String depart = request.getParameter("depart");
                     String arrive = request.getParameter("arrive");
                     String date = request.getParameter("date");
+                    //lzm ykon voyageur neb3to l servlet resultat les info
                     LinkedList<Trajet> trajets = new TrajetsDAO().getByDate(depart, arrive, date);
 
                     if (trajets.size() > 0)

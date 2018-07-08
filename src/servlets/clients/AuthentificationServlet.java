@@ -20,6 +20,7 @@ public class AuthentificationServlet extends HttpServlet {
                 case "login": {
                     String email = request.getParameter("email");
                     String password = request.getParameter("password");
+                    
                     if (new ClientsDAO().exists(email, password)) {
                         User loggedInUser = new ClientsDAO().getByEmail(email);
 
@@ -40,7 +41,9 @@ public class AuthentificationServlet extends HttpServlet {
                     String password = request.getParameter("password");
                     String nom = request.getParameter("nom");
                     String prenom = request.getParameter("prenom");
-                    if (new ClientsDAO().createClient(nom, prenom, email, password)) {
+                    String type = request.getParameter("type");
+
+                    if (new ClientsDAO().createClient(nom, prenom, email, password,type)) {
                         System.out.println("signup : true");
                         User loggedInUser = new ClientsDAO().getByEmail(email);
 

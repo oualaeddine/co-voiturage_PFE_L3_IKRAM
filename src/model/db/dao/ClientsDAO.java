@@ -68,9 +68,9 @@ public class ClientsDAO extends DAO implements DAOInterface {
     }
 
 
-    public boolean createClient(String nom, String prenom, String email, String password) {
+    public boolean createClient(String nom, String prenom, String email, String password, String type) {
         try {
-            statement.execute("insert into `" + TABLE_NAME + "`(nom,prenom,email,password) values ('" + nom + "','" + prenom + "','" + email + "','" + password + "')");
+            statement.execute("insert into `" + TABLE_NAME + "`(nom,prenom,email,password,type) values ('" + nom + "','" + prenom + "','" + email + "','" + password+ "','" + type + "')");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
