@@ -77,7 +77,6 @@
             <div class="left_content">
                 <div class="sidebarmenu">
                     <a class="menuitem" href="/ajouterVille">Ajouter villes</a>
-                    <a class="menuitem" href="#">Ajouter prix</a>
                     <a class="menuitem_red" href="/ListePrix">Liste de trajets</a>
                     <a class="menuitem" href="/ListeVilles">Liste de villes </a>
                     <a class="menuitem" href="/ListeClients">Liste d'utilisateurs</a>
@@ -90,8 +89,8 @@
                     <thead>
                     <tr>
                         <th scope="col" class="rounded">id</th>
-                        <th scope="col" class="rounded">Ville de départ</th>
-                        <th scope="col" class="rounded">Ville d'arrivée</th>
+                        <th scope="col" class="rounded">Ville de dï¿½part</th>
+                        <th scope="col" class="rounded">Ville d'arrivï¿½e</th>
                         <th scope="col" class="rounded">Date</th>
                         <th scope="col" class="rounded">Heure</th>
                         <th scope="col" class="rounded">Prix</th>
@@ -110,7 +109,7 @@
                         <td><%=trajet.getDepart().getName() %></td>
                         <td><%=trajet.getArrive().getName() %></td>
                         <td><%=trajet.getDate() %></td>
-                        <td>lzm nrécupérer l'heure hna</td>
+                        <td>lzm nrï¿½cupï¿½rer l'heure hna</td>
                         <td><%=trajet.getPrix() %></td>
                         <td><a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
                         <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>

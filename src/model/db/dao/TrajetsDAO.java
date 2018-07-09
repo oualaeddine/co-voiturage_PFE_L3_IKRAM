@@ -110,14 +110,15 @@ public class TrajetsDAO extends DAO implements DAOInterface {
         return null;
     }
 
-    public LinkedList<Trajet> getByDate(String depart, String arrive, String date) {
+    public LinkedList<Trajet> getByDate(String depart, String arrive, String date, String heure) {
         ResultSet result;
         try {
             result = statement.executeQuery("SELECT * FROM trajets " +
                     " WHERE date ='" + date + "' " +
                     " and depart ='" + depart + "' " +
                     " and etat ='disponible' " +
-                    " and desti ='" + arrive + "';");
+                    " and desti ='" + arrive + 
+                    " and heure ='" + heure + "' " +"';");
             LinkedList<Trajet> trajets = new LinkedList<>();
 
             while (result.next()) {

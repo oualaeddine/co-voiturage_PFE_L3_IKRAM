@@ -77,7 +77,6 @@
             <div class="left_content">
                 <div class="sidebarmenu">
                     <a class="menuitem" href="/ajouterVille">Ajouter villes</a>
-                    <a class="menuitem" href="#">Ajouter prix</a>
                     <a class="menuitem" href="/ListePrix">Liste de trajets</a>
                     <a class="menuitem" href="/ListeVilles">Liste de villes </a>
                     <a class="menuitem_red" href="/ListeClients">Liste d'utilisateurs</a>
@@ -98,7 +97,7 @@
                         <th scope="col" class="rounded">Id</th>
                         <th scope="col" class="rounded">Type</th>
                         <th scope="col" class="rounded">Nom</th>
-                        <th scope="col" class="rounded">Prénom</th>
+                        <th scope="col" class="rounded">Prï¿½nom</th>
                         <th scope="col" class="rounded">E-mail</th>
                         <th scope="col" class="rounded">Password</th>
                         <th scope="col" class="rounded">Modifier </th>
@@ -114,7 +113,7 @@
 						%>
                     <tr>
                         <td><%=clients.get(i).getId()%></td>
-                        <td>récupérer type de client</td>
+                        <td>rï¿½cupï¿½rer type de client</td>
                         <td><%=clients.get(i).getNom()%></td>
                         <td><%=clients.get(i).getPrenom()%></td>
                         <td><%=clients.get(i).getEmail()%></td>

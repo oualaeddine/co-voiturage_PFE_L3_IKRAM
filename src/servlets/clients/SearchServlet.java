@@ -6,6 +6,7 @@ import model.beans.Ville;
 import model.db.dao.ClientsDAO;
 import model.db.dao.TrajetsDAO;
 import model.db.dao.VillesDAO;
+import servlets.MyServlet;
 import util.Util;
 
 import javax.servlet.ServletException;
@@ -21,33 +22,31 @@ import java.sql.Time;
 import java.util.LinkedList;
 
 @WebServlet(name = "SearchServlet", urlPatterns = "/trajets")
-public class SearchServlet extends HttpServlet {
+public class SearchServlet extends MyServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String action = request.getParameter("action");
         if (action != null)
             switch (action) {
                 case "search": {
-                    String depart = request.getParameter("depart");
-                    String arrive = request.getParameter("arrive");
+                    //Vérifier ida raho voyageur
+                	String villeDepart = request.getParameter("depart");
+                    String villeArrivee = request.getParameter("arrivee");
                     String date = request.getParameter("date");
-                    //lzm ykon voyageur neb3to l servlet resultat les info
-                    LinkedList<Trajet> trajets = new TrajetsDAO().getByDate(depart, arrive, date);
-
-                    if (trajets.size() > 0)
-                        //getServletContext().getRequestDispatcher("/resultat").forward(request, response);
-                        response.getWriter().append("hedi la page lazm tetcrea");
-                    else
-                        doGet(request, response);
+                    String heure = request.getParameter("time");
                     
-//                    LinkedList<Trajet> trajets = new TrajetsDAO().getByDate(depart, arrive, date);
-//
-//                    if (trajets.size() > 0)
-//                    	getServletContext().getRequestDispatcher("/recherche/resultat.jsp").forward(request, response); // hedi la page ey makanch
-//                    else
-//                        doGet(request, response);
+                    LinkedList<Trajet> trajets = new TrajetsDAO().getByDate(villeDepart, villeArrivee, date,heure);
+
+                    if (trajets.size() > 0) {
+                    	request.setAttribute("trajets", trajets);
+                     	getServletContext().getRequestDispatcher("/resultat").forward(request, response);
+                        //response.getWriter().append("hedi la page lazm tetcrea");
+                    }else
+                        doGet(request, response);               
                     break;
                 }
-                case "add": { //isVoyageur
+                case "add": { 
+                    //Vérifier ida raho conducteur
+
                 	HttpSession session = request.getSession(false);
                 	User user = (User) session.getAttribute("user");
                 	
@@ -57,7 +56,7 @@ public class SearchServlet extends HttpServlet {
                     String nombrePlaces = request.getParameter("places");
                     String typeVéhicule = request.getParameter("type");
                     Date date = Util.getDateFromString(request.getParameter("date"));
-//Time time = request.getParameter("time"); // hna kifeh nrécupérih
+                    Time heure = Time.valueOf(request.getParameter("time"));
 
                     ClientsDAO userDAO = new ClientsDAO();
                     
@@ -71,6 +70,7 @@ public class SearchServlet extends HttpServlet {
                     trajet.setEtat(true); 
                     trajet.setCreateur(user);
                     trajet.setNombrePlaces(Integer.parseInt(nombrePlaces));
+                    trajet.setHeure(heure);
                  
                     if (new TrajetsDAO().add(trajet)) {
             			System.out.println("proposer : true");

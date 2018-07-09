@@ -48,33 +48,46 @@
 <div class="mid-cls">
     <div class="swm-left-w3ls">
         <form action="/trajets" method="post">
+           <input type="hidden" name="action" value="search">
             <div class="main">
                 <div class="icon-head-wthree">
 
-                    <h4>rechercher un trajet </h4>
+                    <h4>Rechercher un trajet </h4>
                 </div>
                 <div class="form-left-to-w3l">
-
-                    <input type="text" depart="name" placeholder="Depart " required="">
-                    <div class="clear"></div>
+					<select size="1" name="depart" id="" >
+						<option selected>Dï¿½part</option>
+                    	<%
+                    		for(int i=0;i<villes.size();i++)
+                    		{
+                    	%>
+                    	<option value="<%=villes.get(i).getName()%>"><%=villes.get(i).getName()%></option>   
+                    	<%
+                    		} 
+                    	%>  
+                	</select>
+                	<div class="clear"></div>
                 </div>
                 <div class="form-left-to-w3l">
-
-                    <input type="text" arrivÃ©e="name" placeholder="ArrivÃ©e" required="">
+					<select size="1" name="arrivee" id="" >
+						<option selected>Arrivï¿½e</option>
+						<%
+                    		for(int i=0;i<villes.size();i++)
+                    		{
+                    	%>
+                    	<option value="<%=villes.get(i).getName()%>"><%=villes.get(i).getName()%></option>   
+                    	<%
+                    		} 
+                    	%>                  	
+                    </select>  
                     <div class="clear"></div>
                 </div>
-
                 <div class="form-right-w3ls ">
-
                     <input type="date" name="date" placeholder="date" required="">
-
                     <div class="clear"></div>
                 </div>
-
                 <div class="form-right-w3ls ">
-
-                    <input type="time" name="setTimeout" placeholder="heure" required="">
-
+                    <input type="time" name="time" placeholder="heure" required="">
                     <div class="clear"></div>
                 </div>
                 <div class="btnn">
@@ -96,13 +109,14 @@
 
     <div class="swm-right-w3ls">
         <form action="/trajets" method="post">
+          <input type="hidden" name="action" value="add">
             <div class="main">
                 <div class="icon-head-wthree">
                     <h4> Proposer un trajet </h4>
                 </div>
                 <div class="form-left-to-w3l">
 					<select size="1" name="depart" id="" >
-                    	<option value="">Départ</option>
+                    	<option selected">Dï¿½part</option>
                     	<%
                     		for(int i=0;i<villes.size();i++)
                     		{
@@ -116,7 +130,7 @@
                 </div>
                 <div class="form-left-to-w3l">
 					<select size="1" name="arrivee" id="" >
-                    	<option value="">Arrivée</option>
+					    <option selected">Arrivï¿½e</option>
 						<%
                     		for(int i=0;i<villes.size();i++)
                     		{
@@ -139,7 +153,7 @@
             </div>
             <div class="form-left-to-w3l">
                 <select size="1" name="type" id="" >
-                    <option value="">Type de véhicule</option>
+                    <option selected>Type de vï¿½hicule</option>
                     <option value="automobile">Automobile </option>
                 	<option value="autocar">Autocar</option>  
                 	<option value="autobus">Autobus</option>

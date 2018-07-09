@@ -2,6 +2,7 @@ package servlets.clients;
 
 import model.beans.User;
 import model.db.dao.ClientsDAO;
+import servlets.MyServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "AuthentificationServlet", urlPatterns = "/login")
-public class AuthentificationServlet extends HttpServlet {
+public class AuthentificationServlet extends MyServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action != null)

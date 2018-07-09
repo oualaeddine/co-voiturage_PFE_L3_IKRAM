@@ -14,7 +14,7 @@ import java.io.IOException;
 public class ResultatServlet extends MyServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	if (isClientLoggedIn(request)) {
-    		getServletContext().getRequestDispatcher("").forward(request, response);
+    		getServletContext().getRequestDispatcher("/recherche/tajet dispo.jsp").forward(request, response);
     	} else
             redirectToLoginClient(response);
     	}

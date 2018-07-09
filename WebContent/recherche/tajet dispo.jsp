@@ -1,9 +1,19 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<%@ page import="model.beans.Trajet" %>
+<%@ page import="java.util.LinkedList" %>
+<%@
+        page language="java" contentType="text/html; charset=ISO-8859-1"
+             pageEncoding="ISO-8859-1"
+%>
+
+<%!
+    LinkedList<Trajet> trajets;
+%>
+
+<%
+    session = request.getSession();
+    trajets = (LinkedList<Trajet>) request.getAttribute("trajets");
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,8 +60,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <thead>
                         <tr>
                             <th scope="col" class="rounded">id</th>
-                            <th scope="col" class="rounded">Ville de dÃ©part</th>
-                            <th scope="col" class="rounded">Ville d'arrivÃ©e</th>
+                            <th scope="col" class="rounded">Ville de départ</th>
+                            <th scope="col" class="rounded">Ville d'arrivée</th>
                             <th scope="col" class="rounded">Date</th>
                             <th scope="col" class="rounded">Heure</th>
                             <th scope="col" class="rounded">Prix</th>
@@ -59,25 +69,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>Alger</td>
-                            <td>Blida</td>
-                            <td>05/06/2018</td>
-                            <td>12:30</td>
-                            <td>300 Da</td>
-                        </tr>
-                        <tr>
-                            <td> 02</td>
-                            <td>TÃ©bessa</td>
+                        <%
+                        	for (Trajet trajet : trajets) {
+                            System.out.println(trajet);
+                    	%>
+                    	<tr>
+                        	<td><%=trajet.getId() %></td>
+                        	<td><%=trajet.getDepart().getName() %></td>
+                        	<td><%=trajet.getArrive().getName() %></td>
+                        	<td><%=trajet.getDate() %></td>
+                        	<td>lzm nrécupérer l'heure hna</td>
+                        	<td><%=trajet.getPrix() %></td>
+                        	<td><button type="submit">Reserver </button><br></td>
+                    	</tr>
 
-                            <td>Khenchla</td>
-
-                            <td>05/06/2018</td>
-                            <td>12:30</td>
-                            <td>250 Da</td>
-                        </tr>
-
+                    	<%
+                        	}
+                    	%>
                         </tbody>
                     </table>
                 </div>
