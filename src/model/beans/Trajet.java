@@ -1,6 +1,7 @@
 package model.beans;
 
 import java.sql.Date;
+import java.sql.Time;
 
 public class Trajet {
 	private int id,nombrePlaces;
@@ -10,6 +11,7 @@ public class Trajet {
 	private Ville depart, arrive;
     private float prix;
     private String typeVéhicule;
+    private Time heure;
 	
     public Trajet() {
     }
@@ -100,5 +102,13 @@ public class Trajet {
 				", prix=" + prix +
 				", typeVéhicule='" + typeVéhicule + '\'' +
 				'}';
+	}
+
+	public Time getHeure() {
+		return heure;
+	}
+
+	public void setHeure(Time heure) {
+		this.heure = heure;
 	}
 }

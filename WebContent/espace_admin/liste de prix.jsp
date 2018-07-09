@@ -93,7 +93,10 @@
                         <th scope="col" class="rounded">Ville de départ</th>
                         <th scope="col" class="rounded">Ville d'arrivée</th>
                         <th scope="col" class="rounded">Date</th>
+                        <th scope="col" class="rounded">Heure</th>
                         <th scope="col" class="rounded">Prix</th>
+                        <th scope="col" class="rounded">Modifier </th>
+                        <th scope="col" class="rounded-q4">Supprimer</th>
                     </tr>
                     </thead>
 
@@ -103,20 +106,14 @@
                             System.out.println(trajet);
                     %>
                     <tr>
-                        <td><%=trajet.getId() %>
-                        </td>
-                        <td>
-                            <%=trajet.getDepart().getName() %>
-                        </td>
-                        <td>
-                            <%=trajet.getArrive().getName() %>
-                        </td>
-                        <td>
-                            <%=trajet.getDate() %>
-                        </td>
-                        <td>
-                            <%=trajet.getPrix() %>
-                        </td>
+                        <td><%=trajet.getId() %></td>
+                        <td><%=trajet.getDepart().getName() %></td>
+                        <td><%=trajet.getArrive().getName() %></td>
+                        <td><%=trajet.getDate() %></td>
+                        <td>lzm nrécupérer l'heure hna</td>
+                        <td><%=trajet.getPrix() %></td>
+                        <td><a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
+                        <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
                     </tr>
 
                     <%

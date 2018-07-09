@@ -38,6 +38,13 @@ public class VillesDAO extends DAO implements DAOInterface {
 
     @Override
     public Object getById(int id) {
+    	ResultSet result;
+        try {
+            result = statement.executeQuery("SELECT * FROM `" + TABLE_NAME + "` WHERE id ='" + id + "';");
+            return (Ville) resultSetToObject(result);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 

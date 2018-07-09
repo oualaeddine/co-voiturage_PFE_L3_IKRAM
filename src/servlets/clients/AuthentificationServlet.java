@@ -27,7 +27,7 @@ public class AuthentificationServlet extends HttpServlet {
                         HttpSession session = request.getSession(true);
                         session.setAttribute("user", loggedInUser);
 
-                        response.sendRedirect("/recherche/rechercher.html");
+                        response.sendRedirect("/recherche/rchercher trajet.jsp");
 
                         System.out.println("login : true");
                     } else {
@@ -50,7 +50,7 @@ public class AuthentificationServlet extends HttpServlet {
                         HttpSession session = request.getSession(true);
                         session.setAttribute("user", loggedInUser);
 
-                        response.sendRedirect("/recherche/rechercher.html");
+                        response.sendRedirect("/recherche/rchercher trajet.jsp");
                         
                     } else {
                         getServletContext().getRequestDispatcher("/connexion/connexion.html").forward(request, response);

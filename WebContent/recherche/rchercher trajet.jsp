@@ -1,3 +1,17 @@
+<%@ page import="model.beans.Ville" %>
+<%@ page import="model.db.dao.VillesDAO" %>
+<%@ page import="java.util.LinkedList" %>
+
+<%@
+        page language="java" contentType="text/html; charset=ISO-8859-1"
+             pageEncoding="ISO-8859-1"
+%>
+<%!
+    LinkedList<Ville> villes;
+%>
+<%
+    villes = new VillesDAO().getAll();
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +47,7 @@
     rechercher un trajet & proposer un trajet</h1>
 <div class="mid-cls">
     <div class="swm-left-w3ls">
-        <form action="#" method="post">
+        <form action="/trajets" method="post">
             <div class="main">
                 <div class="icon-head-wthree">
 
@@ -81,48 +95,64 @@
     </div>
 
     <div class="swm-right-w3ls">
-        <form action="#" method="post">
+        <form action="/trajets" method="post">
             <div class="main">
                 <div class="icon-head-wthree">
-
                     <h4> Proposer un trajet </h4>
                 </div>
                 <div class="form-left-to-w3l">
-
-                    <input type="text" name="depart" placeholder="Depart " required="">
+					<select size="1" name="depart" id="" >
+                    	<option value="">Départ</option>
+                    	<%
+                    		for(int i=0;i<villes.size();i++)
+                    		{
+                    	%>
+                    	<option value="<%=villes.get(i).getName()%>"><%=villes.get(i).getName()%></option>   
+                    	<%
+                    		} 
+                    	%>  
+                	</select>  
                     <div class="clear"></div>
                 </div>
                 <div class="form-left-to-w3l">
-
-                    <input type="text" name="arrivee" placeholder="ArrivÃ©e" required="">
+					<select size="1" name="arrivee" id="" >
+                    	<option value="">Arrivée</option>
+						<%
+                    		for(int i=0;i<villes.size();i++)
+                    		{
+                    	%>
+                    	<option value="<%=villes.get(i).getName()%>"><%=villes.get(i).getName()%></option>   
+                    	<%
+                    		} 
+                    	%>                  	
+                    </select>  
                     <div class="clear"></div>
                 </div>
-
             </div>
             <div class="form-left-to-w3l">
-
-                <input type="text" name="prix" placeholder="prix" required="">
+                <input type="text" name="prix" placeholder="Prix" required="">
                 <div class="clear"></div>
             </div>
             <div class="form-left-to-w3l">
-
-                <input type="text" name="type" placeholder="type de vÃ©hicule" required="">
-                <div class="clear"></div>
-
-
-            </div>
-            <div class="form-right-w3ls ">
-
-                <input type="date" name="date" placeholder="date" required="">
-
+                <input type="text" name="places" placeholder="Nombre de places" required="">
                 <div class="clear"></div>
             </div>
-
-
+            <div class="form-left-to-w3l">
+                <select size="1" name="type" id="" >
+                    <option value="">Type de véhicule</option>
+                    <option value="automobile">Automobile </option>
+                	<option value="autocar">Autocar</option>  
+                	<option value="autobus">Autobus</option>
+                	<option value="camion">Camion</option>                              
+                </select>  
+                <div class="clear"></div>
+            </div>
             <div class="form-right-w3ls ">
-
-                <input type="time" name="time" placeholder="heure" required="">
-
+                <input type="date" name="date" placeholder="Date" required="">
+                <div class="clear"></div>
+            </div>
+            <div class="form-right-w3ls ">
+                <input type="time" name="time" placeholder="Heure" required="">
                 <div class="clear"></div>
             </div>
             <div class="btnn">

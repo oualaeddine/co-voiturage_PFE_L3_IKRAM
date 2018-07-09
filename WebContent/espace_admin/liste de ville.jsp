@@ -91,6 +91,9 @@
 
                         <th scope="col" class="rounded">Code des villes</th>
                         <th scope="col" class="rounded">Villes</th>
+                        <th scope="col" class="rounded">Modifier </th>
+                        <th scope="col" class="rounded-q4">Supprimer</th>
+                        
                     </tr>
                     </thead>
 
@@ -101,6 +104,8 @@
                     	<tr>
                         	<td><%=villes.get(i).getId()%></td>
                         	<td><%=villes.get(i).getName()%></td>
+                        	<td><a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
+                        	<td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
                     	</tr>
                     	<% 
                     		} 

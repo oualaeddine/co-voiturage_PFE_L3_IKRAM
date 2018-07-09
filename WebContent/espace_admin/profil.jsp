@@ -103,7 +103,7 @@
             <div class="right_content">
 
 
-                <h2></h2>
+                <h2>Profil :</h2>
 
                 <div class="form">
                     <form action="/profil" method="post" class="niceform">
