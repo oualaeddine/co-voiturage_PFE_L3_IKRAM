@@ -85,14 +85,7 @@ public class ClientsDAO extends DAO implements DAOInterface {
 
             LinkedList<User> clients = new LinkedList<>();
             while (result.next()) {
-                User client = new User();
-                client.setUserType(CLIENT);
-                client.setId(result.getInt("id"));
-                client.setNom(result.getString("nom"));
-                client.setPrenom(result.getString("prenom"));
-                client.setEmail(result.getString("email"));
-                client.setPassword(result.getString("password"));
-                clients.add(client);
+                clients.add((User) resultSetToObject(result));
             }
             return clients;
         } catch (SQLException e) {
@@ -128,10 +121,6 @@ public class ClientsDAO extends DAO implements DAOInterface {
     }
 
 
-    /**
-     * @param resultSet le resultSet contenant le client
-     * @return un object client
-     */
     @Override
     public Object resultSetToObject(ResultSet resultSet) {
         try {
@@ -144,6 +133,7 @@ public class ClientsDAO extends DAO implements DAOInterface {
                 client.setPrenom(resultSet.getString("prenom"));
                 client.setEmail(resultSet.getString("email"));
                 client.setPassword(resultSet.getString("password"));
+                client.setTypeClient(resultSet.getString("type"));
 
                 return client;
             } else return null;
@@ -152,4 +142,16 @@ public class ClientsDAO extends DAO implements DAOInterface {
         }
         return null;
     }
+
+	public boolean isVoyageur(User user) {
+		if(getById(user.getId()).getTypeClient().equals("voyageur"))
+			return true;
+		return false;
+	}
+
+	public boolean isConducteur(User user) {
+		if(getById(user.getId()).getTypeClient().equals("conducteur"))
+			return true;
+		return false;
+	}
 }

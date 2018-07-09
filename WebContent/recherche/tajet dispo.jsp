@@ -74,13 +74,15 @@
                             System.out.println(trajet);
                     	%>
                     	<tr>
-                        	<td><%=trajet.getId() %></td>
-                        	<td><%=trajet.getDepart().getName() %></td>
-                        	<td><%=trajet.getArrive().getName() %></td>
-                        	<td><%=trajet.getDate() %></td>
-                        	<td>lzm nrécupérer l'heure hna</td>
-                        	<td><%=trajet.getPrix() %></td>
-                        	<td><button type="submit">Reserver </button><br></td>
+        					<form action="/reserver" method="post">
+	                        	<td><%=trajet.getId() %></td>
+    	                    	<td><%=trajet.getDepart().getName() %></td>
+    	                    	<td><%=trajet.getArrive().getName() %></td>
+    	                    	<td><%=trajet.getDate() %></td>
+    	                    	<td>lzm nrécupérer l'heure hna</td>
+        	                	<td><%=trajet.getPrix() %></td>
+        	                	<td><button type="button">Reserver </button><br></td>
+        	                </form>
                     	</tr>
 
                     	<%

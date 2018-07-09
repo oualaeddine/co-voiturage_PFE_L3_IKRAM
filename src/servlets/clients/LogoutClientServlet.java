@@ -14,16 +14,19 @@ import servlets.MyServlet;
 @WebServlet(name ="LogoutClientServlet" ,urlPatterns = "/clientLogout")
 public class LogoutClientServlet extends MyServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (isClientLoggedIn(request)) {
+   	 	if (isClientLoggedIn(request)) {
         	getServletContext().getRequestDispatcher("/connexion/connexion.html").include(request, response);
         	HttpSession session=request.getSession(false);
         	session.invalidate();
-        } else
-            redirectToLoginClient(response);
+   	 	} else
+   	 		redirectToLoginClient(response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    	 if (isClientLoggedIn(request)) {
+         	getServletContext().getRequestDispatcher("").forward(request, response);
+     	} else
+             redirectToLoginClient(response);
     }
 
 }

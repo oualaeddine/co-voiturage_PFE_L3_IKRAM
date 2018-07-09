@@ -13,10 +13,16 @@ import java.io.IOException;
 @WebServlet(name = "HomeServlet", urlPatterns = {"/home", ""})
 public class HomeServlet extends MyServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+    	if (isClientLoggedIn(request)) {
+            doGet(request, response);
+    	} else
+            redirectToLoginClient(response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/accueil/index.html").forward(request, response);
+    	if (isClientLoggedIn(request)) {
+            getServletContext().getRequestDispatcher("/accueil/index.html").forward(request, response);
+    	} else
+            redirectToLoginClient(response);
     }
 }

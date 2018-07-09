@@ -12,13 +12,17 @@ import servlets.MyServlet;
 @WebServlet(name="/ReservationServlet" , urlPatterns = "/reserver")
 public class ReservationServlet extends MyServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
+        if (isClientLoggedIn(request)) {
+        	getServletContext().getRequestDispatcher("").forward(request, response);
+    	} else
+            redirectToLoginClient(response);
 	}
-
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 if (isClientLoggedIn(request)) {
+	        	getServletContext().getRequestDispatcher("").forward(request, response);
+		 } else
+	            redirectToLoginClient(response);	
+	}
 }

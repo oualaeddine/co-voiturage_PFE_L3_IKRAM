@@ -25,5 +25,5 @@ public class ResultatServlet extends MyServlet {
     		response.getWriter().append("hedi la page lazm tetcrea");
     	} else
             redirectToLoginClient(response);
-    }
+    	}
 }
